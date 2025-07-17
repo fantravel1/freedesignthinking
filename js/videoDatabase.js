@@ -2234,6 +2234,7 @@ const videoDatabase = {
       groupSize: "team"
     }
   ]
+};
 
 // Helper functions
 function getVideosByPhase(phase) {
