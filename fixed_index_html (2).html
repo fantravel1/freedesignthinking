@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Design Thinking Hub - Global Training Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+            color: #e8e8e8;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(139, 69, 19, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #d4af37;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #e8e8e8;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #f8f8f8;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="brain" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1.5" fill="rgba(212,175,55,0.1)"/></pattern></defs><rect width="1000" height="1000" fill="url(%23brain)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4af37, #b8941f);
+            color: #1a1a2e;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+            background: linear-gradient(135deg, #b8941f, #d4af37);
+        }
+
+        /* Design Thinking Process */
+        .process-section {
+            padding: 5rem 0;
+            background: #2a2a3e;
+        }
+
+        .process-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            color: #f8f8f8;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-card {
+            background: linear-gradient(135deg, #3a3a5c, #2a2a3e);
+            color: #f8f8f8;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .process-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+        }
+
+        .process-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Video Library */
+        .video-section {
+            padding: 5rem 0;
+            background: #1a1a2e;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            color: #f8f8f8;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .video-card {
+            background: #2a2a3e;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.1);
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #3a3a5c, #2a2a3e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d4af37;
+            font-size: 3rem;
+        }
+
+        .video-info {
+            padding: 1.5rem;
+        }
+
+        .video-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #f8f8f8;
+        }
+
+        .video-description {
+            color: #c0c0c0;
+            margin-bottom: 1rem;
+        }
+
+        .video-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background: rgba(212, 175, 55, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #d4af37;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .interactive-btn {
+            background: transparent;
+            border: 2px solid #d4af37;
+            color: #d4af37;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .interactive-btn:hover {
+            background: #d4af37;
+            color: #1a1a2e;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Search Bar */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            position: relative;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50px;
+            font-size: 1rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            background: #2a2a3e;
+            color: #f8f8f8;
+        }
+
+        .search-bar:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 2px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .search-bar::placeholder {
+            color: #888;
+        }
+
+        /* Events Section */
+        .events-section {
+            padding: 5rem 0;
+            background: #2a2a3e;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .event-card {
+            background: linear-gradient(135deg, #8b4513, #a0522d);
+            color: #f8f8f8;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3);
+        }
+
+        .event-date {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .event-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        /* Mission Section */
+        .mission-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #0f0f23, #1a1a2e);
+            color: #f8f8f8;
+            text-align: center;
+        }
+
+        .mission-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .mission-title {
+            font-size: 2.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .mission-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f0f23;
+            color: #e8e8e8;
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #d4af37;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #c0c0c0;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: #d4af37;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">🎨 Free Design Thinking Hub</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#videos">Video Library</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#mission">Mission</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Design Thinking for Everyone</h1>
+                <p>The world's premier free design thinking hub and training center, built with and for young Black and Brown students globally. Unlock your creativity and learn to solve complex problems through innovative thinking.</p>
+                <a href="#videos" class="cta-button">Start Learning Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="process-section">
+        <div class="container">
+            <h2 class="process-title">The Design Thinking Process</h2>
+            <p style="text-align: center; font-size: 1.1rem; color: #c0c0c0; max-width: 800px; margin: 0 auto;">
+                Design thinking is a non-linear, iterative process that teams use to understand users, challenge assumptions, redefine problems and create innovative solutions to prototype and test.
+            </p>
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-icon">🧠</div>
+                    <h3>Brainstorm</h3>
+                    <p>Generate creative ideas and explore possibilities without limitations</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-icon">🔧</div>
+                    <h3>Prototype</h3>
+                    <p>Build quick, testable versions of your ideas to explore solutions</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-icon">🧪</div>
+                    <h3>Test</h3>
+                    <p>Validate your prototypes with real users and gather feedback</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-icon">🤔</div>
+                    <h3>Reflect</h3>
+                    <p>Analyze results and learn from both successes and failures</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-icon">🚀</div>
+                    <h3>Next Steps</h3>
+                    <p>Iterate and improve based on insights gained from testing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="videos" class="video-section">
+        <div class="container">
+            <h2 class="section-title">Free Video Library</h2>
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search videos by topic, phase, or keyword..." id="videoSearch">
+            </div>
+            
+            <div class="video-grid" id="videoGrid">
+                <!-- Videos will be loaded dynamically from videoDatabase.js -->
+            </div>
+        </div>
+    </section>
+
+    <section id="events" class="events-section">
+        <div class="container">
+            <h2 class="section-title">Free Training Events</h2>
+            <p style="text-align: center; font-size: 1.1rem; color: #c0c0c0; max-width: 800px; margin: 0 auto 3rem;">
+                Join our global community of learners in live, interactive design thinking sessions specifically designed for Black and Brown students.
+            </p>
+            
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-date">📅 July 25, 2025 • 2:00 PM EST</div>
+                    <h3 class="event-title">Design Thinking Bootcamp for Beginners</h3>
+                    <p>A comprehensive 3-hour introduction to design thinking fundamentals with hands-on exercises and real-world case studies.</p>
+                    <button class="interactive-btn" style="color: white; border-color: white;" onclick="registerEvent('bootcamp-beginners')">Register Free</button>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-date">📅 August 5, 2025 • 6:00 PM EST</div>
+                    <h3 class="event-title">Creative Problem-Solving Workshop</h3>
+                    <p>Learn advanced brainstorming techniques and creative thinking methods to tackle complex challenges in your field.</p>
+                    <button class="interactive-btn" style="color: white; border-color: white;" onclick="registerEvent('creative-workshop')">Register Free</button>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-date">📅 August 15, 2025 • 1:00 PM EST</div>
+                    <h3 class="event-title">Prototyping for Social Innovation</h3>
+                    <p>Focus on using design thinking to create solutions for social problems affecting communities of color worldwide.</p>
+                    <button class="interactive-btn" style="color: white; border-color: white;" onclick="registerEvent('social-innovation')">Register Free</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mission" class="mission-section">
+        <div class="container">
+            <div class="mission-content">
+                <h2 class="mission-title">Our Mission</h2>
+                <p class="mission-text">
+                    We believe that design thinking should be accessible to everyone, especially young Black and Brown students who have been historically underrepresented in design and innovation spaces. Our mission is to create the world's most comprehensive free design thinking education platform.
+                </p>
+                <p class="mission-text">
+                    Through curated video content from leading institutions like Stanford, Harvard, and MIT, combined with culturally relevant training events, we're building a global community of diverse innovators ready to tackle the world's most pressing challenges.
+                </p>
+                <p class="mission-text">
+                    In the near future, we will feature 100% Black and Brown design thinking instructors and content creators, ensuring that representation matters at every level of education and inspiration.
+                </p>
+                <a href="#videos" class="cta-button">Start Your Journey</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About</h3>
+                    <p>Free Design Thinking Hub is a global initiative to democratize design thinking education and empower the next generation of diverse innovators.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <p><a href="#videos">Video Library</a></p>
+                    <p><a href="#events">Training Events</a></p>
+                    <p><a href="https://www.freedesignthinking.com" target="_blank">Main Website</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Community</h3>
+                    <p><a href="#events">Join Events</a></p>
+                    <p><a href="mailto:info@freedesignthinking.com">Contact Us</a></p>
+                    <p><a href="#">Newsletter</a></p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #333; padding-top: 2rem; margin-top: 2rem;">
+                <p>&copy; 2025 Free Design Thinking Hub. All rights reserved. Built with ❤️ for global accessibility.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Include the video database -->
+    <script src="js/videoDatabase.js"></script>
+    <script>
+        console.log('🎉 Design Thinking Hub loaded successfully!');
+
+        // Video Database - Full library of videos
+        const videoDatabase = {
+            "warm-up": [
+                {
+                    id: "across-the-pond",
+                    title: "Across the Pond",
+                    url: "https://youtu.be/H0W-1phSEjQ?t=40",
+                    duration: "2 mins",
+                    description: "A fun physical warm-up activity to get teams moving and energized",
+                    tags: ["physical", "team-building", "energy"],
+                    difficulty: "easy",
+                    groupSize: "4-12 people",
+                    icon: "🏃"
+                },
+                {
+                    id: "noodle-run",
+                    title: "Noodle Run",
+                    url: "https://youtu.be/6tFfvQG5Nx0?t=14",
+                    duration: "3 mins",
+                    description: "Creative movement exercise using pool noodles for team coordination",
+                    tags: ["physical", "coordination", "fun"],
+                    difficulty: "easy",
+                    groupSize: "6-20 people",
+                    icon: "🍝"
+                },
+                {
+                    id: "crazy-8s-v1",
+                    title: "Crazy 8s v1",
+                    url: "https://youtu.be/EEIKbDNrkAI?t=44",
+                    duration: "8 mins",
+                    description: "Rapid ideation exercise - 8 ideas in 8 minutes",
+                    tags: ["ideation", "rapid", "sketching"],
+                    difficulty: "medium",
+                    groupSize: "any",
+                    icon: "🎨"
+                },
+                {
+                    id: "i-am-a-tree",
+                    title: "I am a Tree",
+                    url: "https://youtu.be/d_j4SuhlG88?t=41",
+                    duration: "5 mins",
+                    description: "Improvisational exercise to build on others' ideas",
+                    tags: ["improv", "building-ideas", "creativity"],
+                    difficulty: "easy",
+                    groupSize: "5-15 people",
+                    icon: "🌳"
+                },
+                {
+                    id: "voice-mirror",
+                    title: "Voice Mirror",
+                    url: "https://youtu.be/g06Sc1VHyU4?t=23",
+                    duration: "3 mins",
+                    description: "Vocal warm-up exercise for presentation skills",
+                    tags: ["vocal", "presentation", "mirroring"],
+                    difficulty: "easy",
+                    groupSize: "pairs",
+                    icon: "🗣️"
+                },
+                {
+                    id: "imaginary-ball",
+                    title: "Imaginary Ball",
+                    url: "https://youtu.be/3Z_np5xhCeA?t=14",
+                    duration: "5 mins",
+                    description: "Classic improv exercise for focus and imagination",
+                    tags: ["improv", "focus", "imagination"],
+                    difficulty: "easy",
+                    groupSize: "6-20 people",
+                    icon: "⚽"
+                }
+            ],
+            "brainstorm": [
+                {
+                    id: "brainstorm-rules",
+                    title: "Brainstorm 101/Rules",
+                    url: "https://www.youtube.com/watch?v=W1h5L_0rFz8",
+                    duration: "8 mins",
+                    description: "Essential rules and guidelines for effective brainstorming sessions",
+                    tags: ["fundamentals", "rules", "best-practices"],
+                    difficulty: "beginner",
+                    groupSize: "any",
+                    icon: "📋"
+                },
+                {
+                    id: "how-might-we",
+                    title: "How Might We",
+                    url: "https://www.youtube.com/watch?v=sRGk5oKXgCk",
+                    duration: "12 mins",
+                    description: "Master the 'How Might We' question framing technique",
+                    tags: ["questions", "framing", "problems"],
+                    difficulty: "medium",
+                    groupSize: "any",
+                    icon: "❓"
+                },
+                {
+                    id: "challenge-assumptions",
+                    title: "Challenge Assumptions",
+                    url: "https://youtu.be/mp-Jj6BBkzM?t=7",
+                    duration: "10 mins",
+                    description: "Learn to identify and challenge limiting assumptions",
+                    tags: ["assumptions", "critical-thinking", "barriers"],
+                    difficulty: "medium",
+                    groupSize: "3-8 people",
+                    icon: "🤔"
+                },
+                {
+                    id: "mind-mapping",
+                    title: "Mind Mapping",
+                    url: "https://youtu.be/yAidvTKX6xM?t=18",
+                    duration: "15 mins",
+                    description: "Visual brainstorming technique using mind maps",
+                    tags: ["visual", "mapping", "connections"],
+                    difficulty: "easy",
+                    groupSize: "individual or small groups",
+                    icon: "🗺️"
+                },
+                {
+                    id: "scamper-method",
+                    title: "S.C.A.M.P.E.R. Method",
+                    url: "https://youtu.be/f1XDD1vd0E4?t=43",
+                    duration: "20 mins",
+                    description: "Systematic creative thinking using the SCAMPER framework",
+                    tags: ["framework", "systematic", "creative"],
+                    difficulty: "medium",
+                    groupSize: "any",
+                    icon: "🔧"
+                }
+            ],
+            "prototype": [
+                {
+                    id: "lego-prototyping",
+                    title: "LEGO Small Scale Prototyping",
+                    url: "https://www.youtube.com/watch?v=x2TEU5jHz5s",
+                    duration: "10 mins",
+                    description: "Build quick concept models using LEGO blocks",
+                    tags: ["lego", "small-scale", "tangible"],
+                    difficulty: "easy",
+                    groupSize: "1-4 people",
+                    icon: "🧱"
+                },
+                {
+                    id: "paper-prototypes",
+                    title: "Paper Prototypes",
+                    url: "https://www.youtube.com/watch?v=85muhAaySps&t=1s",
+                    duration: "12 mins",
+                    description: "Low-fidelity paper prototyping for digital interfaces",
+                    tags: ["paper", "digital", "low-fidelity"],
+                    difficulty: "easy",
+                    groupSize: "1-3 people",
+                    icon: "📝"
+                },
+                {
+                    id: "cardboard-real-size",
+                    title: "Cardboard Real-Size Prototyping",
+                    url: "https://youtu.be/k_9Q-KDSb9o?t=3",
+                    duration: "15 mins",
+                    description: "Create life-size prototypes using cardboard",
+                    tags: ["cardboard", "real-size", "physical"],
+                    difficulty: "medium",
+                    groupSize: "2-6 people",
+                    icon: "📦"
+                },
+                {
+                    id: "storyboard",
+                    title: "Storyboarding",
+                    url: "https://youtu.be/Hn0oxvw7-OE?t=4",
+                    duration: "8 mins",
+                    description: "Visual storytelling through storyboarding",
+                    tags: ["storyboard", "visual", "narrative"],
+                    difficulty: "medium",
+                    groupSize: "1-3 people",
+                    icon: "🎬"
+                },
+                {
+                    id: "bodystorming",
+                    title: "Bodystorming",
+                    url: "https://youtu.be/AoWAnY2La5k?t=26",
+                    duration: "6 mins",
+                    description: "Physical role-playing to understand user experiences",
+                    tags: ["physical", "role-play", "experience"],
+                    difficulty: "medium",
+                    groupSize: "3-8 people",
+                    icon: "🏃‍♂️"
+                }
+            ],
+            "test": [
+                {
+                    id: "why-empathy",
+                    title: "Why Empathy?",
+                    url: "https://youtu.be/XcYrvvu2ElM?t=27",
+                    duration: "8 mins",
+                    description: "Understanding the importance of empathy in user testing",
+                    tags: ["empathy", "fundamentals", "user-centered"],
+                    difficulty: "beginner",
+                    groupSize: "any",
+                    icon: "❤️"
+                },
+                {
+                    id: "how-to-interview",
+                    title: "How to Interview",
+                    url: "https://www.youtube.com/watch?v=C4QgLOr-3LM",
+                    duration: "15 mins",
+                    description: "Conducting effective user interviews",
+                    tags: ["interviews", "research", "questioning"],
+                    difficulty: "medium",
+                    groupSize: "interviewer + user",
+                    icon: "🎤"
+                },
+                {
+                    id: "field-observations",
+                    title: "Field Observations",
+                    url: "https://www.youtube.com/watch?v=XrpAveg7ZIg",
+                    duration: "10 mins",
+                    description: "Observing users in their natural environment",
+                    tags: ["observation", "field-work", "ethnographic"],
+                    difficulty: "medium",
+                    groupSize: "1-3 observers",
+                    icon: "👀"
+                },
+                {
+                    id: "speed-dating",
+                    title: "Speed Dating",
+                    url: "https://www.youtube.com/watch?v=F--E_C-ua44",
+                    duration: "8 mins",
+                    description: "Rapid concept testing with multiple users",
+                    tags: ["rapid", "concept-testing", "feedback"],
+                    difficulty: "medium",
+                    groupSize: "facilitator + 5-10 users",
+                    icon: "⚡"
+                }
+            ],
+            "reflect": [
+                {
+                    id: "i-like-i-wish",
+                    title: "I Like, I Wish, I Wonder",
+                    url: "https://youtu.be/QkWM2--3TQo?t=1445",
+                    duration: "5 mins",
+                    description: "Structured feedback collection method",
+                    tags: ["feedback", "structured", "reflection"],
+                    difficulty: "easy",
+                    groupSize: "any",
+                    icon: "💭"
+                },
+                {
+                    id: "empathy-map",
+                    title: "Empathy Map",
+                    url: "https://youtu.be/kAdbbsZolOw?t=58",
+                    duration: "10 mins",
+                    description: "Map user thoughts, feelings, and behaviors",
+                    tags: ["empathy", "mapping", "user-understanding"],
+                    difficulty: "medium",
+                    groupSize: "2-6 people",
+                    icon: "🗺️"
+                },
+                {
+                    id: "journey-map",
+                    title: "Journey Map",
+                    url: "https://youtu.be/A2LFJF1SUBg?t=116",
+                    duration: "15 mins",
+                    description: "Map the user's entire experience journey",
+                    tags: ["journey", "experience", "mapping"],
+                    difficulty: "medium",
+                    groupSize: "3-6 people",
+                    icon: "🛤️"
+                }
+            ],
+            "next-steps": [
+                {
+                    id: "roles-responsibilities",
+                    title: "Roles and Responsibilities",
+                    url: "https://youtu.be/ijtudIQjVg8?t=96",
+                    duration: "10 mins",
+                    description: "Define clear roles and responsibilities for next steps",
+                    tags: ["roles", "responsibilities", "planning"],
+                    difficulty: "easy",
+                    groupSize: "team",
+                    icon: "👥"
+                },
+                {
+                    id: "set-deadlines",
+                    title: "Set Deadlines",
+                    url: "https://youtu.be/ijtudIQjVg8?t=156",
+                    duration: "5 mins",
+                    description: "Create realistic timelines and deadlines",
+                    tags: ["deadlines", "timeline", "planning"],
+                    difficulty: "easy",
+                    groupSize: "team",
+                    icon: "📅"
+                },
+                {
+                    id: "starfish-retrospective",
+                    title: "Starfish Retrospective",
+                    url: "https://www.youtube.com/watch?v=0EibzNWzUc8",
+                    duration: "25 mins",
+                    description: "Five-category retrospective for continuous improvement",
+                    tags: ["retrospective", "improvement", "starfish"],
+                    difficulty: "medium",
+                    groupSize: "4-10 people",
+                    icon: "⭐"
+                }
+            ]
+        };
+
+        // Load videos dynamically
+        function loadAllVideos() {
+            const videoGrid = document.getElementById('videoGrid');
+            let allVideosHtml = '';
+
+            Object.keys(videoDatabase).forEach(phase => {
+                videoDatabase[phase].forEach(video => {
+                    const phaseCapitalized = phase.charAt(0).toUpperCase() + phase.slice(1).replace('-', ' ');
+                    allVideosHtml += `
+                        <div class="video-card" data-phase="${phase}" data-keywords="${video.tags.join(' ')} ${video.difficulty}">
+                            <div class="video-thumbnail">${video.icon}</div>
+                            <div class="video-info">
+                                <h3 class="video-title">${video.title}</h3>
+                                <p class="video-description">${video.description}</p>
+                                <div class="video-tags">
+                                    <span class="tag" style="background: linear-gradient(135deg, #d4af37, #b8941f); color: #1a1a2e;">${phaseCapitalized}</span>
+                                    ${video.tags.slice(0, 2).map(tag => `<span class="tag">${tag}</span>`).join('')}
+                                    <span class="tag">${video.duration}</span>
+                                </div>
+                                <button class="interactive-btn" onclick="watchVideo('${video.url}', '${video.id}')">Watch Now</button>
+                            </div>
+                        </div>
+                    `;
+                });
+            });
+
+            videoGrid.innerHTML = allVideosHtml;
+        }
+
+        // Initialize videos on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAllVideos();
+            console.log(`Loaded ${Object.values(videoDatabase).flat().length} videos from database`);
+        });
+
+        // Search functionality
+        document.getElementById('videoSearch').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const videoCards = document.querySelectorAll('.video-card');
+            
+            videoCards.forEach(card => {
+                const title = card.querySelector('.video-title').textContent.toLowerCase();
+                const description = card.querySelector('.video-description').textContent.toLowerCase();
+                const keywords = card.getAttribute('data-keywords').toLowerCase();
+                const phase = card.getAttribute('data-phase').toLowerCase();
+                
+                if (title.includes(searchTerm) || 
+                    description.includes(searchTerm) || 
+                    keywords.includes(searchTerm) || 
+                    phase.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Watch video function
+        function watchVideo(videoUrl, videoId) {
+            console.log('Opening video:', videoId, videoUrl);
+            window.open(videoUrl, '_blank');
+        }
+
+        // Register event function
+        function registerEvent(eventId) {
+            alert(`🎉 Registering for event: ${eventId}\n\nThis would open a registration form in a real implementation. All events are completely free!`);
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add some visual feedback
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, site ready!');
+            
+            // Add click effects to buttons
+            document.querySelectorAll('.interactive-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
