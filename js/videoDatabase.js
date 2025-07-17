@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 // Design Thinking Video Database
 
 const videoDatabase = {
