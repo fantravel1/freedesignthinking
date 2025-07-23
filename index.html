@@ -318,12 +318,16 @@
             transition: transform 0.3s ease;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(212, 175, 55, 0.2);
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .process-card:hover {
             transform: translateY(-10px);
             border-color: rgba(212, 175, 55, 0.4);
             box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+            color: inherit;
         }
 
         .process-icon {
@@ -730,31 +734,36 @@
                 Design thinking is a non-linear, iterative process that teams use to understand users, challenge assumptions, redefine problems and create innovative solutions to prototype and test.
             </p>
             <div class="process-grid">
-                <div class="process-card">
+                <a href="warm-up.html" class="process-card">
+                    <div class="process-icon">🏃</div>
+                    <h3>Warm-Up</h3>
+                    <p>Activate your imagination and creativity with proven warm-up exercises</p>
+                </a>
+                <a href="brainstorm.html" class="process-card">
                     <div class="process-icon">🧠</div>
                     <h3>Brainstorm</h3>
                     <p>Generate creative ideas and explore possibilities without limitations</p>
-                </div>
-                <div class="process-card">
+                </a>
+                <a href="prototype.html" class="process-card">
                     <div class="process-icon">🔧</div>
                     <h3>Prototype</h3>
                     <p>Build quick, testable versions of your ideas to explore solutions</p>
-                </div>
-                <div class="process-card">
+                </a>
+                <a href="test.html" class="process-card">
                     <div class="process-icon">🧪</div>
                     <h3>Test</h3>
                     <p>Validate your prototypes with real users and gather feedback</p>
-                </div>
-                <div class="process-card">
+                </a>
+                <a href="reflect.html" class="process-card">
                     <div class="process-icon">🤔</div>
                     <h3>Reflect</h3>
                     <p>Analyze results and learn from both successes and failures</p>
-                </div>
-                <div class="process-card">
+                </a>
+                <a href="next-steps.html" class="process-card">
                     <div class="process-icon">🚀</div>
                     <h3>Next Steps</h3>
                     <p>Iterate and improve based on insights gained from testing</p>
-                </div>
+                </a>
             </div>
         </div>
     </section>
