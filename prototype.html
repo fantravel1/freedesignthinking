@@ -729,7 +729,7 @@
         // Watch video function
         function watchVideo(videoUrl, videoId) {
             console.log('🎥 Opening video:', videoId, videoUrl);
-            window.open(videoUrl, '_blank');
+            window.location.href = `video.html?id=${videoId}`;
         }
 
         // Mobile menu functionality
