@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title id="page-title">Video - Free Design Thinking Hub</title>
+    <meta name="title" content="Design Thinking Video - Free Design Thinking Hub">
+    <meta name="description" content="Learn design thinking with free video tutorials from Stanford, Harvard & MIT. Master creative problem-solving techniques.">
+    <meta name="keywords" content="design thinking, video tutorial, creative problem solving">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.freedesignthinking.com/video.html">
+    <meta property="og:title" content="Design Thinking Video - Free Design Thinking Hub">
+    <meta property="og:description" content="Learn design thinking with free video tutorials from top universities.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+            color: #e8e8e8;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #d4af37;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #e8e8e8;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+
+        .back-btn {
+            background: rgba(212, 175, 55, 0.2);
+            border: 2px solid #d4af37;
+            color: #d4af37;
+            padding: 8px 16px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .back-btn:hover {
+            background: #d4af37;
+            color: #1a1a2e;
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #d4af37;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 46, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            z-index: 999;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            padding: 1rem 0;
+            margin: 0;
+        }
+
+        .mobile-nav li {
+            text-align: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .mobile-nav a {
+            display: block;
+            padding: 1rem;
+            color: #e8e8e8;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav a:hover {
+            background: rgba(212, 175, 55, 0.1);
+            color: #d4af37;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding-top: 100px;
+            padding-bottom: 4rem;
+        }
+
+        .breadcrumb {
+            margin-bottom: 2rem;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: #d4af37;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Video Section */
+        .video-section {
+            margin-bottom: 4rem;
+        }
+
+        .video-header {
+            margin-bottom: 2rem;
+        }
+
+        .video-title {
+            font-size: 2.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #f8f8f8;
+        }
+
+        .video-meta {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #c0c0c0;
+            font-size: 0.9rem;
+        }
+
+        .meta-icon {
+            font-size: 1.1rem;
+        }
+
+        .phase-badge {
+            background: linear-gradient(135deg, #d4af37, #b8941f);
+            color: #1a1a2e;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: capitalize;
+        }
+
+        .video-player {
+            background: rgba(42, 42, 62, 0.8);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            margin-bottom: 3rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .video-iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+
+        .video-description {
+            background: rgba(42, 42, 62, 0.6);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .video-description h3 {
+            color: #d4af37;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .video-description p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #e0e0e0;
+        }
+
+        .video-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            background: rgba(212, 175, 55, 0.2);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #d4af37;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .learning-objectives {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid #d4af37;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+        }
+
+        .objectives-title {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #d4af37;
+            font-size: 1.2rem;
+        }
+
+        .objectives-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .objectives-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            position: relative;
+            color: #e0e0e0;
+        }
+
+        .objectives-list li::before {
+            content: "✓";
+            color: #d4af37;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.1rem;
+        }
+
+        /* Recommendations Section */
+        .recommendations {
+            margin-top: 4rem;
+        }
+
+        .recommendations h2 {
+            font-size: 2rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            color: #f8f8f8;
+            text-align: center;
+        }
+
+        .recommendation-section {
+            margin-bottom: 3rem;
+        }
+
+        .recommendation-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #d4af37;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-card {
+            background: rgba(42, 42, 62, 0.6);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            cursor: pointer;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.1);
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 160px;
+            background: linear-gradient(45deg, #3a3a5c, #2a2a3e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d4af37;
+            font-size: 2.5rem;
+            position: relative;
+        }
+
+        .video-duration {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+        }
+
+        .video-info {
+            padding: 1.2rem;
+        }
+
+        .video-card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #f8f8f8;
+            line-height: 1.3;
+        }
+
+        .video-card-description {
+            color: #c0c0c0;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin-bottom: 0.8rem;
+        }
+
+        .video-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: #888;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #d4af37, #b8941f);
+            color: #1a1a2e;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #d4af37;
+            border: 2px solid #d4af37;
+        }
+
+        .btn-outline:hover {
+            background: #d4af37;
+            color: #1a1a2e;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .video-title {
+                font-size: 2rem;
+            }
+
+            .video-meta {
+                gap: 1rem;
+            }
+
+            .video-iframe {
+                height: 250px;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .learning-objectives {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Loading States */
+        .loading {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #888;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50%;
+            border-top-color: #d4af37;
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .error {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #ff6b6b;
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">🎨 Free Design Thinking Hub</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#process">Process</a></li>
+                <li><a href="index.html#videos">All Videos</a></li>
+                <li><a href="index.html#events">Events</a></li>
+                <li><a href="index.html#mission">Mission</a></li>
+            </ul>
+            <a href="javascript:history.back()" class="back-btn">← Back</a>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                <span id="menu-icon">☰</span>
+            </button>
+        </nav>
+        <div class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="index.html" onclick="closeMobileMenu()">Home</a></li>
+                <li><a href="index.html#process" onclick="closeMobileMenu()">Process</a></li>
+                <li><a href="index.html#videos" onclick="closeMobileMenu()">All Videos</a></li>
+                <li><a href="index.html#events" onclick="closeMobileMenu()">Events</a></li>
+                <li><a href="index.html#mission" onclick="closeMobileMenu()">Mission</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <!-- Loading State -->
+            <div id="loading" class="loading">
+                <div class="loading-spinner"></div>
+                <p>Loading video...</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="error" class="error" style="display: none;">
+                <h2>Video Not Found</h2>
+                <p>The requested video could not be found. Please check the URL or return to the video library.</p>
+                <a href="index.html#videos" class="btn btn-primary" style="margin-top: 1rem;">← Back to Videos</a>
+            </div>
+
+            <!-- Main Video Content -->
+            <div id="video-content" style="display: none;">
+                <!-- Breadcrumb -->
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a> > 
+                    <a href="index.html#videos">Videos</a> > 
+                    <a href="#" id="phase-link">Phase</a> > 
+                    <span id="video-breadcrumb">Video</span>
+                </div>
+
+                <!-- Video Section -->
+                <div class="video-section">
+                    <div class="video-header">
+                        <h1 class="video-title" id="video-title">Video Title</h1>
+                        <div class="video-meta">
+                            <div class="meta-item">
+                                <span class="meta-icon">🎭</span>
+                                <span class="phase-badge" id="video-phase">Phase</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">⏱️</span>
+                                <span id="video-duration">Duration</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">👥</span>
+                                <span id="video-group-size">Group Size</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">📊</span>
+                                <span id="video-difficulty">Difficulty</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- YouTube Video Player -->
+                    <div class="video-player">
+                        <iframe id="video-iframe" class="video-iframe" src="" allowfullscreen title="Design Thinking Video"></iframe>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <a href="#" id="youtube-link" class="btn btn-primary" target="_blank">
+                            📺 Watch on YouTube
+                        </a>
+                        <button class="btn btn-outline" onclick="shareVideo()">
+                            🔗 Share Video
+                        </button>
+                        <button class="btn btn-outline" onclick="copyVideoLink()">
+                            📋 Copy Link
+                        </button>
+                    </div>
+
+                    <!-- Video Description -->
+                    <div class="video-description">
+                        <h3>About This Exercise</h3>
+                        <p id="video-description-text">Video description will be loaded here...</p>
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="video-tags" id="video-tags">
+                        <!-- Tags will be loaded here -->
+                    </div>
+
+                    <!-- Learning Objectives -->
+                    <div class="learning-objectives">
+                        <h3 class="objectives-title">🎯 What You'll Learn</h3>
+                        <ul class="objectives-list" id="learning-objectives">
+                            <!-- Learning objectives will be loaded here -->
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Recommendations -->
+                <div class="recommendations">
+                    <h2>Continue Your Learning Journey</h2>
+                    
+                    <!-- More from Same Phase -->
+                    <div class="recommendation-section">
+                        <h3 id="same-phase-title">🔄 More from This Phase</h3>
+                        <div class="video-grid" id="same-phase-videos">
+                            <!-- Same phase videos will be loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Next Phase Suggestions -->
+                    <div class="recommendation-section">
+                        <h3 id="next-phase-title">➡️ Ready for the Next Step?</h3>
+                        <div class="video-grid" id="next-phase-videos">
+                            <!-- Next phase videos will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/videoDatabase.js"></script>
+    <script>
+        // Phase order for recommendations
+        const phaseOrder = ['warm-up', 'brainstorm', 'prototype', 'test', 'reflect', 'next-steps'];
+        
+        // Phase colors and icons
+        const phaseData = {
+            'warm-up': { 
+                icon: '🏃', 
+                color: '#ff6b6b',
+                icons: ["🏃", "🎨", "🌳", "⚽", "🗣️", "🎪", "🤹", "🎭", "🎵", "🔥"]
+            },
+            'brainstorm': { 
+                icon: '🧠', 
+                color: '#667eea',
+                icons: ["🧠", "💡", "❓", "🗺️", "🔧", "📋", "🎯", "💭", "⚡", "🌟"]
+            },
+            'prototype': { 
+                icon: '🔧', 
+                color: '#4ecdc4',
+                icons: ["🧱", "📝", "📦", "🎬", "🏃‍♂️", "🔨", "📱", "🎨", "⚙️", "🛠️"]
+            },
+            'test': { 
+                icon: '🧪', 
+                color: '#a8e6cf',
+                icons: ["❤️", "🎤", "👀", "⚡", "🧪", "📊", "🔍", "👥", "📋", "🎯"]
+            },
+            'reflect': { 
+                icon: '🤔', 
+                color: '#8360c3',
+                icons: ["💭", "🗺️", "🛤️", "📈", "🎯", "📊", "🔄", "💡", "📝", "⭐"]
+            },
+            'next-steps': { 
+                icon: '🚀', 
+                color: '#ff9a9e',
+                icons: ["👥", "📅", "⭐", "🚀", "📋", "🎯", "📊", "🔄", "💪", "🏆"]
+            }
+        };
+
+        // Get video ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const videoId = urlParams.get('id');
+
+        // Current video data
+        let currentVideo = null;
+        let currentPhase = null;
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            if (videoId) {
+                loadVideo(videoId);
+            } else {
+                showError('No video ID provided');
+            }
+        });
+
+        // Load video data
+        function loadVideo(id) {
+            // Show loading state
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('error').style.display = 'none';
+            document.getElementById('video-content').style.display = 'none';
+
+            // Check if database is loaded
+            if (typeof videoDatabase === 'undefined') {
+                showError('Video database not found. Please ensure js/videoDatabase.js is loaded.');
+                return;
+            }
+
+            // Find video in database
+            let foundVideo = null;
+            let foundPhase = null;
+
+            for (const phase in videoDatabase) {
+                const video = videoDatabase[phase].find(v => v.id === id);
+                if (video) {
+                    foundVideo = video;
+                    foundPhase = phase;
+                    break;
+                }
+            }
+
+            if (!foundVideo) {
+                showError('Video not found in database');
+                return;
+            }
+
+            currentVideo = foundVideo;
+            currentPhase = foundPhase;
+
+            // Update page content
+            updatePageContent();
+            loadRecommendations();
+
+            // Hide loading, show content
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('video-content').style.display = 'block';
+        }
+
+        // Update page content with video data
+        function updatePageContent() {
+            // Update page title
+            document.getElementById('page-title').textContent = `${currentVideo.title} - Free Design Thinking Hub`;
+            document.title = `${currentVideo.title} - Free Design Thinking Hub`;
+
+            // Update breadcrumb
+            const phaseFormatted = currentPhase.charAt(0).toUpperCase() + currentPhase.slice(1).replace('-', ' ');
+            document.getElementById('phase-link').textContent = phaseFormatted;
+            document.getElementById('phase-link').href = `${currentPhase}.html`;
+            document.getElementById('video-breadcrumb').textContent = currentVideo.title;
+
+            // Update video info
+            document.getElementById('video-title').textContent = currentVideo.title;
+            document.getElementById('video-phase').textContent = phaseFormatted;
+            document.getElementById('video-duration').textContent = currentVideo.duration;
+            document.getElementById('video-group-size').textContent = currentVideo.groupSize;
+            document.getElementById('video-difficulty').textContent = currentVideo.difficulty;
+            document.getElementById('video-description-text').textContent = currentVideo.description;
+
+            // Update YouTube video
+            const youtubeId = extractYouTubeId(currentVideo.url);
+            if (youtubeId) {
+                document.getElementById('video-iframe').src = `https://www.youtube.com/embed/${youtubeId}?rel=0`;
+            }
+
+            // Update YouTube link
+            document.getElementById('youtube-link').href = currentVideo.url;
+
+            // Update tags
+            const tagsContainer = document.getElementById('video-tags');
+            const phaseTag = `<span class="tag" style="background: ${phaseData[currentPhase].color}; color: white;">${phaseData[currentPhase].icon} ${phaseFormatted}</span>`;
+            const videoTags = currentVideo.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+            tagsContainer.innerHTML = phaseTag + videoTags;
+
+            // Generate learning objectives
+            generateLearningObjectives();
+        }
+
+        // Extract YouTube video ID from URL
+        function extractYouTubeId(url) {
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+            const match = url.match(regExp);
+            return (match && match[2].length === 11) ? match[2] : null;
+        }
+
+        // Generate learning objectives based on phase and video
+        function generateLearningObjectives() {
+            const objectives = {
+                'warm-up': [
+                    'Activate your creative mindset and build team energy',
+                    'Break down barriers and create psychological safety',
+                    'Prepare your team for collaborative thinking',
+                    'Practice spontaneity and embrace experimentation'
+                ],
+                'brainstorm': [
+                    'Generate diverse and creative ideas without judgment',
+                    'Practice divergent thinking techniques',
+                    'Learn to build on others\' ideas effectively',
+                    'Break through mental blocks and assumptions'
+                ],
+                'prototype': [
+                    'Create tangible representations of abstract ideas',
+                    'Learn rapid prototyping techniques and materials',
+                    'Test concepts quickly and affordably',
+                    'Communicate ideas through visual and physical forms'
+                ],
+                'test': [
+                    'Gather meaningful feedback from real users',
+                    'Validate assumptions through structured testing',
+                    'Learn from user interactions and behaviors',
+                    'Iterate based on evidence rather than opinions'
+                ],
+                'reflect': [
+                    'Synthesize insights from research and testing',
+                    'Identify patterns and themes in user feedback',
+                    'Create frameworks for understanding user needs',
+                    'Plan improvements and future iterations'
+                ],
+                'next-steps': [
+                    'Create actionable implementation plans',
+                    'Assign clear roles and responsibilities',
+                    'Set up systems for progress tracking',
+                    'Maintain momentum and team coordination'
+                ]
+            };
+
+            const phaseObjectives = objectives[currentPhase] || ['Learn new design thinking techniques'];
+            const container = document.getElementById('learning-objectives');
+            container.innerHTML = phaseObjectives.map(obj => `<li>${obj}</li>`).join('');
+        }
+
+        // Load recommendations
+        function loadRecommendations() {
+            loadSamePhaseVideos();
+            loadNextPhaseVideos();
+        }
+
+        // Load more videos from same phase
+        function loadSamePhaseVideos() {
+            const phaseVideos = videoDatabase[currentPhase] || [];
+            const otherVideos = phaseVideos.filter(video => video.id !== currentVideo.id);
+            
+            // Shuffle and take first 3
+            const shuffledVideos = shuffleArray(otherVideos).slice(0, 3);
+            
+            const phaseFormatted = currentPhase.charAt(0).toUpperCase() + currentPhase.slice(1).replace('-', ' ');
+            document.getElementById('same-phase-title').innerHTML = `🔄 More ${phaseFormatted} Exercises`;
+            
+            renderVideoCards('same-phase-videos', shuffledVideos, currentPhase);
+        }
+
+        // Load videos from next phase
+        function loadNextPhaseVideos() {
+            const currentPhaseIndex = phaseOrder.indexOf(currentPhase);
+            const nextPhaseIndex = (currentPhaseIndex + 1) % phaseOrder.length;
+            const nextPhase = phaseOrder[nextPhaseIndex];
+            
+            const nextPhaseVideos = videoDatabase[nextPhase] || [];
+            const selectedVideos = shuffleArray(nextPhaseVideos).slice(0, 2);
+            
+            const nextPhaseFormatted = nextPhase.charAt(0).toUpperCase() + nextPhase.slice(1).replace('-', ' ');
+            document.getElementById('next-phase-title').innerHTML = `➡️ Ready for ${nextPhaseFormatted}?`;
+            
+            renderVideoCards('next-phase-videos', selectedVideos, nextPhase);
+        }
+
+        // Render video cards
+        function renderVideoCards(containerId, videos, phase) {
+            const container = document.getElementById(containerId);
+            
+            if (videos.length === 0) {
+                container.innerHTML = '<p style="color: #888; text-align: center; padding: 2rem;">No videos available</p>';
+                return;
+            }
+
+            const phaseIcons = phaseData[phase].icons;
+            
+            container.innerHTML = videos.map((video, index) => {
+                const icon = phaseIcons[index % phaseIcons.length];
+                
+                return `
+                    <div class="video-card" onclick="navigateToVideo('${video.id}')">
+                        <div class="video-thumbnail">
+                            ${icon}
+                            <div class="video-duration">${video.duration}</div>
+                        </div>
+                        <div class="video-info">
+                            <h4 class="video-card-title">${video.title}</h4>
+                            <p class="video-card-description">${video.description}</p>
+                            <div class="video-card-meta">
+                                <span>👥 ${video.groupSize}</span>
+                                <span>📊 ${video.difficulty}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Navigate to another video
+        function navigateToVideo(videoId) {
+            window.location.href = `video.html?id=${videoId}`;
+        }
+
+        // Utility function to shuffle array
+        function shuffleArray(array) {
+            const shuffled = [...array];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+
+        // Show error state
+        function showError(message) {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('video-content').style.display = 'none';
+            const errorDiv = document.getElementById('error');
+            errorDiv.style.display = 'block';
+            errorDiv.querySelector('p').textContent = message;
+        }
+
+        // Share video function
+        function shareVideo() {
+            if (navigator.share && currentVideo) {
+                navigator.share({
+                    title: currentVideo.title,
+                    text: `Check out this design thinking exercise: ${currentVideo.description}`,
+                    url: window.location.href
+                }).catch(err => {
+                    console.log('Error sharing:', err);
+                    copyVideoLink();
+                });
+            } else {
+                copyVideoLink();
+            }
+        }
+
+        // Copy video link
+        function copyVideoLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                // Show temporary feedback
+                const btn = event.target;
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '✅ Copied!';
+                btn.style.background = '#4CAF50';
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                }, 2000);
+            }).catch(err => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = window.location.href;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                // Show feedback
+                alert('Video link copied to clipboard!');
+            });
+        }
+
+        // Mobile menu functionality
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobile-nav');
+            const menuIcon = document.getElementById('menu-icon');
+            
+            if (mobileNav) {
+                mobileNav.classList.toggle('active');
+                menuIcon.textContent = mobileNav.classList.contains('active') ? '✕' : '☰';
+            }
+        }
+
+        function closeMobileMenu() {
+            const mobileNav = document.getElementById('mobile-nav');
+            const menuIcon = document.getElementById('menu-icon');
+            
+            if (mobileNav) {
+                mobileNav.classList.remove('active');
+                menuIcon.textContent = '☰';
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                history.back();
+            }
+        });
+
+        // Track video engagement
+        function trackVideoEngagement() {
+            const iframe = document.getElementById('video-iframe');
+            
+            // Track when video is loaded
+            iframe.addEventListener('load', function() {
+                console.log('📺 Video loaded:', currentVideo.title);
+            });
+        }
+
+        // Initialize tracking
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(trackVideoEngagement, 1000);
+        });
+
+        // Handle browser back button
+        window.addEventListener('popstate', function(e) {
+            if (e.state && e.state.videoId) {
+                loadVideo(e.state.videoId);
+            }
+        });
+
+        // Update browser history
+        if (videoId && currentVideo) {
+            history.replaceState(
+                { videoId: videoId }, 
+                currentVideo.title, 
+                `video.html?id=${videoId}`
+            );
+        }
+    </script>
+</body>
+</html>
