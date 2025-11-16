@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Design Menus - Free Design Thinking Hub</title>
+    <meta name="title" content="Design Menus - Curated Design Thinking Pathways">
+    <meta name="description" content="Explore 12+ curated design thinking pathways. Each menu provides a complete journey with one activity at each step - perfect for any project type.">
+    <meta name="keywords" content="design thinking pathways, design thinking menus, curated activities, design thinking journey, workshop planning">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.freedesignthinking.com/design-menus.html">
+    <meta property="og:title" content="Design Menus - Curated Design Thinking Pathways">
+    <meta property="og:description" content="Explore 12+ curated design thinking pathways for any project type.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #d4af37 0%, #aa8c2e 100%);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.95), rgba(42, 42, 62, 0.90));
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+
+        .hero-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #d4af37;
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+            color: #c0c0c0;
+        }
+
+        .filter-section {
+            background: rgba(26, 26, 46, 0.8);
+            padding: 2rem 0;
+            margin-bottom: 3rem;
+        }
+
+        .filter-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .filter-tab {
+            background: transparent;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            color: #c0c0c0;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .filter-tab:hover,
+        .filter-tab.active {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: #d4af37;
+            color: #d4af37;
+            transform: translateY(-2px);
+        }
+
+        .menus-section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1a1a2e;
+            margin-bottom: 3rem;
+        }
+
+        .menus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .menu-card {
+            background: rgba(26, 26, 46, 0.95);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--menu-color, #d4af37);
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+            border-color: #d4af37;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .menu-icon {
+            font-size: 2.5rem;
+        }
+
+        .menu-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #d4af37;
+            flex: 1;
+        }
+
+        .difficulty-badge {
+            background: rgba(212, 175, 55, 0.2);
+            color: #d4af37;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .menu-description {
+            color: #c0c0c0;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .menu-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #c0c0c0;
+            font-size: 0.9rem;
+        }
+
+        .meta-icon {
+            font-size: 1.2rem;
+        }
+
+        .menu-activities {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .activity-step {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: rgba(42, 42, 62, 0.4);
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .activity-step:hover {
+            background: rgba(42, 42, 62, 0.6);
+        }
+
+        .step-icon {
+            font-size: 1.3rem;
+            min-width: 30px;
+        }
+
+        .step-name {
+            font-weight: 600;
+            color: #e8e8e8;
+            min-width: 80px;
+        }
+
+        .step-video {
+            color: #c0c0c0;
+            font-size: 0.9rem;
+        }
+
+        .view-menu-btn {
+            margin-top: 1.5rem;
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #d4af37, #aa8c2e);
+            border: none;
+            border-radius: 10px;
+            color: #1a1a2e;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .view-menu-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a2e, #2a2a3e);
+            border-radius: 20px;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 3rem;
+            position: relative;
+            border: 2px solid #d4af37;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(212, 175, 55, 0.2);
+            border: none;
+            color: #d4af37;
+            font-size: 2rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(212, 175, 55, 0.4);
+            transform: rotate(90deg);
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .modal-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-title {
+            font-size: 2.5rem;
+            color: #d4af37;
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-subtitle {
+            color: #c0c0c0;
+            font-size: 1.1rem;
+        }
+
+        .pathway-steps {
+            margin-top: 2rem;
+        }
+
+        .pathway-step {
+            background: rgba(42, 42, 62, 0.6);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--step-color, #d4af37);
+        }
+
+        .pathway-step-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .pathway-step-number {
+            background: var(--step-color, #d4af37);
+            color: #1a1a2e;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .pathway-step-title {
+            flex: 1;
+            font-size: 1.5rem;
+            color: #d4af37;
+            font-weight: 600;
+        }
+
+        .pathway-step-duration {
+            color: #c0c0c0;
+            font-size: 0.9rem;
+        }
+
+        .pathway-step-video-title {
+            font-size: 1.2rem;
+            color: #e8e8e8;
+            margin-bottom: 0.5rem;
+        }
+
+        .pathway-step-description {
+            color: #c0c0c0;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .watch-video-btn {
+            background: rgba(212, 175, 55, 0.2);
+            border: 2px solid #d4af37;
+            color: #d4af37;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .watch-video-btn:hover {
+            background: #d4af37;
+            color: #1a1a2e;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-description {
+                font-size: 1.1rem;
+            }
+
+            .menus-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .modal-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .modal-title {
+                font-size: 2rem;
+            }
+
+            .pathway-step {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: 4rem 0;
+            color: #c0c0c0;
+            font-size: 1.2rem;
+        }
+
+        .loading::after {
+            content: '...';
+            animation: dots 1.5s steps(3, end) infinite;
+        }
+
+        @keyframes dots {
+            0%, 20% { content: '.'; }
+            40% { content: '..'; }
+            60%, 100% { content: '...'; }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">🎨 Free Design Thinking Hub</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#process">Process</a></li>
+                <li><a href="index.html#videos">All Videos</a></li>
+                <li><a href="index.html#community">Community</a></li>
+                <li><a href="design-menus.html" class="active">Design Menus</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                <span id="menu-icon">☰</span>
+            </button>
+        </nav>
+        <div class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="index.html" onclick="closeMobileMenu()">Home</a></li>
+                <li><a href="index.html#process" onclick="closeMobileMenu()">Process</a></li>
+                <li><a href="index.html#videos" onclick="closeMobileMenu()">All Videos</a></li>
+                <li><a href="index.html#community" onclick="closeMobileMenu()">Community</a></li>
+                <li><a href="design-menus.html" onclick="closeMobileMenu()">Design Menus</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-icon">🍽️</div>
+            <h1>Design Menus</h1>
+            <p class="hero-description">
+                Curated pathways through the design thinking process. Each menu provides one activity at each step,
+                creating a complete journey tailored to your project type. Pick your path and start creating!
+            </p>
+        </div>
+    </section>
+
+    <div class="filter-section">
+        <div class="container">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">All Menus</button>
+                <button class="filter-tab" data-filter="beginner">Beginner</button>
+                <button class="filter-tab" data-filter="medium">Medium</button>
+                <button class="filter-tab" data-filter="advanced">Advanced</button>
+            </div>
+        </div>
+    </div>
+
+    <section class="menus-section">
+        <div class="container">
+            <div class="menus-grid" id="menusGrid">
+                <div class="loading">Loading design menus</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for detailed menu view -->
+    <div class="modal" id="menuModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()" aria-label="Close modal">&times;</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Free Design Thinking Hub. All rights reserved. Built with ❤️ for global accessibility.</p>
+        </div>
+    </footer>
+
+    <!-- Include the databases -->
+    <script src="js/videoDatabase.js"></script>
+    <script src="js/designMenus.js"></script>
+
+    <script>
+        console.log('🍽️ Design Menus loaded successfully!');
+
+        let currentFilter = 'all';
+
+        // Phase icons and colors
+        const phaseConfig = {
+            'warm-up': { icon: '🏃', color: '#ff6b6b', name: 'Warm-Up' },
+            'brainstorm': { icon: '🧠', color: '#667eea', name: 'Brainstorm' },
+            'prototype': { icon: '🔧', color: '#4ecdc4', name: 'Prototype' },
+            'test': { icon: '🧪', color: '#a8e6cf', name: 'Test' },
+            'reflect': { icon: '🤔', color: '#8360c3', name: 'Reflect' }
+        };
+
+        // Get video details for a phase
+        function getVideoDetails(phase, videoId) {
+            const phaseKey = phase === 'warmUp' ? 'warm-up' :
+                           phase === 'brainstorm' ? 'brainstorm' :
+                           phase === 'prototype' ? 'prototype' :
+                           phase === 'test' ? 'test' :
+                           phase === 'reflect' ? 'reflect' : phase;
+
+            const phaseVideos = videoDatabase[phaseKey] || [];
+            return phaseVideos.find(v => v.id === videoId) || {
+                title: videoId.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+                description: 'Video coming soon',
+                url: '#',
+                duration: 'TBD'
+            };
+        }
+
+        // Render menu cards
+        function renderMenus(filter = 'all') {
+            const grid = document.getElementById('menusGrid');
+            const filteredMenus = filter === 'all'
+                ? designMenus
+                : designMenus.filter(menu => menu.difficulty === filter);
+
+            if (filteredMenus.length === 0) {
+                grid.innerHTML = '<p style="text-align: center; color: #c0c0c0;">No menus found for this filter.</p>';
+                return;
+            }
+
+            grid.innerHTML = filteredMenus.map(menu => {
+                const activities = Object.entries(menu.activities).map(([phase, videoId]) => {
+                    const video = getVideoDetails(phase, videoId);
+                    const config = phaseConfig[phase === 'warmUp' ? 'warm-up' : phase.toLowerCase()];
+                    return { phase, videoId, video, config };
+                });
+
+                return `
+                    <div class="menu-card" style="--menu-color: ${menu.color}" onclick="openMenuModal('${menu.id}')">
+                        <div class="menu-header">
+                            <div class="menu-icon">${menu.icon}</div>
+                            <div class="menu-title">${menu.name}</div>
+                        </div>
+                        <div class="difficulty-badge">${menu.difficulty}</div>
+                        <p class="menu-description">${menu.description}</p>
+                        <div class="menu-meta">
+                            <div class="meta-item">
+                                <span class="meta-icon">⏱️</span>
+                                <span>${menu.timeEstimate}</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">👥</span>
+                                <span>5 Activities</span>
+                            </div>
+                        </div>
+                        <div class="menu-activities">
+                            ${activities.map(({ config }) => `
+                                <div class="activity-step">
+                                    <span class="step-icon">${config.icon}</span>
+                                    <span class="step-name">${config.name}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <button class="view-menu-btn" onclick="event.stopPropagation(); openMenuModal('${menu.id}')">
+                            View Full Pathway →
+                        </button>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Open modal with full menu details
+        function openMenuModal(menuId) {
+            const menu = designMenus.find(m => m.id === menuId);
+            if (!menu) return;
+
+            const activities = Object.entries(menu.activities).map(([phase, videoId], index) => {
+                const video = getVideoDetails(phase, videoId);
+                const phaseKey = phase === 'warmUp' ? 'warm-up' : phase.toLowerCase();
+                const config = phaseConfig[phaseKey];
+
+                return { phase: phaseKey, videoId, video, config, index: index + 1 };
+            });
+
+            const modalBody = document.getElementById('modalBody');
+            modalBody.innerHTML = `
+                <div class="modal-header">
+                    <div class="modal-icon">${menu.icon}</div>
+                    <h2 class="modal-title">${menu.name}</h2>
+                    <p class="modal-subtitle">${menu.description}</p>
+                    <div class="menu-meta" style="justify-content: center; border: none; padding-top: 1rem;">
+                        <div class="meta-item">
+                            <span class="meta-icon">⏱️</span>
+                            <span>${menu.timeEstimate}</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">📊</span>
+                            <span>${menu.difficulty}</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">👥</span>
+                            <span>${menu.targetAudience}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pathway-steps">
+                    ${activities.map(({ phase, video, config, index }) => `
+                        <div class="pathway-step" style="--step-color: ${config.color}">
+                            <div class="pathway-step-header">
+                                <div class="pathway-step-number">${index}</div>
+                                <div class="pathway-step-title">${config.icon} ${config.name}</div>
+                                <div class="pathway-step-duration">${video.duration || 'TBD'}</div>
+                            </div>
+                            <h4 class="pathway-step-video-title">${video.title}</h4>
+                            <p class="pathway-step-description">${video.description}</p>
+                            ${video.url !== '#' ? `
+                                <button class="watch-video-btn" onclick="window.open('${video.url}', '_blank')">
+                                    ▶ Watch Video
+                                </button>
+                            ` : '<p style="color: #c0c0c0; font-style: italic;">Video coming soon</p>'}
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+
+            document.getElementById('menuModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('menuModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Filter handling
+        document.querySelectorAll('.filter-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                const filter = this.dataset.filter;
+                currentFilter = filter;
+                renderMenus(filter);
+            });
+        });
+
+        // Mobile menu functions
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobile-nav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const isOpen = mobileNav.classList.contains('active');
+
+            if (isOpen) {
+                mobileNav.classList.remove('active');
+                menuBtn.setAttribute('aria-expanded', 'false');
+                document.getElementById('menu-icon').textContent = '☰';
+            } else {
+                mobileNav.classList.add('active');
+                menuBtn.setAttribute('aria-expanded', 'true');
+                document.getElementById('menu-icon').textContent = '✕';
+            }
+        }
+
+        function closeMobileMenu() {
+            const mobileNav = document.getElementById('mobile-nav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            mobileNav.classList.remove('active');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            document.getElementById('menu-icon').textContent = '☰';
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Close modal on outside click
+        document.getElementById('menuModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Initialize
+        renderMenus();
+    </script>
+</body>
+</html>
