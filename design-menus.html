@@ -513,11 +513,65 @@
     <!-- Include the databases -->
     <script src="js/videoDatabase.js"></script>
     <script src="js/designMenus.js"></script>
+    <script src="js/sessionManager.js"></script>
 
     <script>
         console.log('🍽️ Design Menus loaded successfully!');
 
         let currentFilter = 'all';
+
+        // Check for active session on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const activeSession = sessionManager.getCurrentSession();
+            if (activeSession) {
+                showResumeNotification(activeSession);
+            }
+        });
+
+        // Show resume notification
+        function showResumeNotification(session) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 80px;
+                right: 20px;
+                background: linear-gradient(135deg, #d4af37, #aa8c2e);
+                color: #1a1a2e;
+                padding: 1.5rem;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                z-index: 1500;
+                max-width: 350px;
+                animation: slideIn 0.3s ease;
+            `;
+
+            notification.innerHTML = `
+                <div style="font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem;">
+                    ${session.menuIcon} Continue Your Session?
+                </div>
+                <div style="margin-bottom: 1rem; opacity: 0.9;">
+                    Resume "${session.menuName}" - Step ${session.currentStep + 1}/5
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                    <button onclick="window.location.href='session.html'" style="flex: 1; background: #1a1a2e; color: #d4af37; border: none; padding: 0.75rem; border-radius: 8px; font-weight: 600; cursor: pointer;">
+                        Resume
+                    </button>
+                    <button onclick="this.parentElement.parentElement.remove()" style="background: rgba(26, 26, 46, 0.3); color: #1a1a2e; border: none; padding: 0.75rem 1rem; border-radius: 8px; cursor: pointer;">
+                        Later
+                    </button>
+                </div>
+            `;
+
+            document.body.appendChild(notification);
+
+            // Auto-hide after 10 seconds
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.style.animation = 'slideOut 0.3s ease';
+                    setTimeout(() => notification.remove(), 300);
+                }
+            }, 10000);
+        }
 
         // Phase icons and colors
         const phaseConfig = {
@@ -631,9 +685,12 @@
                             <span>${menu.targetAudience}</span>
                         </div>
                     </div>
+                    <button class="view-menu-btn" onclick="event.stopPropagation(); startSessionForMenu('${menu.id}')" style="margin-top: 2rem; background: linear-gradient(135deg, #d4af37, #aa8c2e); color: #1a1a2e; font-size: 1.2rem; padding: 1.25rem 2rem;">
+                        🚀 Start This Session
+                    </button>
                 </div>
                 <div class="pathway-steps">
-                    ${activities.map(({ phase, video, config, index }) => `
+                    ${activities.map(({ phase, video, config, index}) => `
                         <div class="pathway-step" style="--step-color: ${config.color}">
                             <div class="pathway-step-header">
                                 <div class="pathway-step-number">${index}</div>
@@ -660,6 +717,29 @@
         function closeModal() {
             document.getElementById('menuModal').classList.remove('active');
             document.body.style.overflow = 'auto';
+        }
+
+        // Start session for a menu
+        function startSessionForMenu(menuId) {
+            const menu = designMenus.find(m => m.id === menuId);
+            if (!menu) return;
+
+            // Check if there's already an active session
+            const existingSession = sessionManager.getCurrentSession();
+
+            if (existingSession) {
+                if (confirm(`You already have an active session for "${existingSession.menuName}". Do you want to abandon it and start a new session?`)) {
+                    sessionManager.cancelSession();
+                } else {
+                    return;
+                }
+            }
+
+            // Start new session
+            sessionManager.startSession(menuId, menu);
+
+            // Redirect to session page
+            window.location.href = 'session.html';
         }
 
         // Filter handling
