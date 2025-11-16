@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.freedesignthinking.com/">
+
     <!-- Primary Meta Tags -->
     <title>Free Design Thinking Hub - Global Training Center for Black & Brown Students</title>
     <meta name="title" content="Free Design Thinking Hub - Global Training Center for Black & Brown Students">
@@ -94,6 +97,64 @@
       ]
     }
     </script>
+
+    <!-- FAQ Schema for AEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is design thinking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Design thinking is a non-linear, iterative process that teams use to understand users, challenge assumptions, redefine problems and create innovative solutions. It includes phases like empathy, ideation, prototyping, and testing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this platform really free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, absolutely! All 40+ videos and training events are 100% free. We believe design thinking education should be accessible to everyone, especially Black and Brown students globally."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who can use this platform?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Anyone can use our platform! While we specifically designed it for Black and Brown students globally, all learners are welcome to access our free design thinking resources."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need any prior experience?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No prior experience required! Our content ranges from beginner to advanced levels. Start with warm-up exercises and progress through brainstorming, prototyping, testing, and reflection at your own pace."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.freedesignthinking.com/"
+        }
+      ]
+    }
+    </script>
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -116,11 +177,57 @@
             box-sizing: border-box;
         }
 
+        /* Skip to content link for accessibility */
+        .skip-to-content {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #d4af37;
+            color: #1a1a2e;
+            padding: 8px 16px;
+            text-decoration: none;
+            font-weight: bold;
+            z-index: 10000;
+            border-radius: 0 0 4px 0;
+        }
+
+        .skip-to-content:focus {
+            top: 0;
+        }
+
+        /* Focus indicators for accessibility */
+        *:focus {
+            outline: 3px solid #d4af37;
+            outline-offset: 2px;
+        }
+
+        /* Remove focus outline for mouse users, keep for keyboard users */
+        *:focus:not(:focus-visible) {
+            outline: none;
+        }
+
+        *:focus-visible {
+            outline: 3px solid #d4af37;
+            outline-offset: 2px;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
             color: #e8e8e8;
             line-height: 1.6;
+        }
+
+        /* Respect user's motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
         }
 
         .container {
@@ -450,6 +557,14 @@
             position: relative;
         }
 
+        .search-label {
+            position: absolute;
+            left: -10000px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
         .search-bar {
             width: 100%;
             padding: 15px 20px;
@@ -462,13 +577,21 @@
         }
 
         .search-bar:focus {
-            outline: none;
             border-color: #d4af37;
             box-shadow: 0 2px 20px rgba(212, 175, 55, 0.3);
         }
 
         .search-bar::placeholder {
             color: #888;
+        }
+
+        /* Search results announcement for screen readers */
+        .sr-only {
+            position: absolute;
+            left: -10000px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
         }
 
         /* Events Section */
@@ -486,7 +609,7 @@
 
         .event-card {
             background: linear-gradient(135deg, #8b4513, #a0522d);
-            color: #f8f8f8;
+            color: #ffffff;
             padding: 2rem;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
@@ -498,6 +621,18 @@
             transform: translateY(-5px);
             border-color: rgba(212, 175, 55, 0.4);
             box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3);
+        }
+
+        .event-card .interactive-btn {
+            background: rgba(255, 255, 255, 0.95);
+            color: #8b4513;
+            border-color: rgba(255, 255, 255, 0.95);
+        }
+
+        .event-card .interactive-btn:hover {
+            background: #ffffff;
+            color: #6b3410;
+            border-color: #ffffff;
         }
 
         .event-date {
@@ -697,31 +832,35 @@
     </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">🎨 Free Design Thinking Hub</div>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+    <header role="banner">
+        <nav class="container" role="navigation" aria-label="Main navigation">
+            <div class="logo" role="heading" aria-level="1">🎨 Free Design Thinking Hub</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#process">Process</a></li>
                 <li><a href="#videos">Video Library</a></li>
                 <li><a href="#events">Events</a></li>
-                <li><a href="#mission">Mission</a></li>
+                <li><a href="#faq">FAQ</a></li>
             </ul>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
-                <span id="menu-icon">☰</span>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+                <span id="menu-icon" aria-hidden="true">☰</span>
             </button>
         </nav>
-        <div class="mobile-nav" id="mobile-nav">
+        <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
             <ul>
                 <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
                 <li><a href="#process" onclick="closeMobileMenu()">Process</a></li>
                 <li><a href="#videos" onclick="closeMobileMenu()">Video Library</a></li>
                 <li><a href="#events" onclick="closeMobileMenu()">Events</a></li>
-                <li><a href="#mission" onclick="closeMobileMenu()">Mission</a></li>
+                <li><a href="#faq" onclick="closeMobileMenu()">FAQ</a></li>
             </ul>
         </div>
     </header>
 
+    <main id="main-content" role="main">
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
@@ -773,14 +912,22 @@
         </div>
     </section>
 
-    <section id="videos" class="video-section">
+    <section id="videos" class="video-section" aria-labelledby="video-library-title">
         <div class="container">
-            <h2 class="section-title">Free Video Library</h2>
-            <div class="search-container">
-                <input type="text" class="search-bar" placeholder="Search videos by topic, phase, or keyword..." id="videoSearch">
+            <h2 id="video-library-title" class="section-title">Free Video Library</h2>
+            <div class="search-container" role="search">
+                <label for="videoSearch" class="search-label">Search videos</label>
+                <input
+                    type="search"
+                    class="search-bar"
+                    placeholder="Search videos by topic, phase, or keyword..."
+                    id="videoSearch"
+                    aria-label="Search videos by topic, phase, or keyword"
+                    aria-describedby="search-results-count">
+                <div id="search-results-count" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
             </div>
-            
-            <div class="video-grid" id="videoGrid">
+
+            <div class="video-grid" id="videoGrid" role="list" aria-label="Video library">
                 <!-- Videos will be loaded dynamically from videoDatabase.js -->
             </div>
         </div>
@@ -794,26 +941,26 @@
             </p>
             
             <div class="events-grid">
-                <div class="event-card">
-                    <div class="event-date">📅 July 25, 2025 • 2:00 PM EST</div>
+                <article class="event-card">
+                    <time class="event-date" datetime="2025-07-25T14:00">📅 Coming Soon • TBA</time>
                     <h3 class="event-title">Design Thinking Bootcamp for Beginners</h3>
-                    <p>(Coming Soon) A comprehensive 3-hour introduction to design thinking fundamentals with hands-on exercises and real-world case studies.</p>
-                    <button class="interactive-btn" style="color: white; border-color: white;" onclick="registerEvent('bootcamp-beginners')">Register Free</button>
-                </div>
+                    <p>A comprehensive 3-hour introduction to design thinking fundamentals with hands-on exercises and real-world case studies.</p>
+                    <button class="interactive-btn" onclick="registerEvent('bootcamp-beginners')" aria-label="Register for Design Thinking Bootcamp for Beginners">Register Free</button>
+                </article>
 
-                <div class="event-card">
-                    <div class="event-date">📅 August 5, 2025 • 6:00 PM EST</div>
+                <article class="event-card">
+                    <time class="event-date" datetime="2025-08-05T18:00">📅 Coming Soon • TBA</time>
                     <h3 class="event-title">Creative Problem-Solving Workshop</h3>
-                    <p>(Coming Soon) Learn advanced brainstorming techniques and creative thinking methods to tackle complex challenges in your field.</p>
-                    <button class="interactive-btn" style="color: white; border-color: white;" onclick="registerEvent('creative-workshop')">Register Free</button>
-                </div>
+                    <p>Learn advanced brainstorming techniques and creative thinking methods to tackle complex challenges in your field.</p>
+                    <button class="interactive-btn" onclick="registerEvent('creative-workshop')" aria-label="Register for Creative Problem-Solving Workshop">Register Free</button>
+                </article>
 
-                <div class="event-card">
-                    <div class="event-date">📅 August 15, 2025 • 1:00 PM EST</div>
+                <article class="event-card">
+                    <time class="event-date" datetime="2025-08-15T13:00">📅 Coming Soon • TBA</time>
                     <h3 class="event-title">Prototyping for Social Innovation</h3>
-                    <p>(Coming Soon) Focus on using design thinking to create solutions for social problems affecting communities of color worldwide.</p>
-                    <button class="interactive-btn" style="color: white; border-color: white;" onclick="registerEvent('social-innovation')">Register Free</button>
-                </div>
+                    <p>Focus on using design thinking to create solutions for social problems affecting communities of color worldwide.</p>
+                    <button class="interactive-btn" onclick="registerEvent('social-innovation')" aria-label="Register for Prototyping for Social Innovation">Register Free</button>
+                </article>
             </div>
         </div>
     </section>
@@ -836,7 +983,47 @@
         </div>
     </section>
 
-    <footer>
+    <!-- FAQ Section for AEO -->
+    <section id="faq" class="faq-section" aria-labelledby="faq-title" style="padding: 5rem 0; background: #1a1a2e;">
+        <div class="container">
+            <h2 id="faq-title" class="section-title" style="text-align: center; font-size: 2.5rem; font-family: 'Space Grotesk', sans-serif; font-weight: 600; margin-bottom: 3rem; color: #f8f8f8;">Frequently Asked Questions</h2>
+
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item" style="background: rgba(42, 42, 62, 0.6); padding: 2rem; border-radius: 15px; margin-bottom: 1.5rem; border: 1px solid rgba(212, 175, 55, 0.1);">
+                    <h3 style="color: #d4af37; margin-bottom: 1rem; font-size: 1.3rem;">What is design thinking?</h3>
+                    <p style="color: #e0e0e0; line-height: 1.7;">Design thinking is a non-linear, iterative process that teams use to understand users, challenge assumptions, redefine problems and create innovative solutions. It includes phases like empathy, ideation, prototyping, and testing to solve complex problems in a human-centered way.</p>
+                </div>
+
+                <div class="faq-item" style="background: rgba(42, 42, 62, 0.6); padding: 2rem; border-radius: 15px; margin-bottom: 1.5rem; border: 1px solid rgba(212, 175, 55, 0.1);">
+                    <h3 style="color: #d4af37; margin-bottom: 1rem; font-size: 1.3rem;">Is this platform really free?</h3>
+                    <p style="color: #e0e0e0; line-height: 1.7;">Yes, absolutely! All 40+ videos and training events are 100% free. We believe design thinking education should be accessible to everyone, especially Black and Brown students globally. There are no hidden costs or premium tiers.</p>
+                </div>
+
+                <div class="faq-item" style="background: rgba(42, 42, 62, 0.6); padding: 2rem; border-radius: 15px; margin-bottom: 1.5rem; border: 1px solid rgba(212, 175, 55, 0.1);">
+                    <h3 style="color: #d4af37; margin-bottom: 1rem; font-size: 1.3rem;">Who can use this platform?</h3>
+                    <p style="color: #e0e0e0; line-height: 1.7;">Anyone can use our platform! While we specifically designed it for Black and Brown students globally, all learners are welcome to access our free design thinking resources. Students, educators, professionals, and anyone interested in creative problem-solving can benefit.</p>
+                </div>
+
+                <div class="faq-item" style="background: rgba(42, 42, 62, 0.6); padding: 2rem; border-radius: 15px; margin-bottom: 1.5rem; border: 1px solid rgba(212, 175, 55, 0.1);">
+                    <h3 style="color: #d4af37; margin-bottom: 1rem; font-size: 1.3rem;">Do I need any prior experience?</h3>
+                    <p style="color: #e0e0e0; line-height: 1.7;">No prior experience required! Our content ranges from beginner to advanced levels. Start with warm-up exercises and progress through brainstorming, prototyping, testing, and reflection at your own pace. Each video includes difficulty ratings to help you choose the right level.</p>
+                </div>
+
+                <div class="faq-item" style="background: rgba(42, 42, 62, 0.6); padding: 2rem; border-radius: 15px; margin-bottom: 1.5rem; border: 1px solid rgba(212, 175, 55, 0.1);">
+                    <h3 style="color: #d4af37; margin-bottom: 1rem; font-size: 1.3rem;">How do I get started?</h3>
+                    <p style="color: #e0e0e0; line-height: 1.7;">Simply browse our video library above and start watching! We recommend beginning with a warm-up exercise to get your creative energy flowing, then moving to brainstorming techniques. Each phase of the design thinking process builds on the previous one.</p>
+                </div>
+
+                <div class="faq-item" style="background: rgba(42, 42, 62, 0.6); padding: 2rem; border-radius: 15px; margin-bottom: 1.5rem; border: 1px solid rgba(212, 175, 55, 0.1);">
+                    <h3 style="color: #d4af37; margin-bottom: 1rem; font-size: 1.3rem;">Can I use these videos for teaching?</h3>
+                    <p style="color: #e0e0e0; line-height: 1.7;">Yes! Educators are encouraged to use our curated video library in their classrooms and workshops. All content is from reputable sources including Stanford, Harvard, and MIT, making it perfect for educational purposes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <footer role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
@@ -894,17 +1081,17 @@
                     const icon = getPhaseIcon(phase, index);
                     
                     allVideosHtml += `
-                        <div class="video-card" data-phase="${phase}" data-keywords="${video.tags.join(' ')} ${video.difficulty}">
-                            <div class="video-thumbnail">${icon}</div>
+                        <div class="video-card" role="listitem" data-phase="${phase}" data-keywords="${video.tags.join(' ')} ${video.difficulty}">
+                            <div class="video-thumbnail" aria-hidden="true">${icon}</div>
                             <div class="video-info">
                                 <h3 class="video-title">${video.title}</h3>
                                 <p class="video-description">${video.description}</p>
-                                <div class="video-tags">
+                                <div class="video-tags" aria-label="Video tags">
                                     <span class="tag" style="background: linear-gradient(135deg, #d4af37, #b8941f); color: #1a1a2e;">${phaseCapitalized}</span>
                                     ${video.tags.slice(0, 2).map(tag => `<span class="tag">${tag}</span>`).join('')}
                                     <span class="tag">${video.duration}</span>
                                 </div>
-                                <button class="interactive-btn" onclick="watchVideo('${video.url}', '${video.id}')">Watch Now</button>
+                                <button class="interactive-btn" onclick="watchVideo('${video.url}', '${video.id}')" aria-label="Watch ${video.title}">Watch Now</button>
                             </div>
                         </div>
                     `;
@@ -937,21 +1124,21 @@
             videoSection.innerHTML = `Free Video Library <span style="color: #d4af37; font-size: 0.6em;">(${totalVideos} videos)</span>`;
         });
 
-        // Search functionality
+        // Search functionality with screen reader announcements
         document.getElementById('videoSearch').addEventListener('input', function(e) {
             const searchTerm = e.target.value.toLowerCase();
             const videoCards = document.querySelectorAll('.video-card');
             let visibleCount = 0;
-            
+
             videoCards.forEach(card => {
                 const title = card.querySelector('.video-title').textContent.toLowerCase();
                 const description = card.querySelector('.video-description').textContent.toLowerCase();
                 const keywords = card.getAttribute('data-keywords').toLowerCase();
                 const phase = card.getAttribute('data-phase').toLowerCase();
-                
-                if (title.includes(searchTerm) || 
-                    description.includes(searchTerm) || 
-                    keywords.includes(searchTerm) || 
+
+                if (title.includes(searchTerm) ||
+                    description.includes(searchTerm) ||
+                    keywords.includes(searchTerm) ||
                     phase.includes(searchTerm)) {
                     card.style.display = 'block';
                     visibleCount++;
@@ -962,10 +1149,15 @@
 
             // Update search results count
             const searchBar = document.getElementById('videoSearch');
+            const resultsAnnouncement = document.getElementById('search-results-count');
+
             if (searchTerm) {
-                searchBar.placeholder = `Found ${visibleCount} videos for "${searchTerm}"`;
+                const message = `Found ${visibleCount} video${visibleCount !== 1 ? 's' : ''} matching "${searchTerm}"`;
+                searchBar.placeholder = message;
+                resultsAnnouncement.textContent = message;
             } else {
                 searchBar.placeholder = "Search videos by topic, phase, or keyword...";
+                resultsAnnouncement.textContent = '';
             }
         });
 
@@ -979,6 +1171,50 @@
         function registerEvent(eventId) {
             alert(`🎉 Registering for event: ${eventId}\n\nThis would open a registration form in a real implementation. All events are completely free!`);
         }
+
+        // Mobile menu toggle with ARIA updates
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobile-nav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const menuIcon = document.getElementById('menu-icon');
+            const isExpanded = mobileNav.classList.contains('active');
+
+            mobileNav.classList.toggle('active');
+            menuBtn.setAttribute('aria-expanded', !isExpanded);
+            menuIcon.textContent = !isExpanded ? '✕' : '☰';
+        }
+
+        function closeMobileMenu() {
+            const mobileNav = document.getElementById('mobile-nav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const menuIcon = document.getElementById('menu-icon');
+
+            mobileNav.classList.remove('active');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            menuIcon.textContent = '☰';
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const mobileNav = document.getElementById('mobile-nav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+
+            if (mobileNav && mobileNav.classList.contains('active')) {
+                if (!mobileNav.contains(e.target) && !menuBtn.contains(e.target)) {
+                    closeMobileMenu();
+                }
+            }
+        });
+
+        // Close mobile menu on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const mobileNav = document.getElementById('mobile-nav');
+                if (mobileNav && mobileNav.classList.contains('active')) {
+                    closeMobileMenu();
+                }
+            }
+        });
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
