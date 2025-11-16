@@ -161,7 +161,14 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- iOS Meta Tags for PWA -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Design Thinking Hub">
     
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -189,9 +196,14 @@
                 <li><a href="#events">Events</a></li>
                 <li><a href="#faq">FAQ</a></li>
             </ul>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
-                <span id="menu-icon" aria-hidden="true">☰</span>
-            </button>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+                    <span id="theme-icon">🌙</span>
+                </button>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+                    <span id="menu-icon" aria-hidden="true">☰</span>
+                </button>
+            </div>
         </nav>
         <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
             <ul>
@@ -398,6 +410,110 @@
     <script>
         console.log('🎉 Design Thinking Hub loaded successfully!');
 
+        // ============================================
+        // DARK MODE FUNCTIONALITY
+        // ============================================
+
+        // Check for saved theme preference or default to system preference
+        const getPreferredTheme = () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                return savedTheme;
+            }
+            return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        };
+
+        // Set theme on page load
+        const setTheme = (theme) => {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+
+            // Update button icon and aria-label
+            const themeIcon = document.getElementById('theme-icon');
+            const themeToggle = document.getElementById('theme-toggle');
+
+            if (theme === 'dark') {
+                themeIcon.textContent = '🌙';
+                themeToggle.setAttribute('aria-label', 'Switch to light mode');
+                themeToggle.setAttribute('title', 'Switch to light mode');
+            } else {
+                themeIcon.textContent = '☀️';
+                themeToggle.setAttribute('aria-label', 'Switch to dark mode');
+                themeToggle.setAttribute('title', 'Switch to dark mode');
+            }
+
+            console.log(`🎨 Theme set to: ${theme}`);
+        };
+
+        // Toggle theme
+        const toggleTheme = () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        };
+
+        // Initialize theme on page load (before DOM ready for no flash)
+        setTheme(getPreferredTheme());
+
+        // Add event listener to toggle button
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', toggleTheme);
+            }
+
+            // Listen for system theme changes
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+                // Only auto-switch if user hasn't manually set a preference
+                if (!localStorage.getItem('theme')) {
+                    setTheme(e.matches ? 'dark' : 'light');
+                }
+            });
+        });
+
+        // ============================================
+        // END DARK MODE FUNCTIONALITY
+        // ============================================
+
+        // ============================================
+        // SERVICE WORKER REGISTRATION (PWA)
+        // ============================================
+
+        // Register service worker for offline support
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((registration) => {
+                        console.log('✅ Service Worker registered successfully:', registration.scope);
+
+                        // Check for updates periodically
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            console.log('🔄 Service Worker update found');
+
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    // New service worker available, show update notification
+                                    console.log('📢 New content available! Please refresh.');
+
+                                    // Optional: Show a toast notification to user
+                                    // showUpdateNotification();
+                                }
+                            });
+                        });
+                    })
+                    .catch((error) => {
+                        console.error('❌ Service Worker registration failed:', error);
+                    });
+            });
+        } else {
+            console.log('⚠️ Service Workers not supported in this browser');
+        }
+
+        // ============================================
+        // END SERVICE WORKER REGISTRATION
+        // ============================================
+
         // Icons for each phase
         const phaseIcons = {
             "warm-up": ["🏃", "🎨", "🌳", "⚽", "🗣️", "🎪", "🤹", "🎭", "🎵", "🔥"],
@@ -445,6 +561,44 @@
             videoGrid.innerHTML = allVideosHtml;
         }
 
+        // ============================================
+        // LAZY LOADING WITH INTERSECTION OBSERVER
+        // ============================================
+
+        // Initialize Intersection Observer for lazy loading
+        let videoObserver;
+
+        const initLazyLoading = () => {
+            const options = {
+                root: null,
+                rootMargin: '50px',
+                threshold: 0.01
+            };
+
+            videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const card = entry.target;
+                        card.classList.add('loaded');
+                        // Optionally: trigger any additional loading animations
+                        videoObserver.unobserve(card);
+                    }
+                });
+            }, options);
+
+            // Observe all video cards
+            document.querySelectorAll('.video-card').forEach(card => {
+                card.classList.add('lazy-load');
+                videoObserver.observe(card);
+            });
+
+            console.log('👁️ Lazy loading initialized for video cards');
+        };
+
+        // ============================================
+        // END LAZY LOADING
+        // ============================================
+
         // Initialize videos on page load
         document.addEventListener('DOMContentLoaded', function() {
             // Check if videoDatabase is loaded
@@ -458,14 +612,19 @@
                 `;
                 return;
             }
-            
+
             loadAllVideos();
             const totalVideos = Object.values(videoDatabase).flat().length;
             console.log(`✅ Loaded ${totalVideos} videos from external database`);
-            
+
             // Add video count to page
             const videoSection = document.querySelector('.video-section h2');
             videoSection.innerHTML = `Free Video Library <span style="color: #d4af37; font-size: 0.6em;">(${totalVideos} videos)</span>`;
+
+            // Initialize lazy loading after videos are loaded
+            setTimeout(() => {
+                initLazyLoading();
+            }, 100);
         });
 
         // Search functionality with screen reader announcements
