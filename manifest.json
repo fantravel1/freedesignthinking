@@ -1,7 +1,7 @@
 {
   "name": "Free Design Thinking Hub",
   "short_name": "Design Thinking Hub",
-  "description": "World's premier free design thinking education platform with 40+ videos from Stanford, Harvard & MIT. Interactive training for Black and Brown students globally.",
+  "description": "World's premier free design thinking education platform with 40+ videos from Stanford, Harvard & MIT. Access global communities for Black and Brown students globally.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#1a1a2e",
@@ -83,10 +83,10 @@
       ]
     },
     {
-      "name": "Training Events",
-      "short_name": "Events",
-      "description": "View upcoming training events",
-      "url": "/#events",
+      "name": "Community Resources",
+      "short_name": "Community",
+      "description": "Explore free design thinking communities",
+      "url": "/#community",
       "icons": [
         {
           "src": "/icon-96x96.png",
