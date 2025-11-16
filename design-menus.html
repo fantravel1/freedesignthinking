@@ -685,9 +685,14 @@
                             <span>${menu.targetAudience}</span>
                         </div>
                     </div>
-                    <button class="view-menu-btn" onclick="event.stopPropagation(); startSessionForMenu('${menu.id}')" style="margin-top: 2rem; background: linear-gradient(135deg, #d4af37, #aa8c2e); color: #1a1a2e; font-size: 1.2rem; padding: 1.25rem 2rem;">
-                        🚀 Start This Session
-                    </button>
+                    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                        <button class="view-menu-btn" onclick="event.stopPropagation(); startSessionForMenu('${menu.id}')" style="flex: 2; background: linear-gradient(135deg, #d4af37, #aa8c2e); color: #1a1a2e; font-size: 1.2rem; padding: 1.25rem 2rem;">
+                            🚀 Start This Session
+                        </button>
+                        <button class="view-menu-btn" onclick="event.stopPropagation(); shareMenu('${menu.id}', '${menu.name}')" style="flex: 1; background: rgba(212, 175, 55, 0.2); color: #d4af37; border: 2px solid #d4af37; font-size: 1.2rem; padding: 1.25rem 2rem;">
+                            🔗 Share
+                        </button>
+                    </div>
                 </div>
                 <div class="pathway-steps">
                     ${activities.map(({ phase, video, config, index}) => `
@@ -741,6 +746,60 @@
             // Redirect to session page
             window.location.href = 'session.html';
         }
+
+        // Share menu function
+        function shareMenu(menuId, menuName) {
+            const url = `${window.location.origin}${window.location.pathname}?menu=${menuId}`;
+
+            // Try to copy to clipboard
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(() => {
+                    // Show success notification
+                    showNotification(`🔗 Link copied! Share "${menuName}" with your team.`);
+                }).catch(err => {
+                    // Fallback to showing the URL
+                    prompt('Copy this link to share:', url);
+                });
+            } else {
+                // Fallback for browsers that don't support clipboard API
+                prompt('Copy this link to share:', url);
+            }
+        }
+
+        // Show notification
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, #d4af37, #aa8c2e);
+                color: #1a1a2e;
+                padding: 1rem 1.5rem;
+                border-radius: 10px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                z-index: 2000;
+                font-weight: 600;
+                animation: slideIn 0.3s ease;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            // Auto-remove after 3 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Check for menu parameter in URL and auto-open modal
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const menuParam = urlParams.get('menu');
+            if (menuParam && designMenus.find(m => m.id === menuParam)) {
+                setTimeout(() => openMenuModal(menuParam), 500);
+            }
+        });
 
         // Filter handling
         document.querySelectorAll('.filter-tab').forEach(tab => {

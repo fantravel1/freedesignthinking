@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brainstorm Worksheet - Free Design Thinking Hub</title>
+
+    <style>
+        @media print {
+            @page { margin: 0.5in; }
+            body { margin: 0; }
+            .no-print { display: none !important; }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 2rem;
+        }
+
+        .worksheet {
+            max-width: 8.5in;
+            margin: 0 auto;
+            background: white;
+            padding: 0.75in;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .tagline {
+            font-size: 1.1rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .metadata {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .metadata-field {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .metadata-field label {
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .metadata-field input {
+            flex: 1;
+            border: none;
+            border-bottom: 2px solid #ccc;
+            padding: 0.25rem 0;
+            font-size: 1rem;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+            page-break-inside: avoid;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #667eea;
+            border-left: 5px solid #667eea;
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .rules-box {
+            background: #667eea;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .rules-box h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .rules-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .rule-item {
+            display: flex;
+            gap: 0.5rem;
+            align-items: start;
+        }
+
+        .rule-number {
+            background: white;
+            color: #667eea;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .idea-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .idea-box {
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            padding: 1rem;
+            min-height: 150px;
+            background: #f9f9f9;
+        }
+
+        .idea-box-header {
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid #667eea;
+            padding-bottom: 0.25rem;
+        }
+
+        .voting-area {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #fff9e6;
+            border-left: 4px solid #ffa726;
+            border-radius: 4px;
+        }
+
+        .voting-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .vote-box {
+            border: 2px dashed #ffa726;
+            padding: 1rem;
+            text-align: center;
+            min-height: 80px;
+            border-radius: 4px;
+        }
+
+        .notes-section {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            min-height: 200px;
+            background: #fafafa;
+        }
+
+        .footer {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 2px solid #eee;
+            text-align: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .tip-box {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .tip-box h4 {
+            color: #4caf50;
+            margin-bottom: 0.5rem;
+        }
+
+        .print-button {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .print-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.6);
+        }
+
+        @media print {
+            body { padding: 0; background: white; }
+            .worksheet { box-shadow: none; padding: 0; }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button no-print" onclick="window.print()">🖨️ Print Worksheet</button>
+
+    <div class="worksheet">
+        <!-- Header -->
+        <div class="header">
+            <h1>🧠 Brainstorm Worksheet</h1>
+            <div class="tagline">Generate Wild Ideas • Build on Others • Defer Judgment</div>
+        </div>
+
+        <!-- Metadata -->
+        <div class="metadata">
+            <div class="metadata-field">
+                <label>Project:</label>
+                <input type="text" placeholder="Enter project name">
+            </div>
+            <div class="metadata-field">
+                <label>Date:</label>
+                <input type="text" placeholder="MM/DD/YYYY">
+            </div>
+            <div class="metadata-field">
+                <label>Team:</label>
+                <input type="text" placeholder="Team name or members">
+            </div>
+            <div class="metadata-field">
+                <label>Facilitator:</label>
+                <input type="text" placeholder="Facilitator name">
+            </div>
+        </div>
+
+        <!-- Brainstorm Rules -->
+        <div class="section">
+            <div class="rules-box">
+                <h3>📋 Brainstorming Rules</h3>
+                <div class="rules-list">
+                    <div class="rule-item">
+                        <div class="rule-number">1</div>
+                        <div>Defer judgment - No idea is bad</div>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-number">2</div>
+                        <div>Encourage wild ideas</div>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-number">3</div>
+                        <div>Build on others' ideas</div>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-number">4</div>
+                        <div>Stay focused on topic</div>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-number">5</div>
+                        <div>One conversation at a time</div>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-number">6</div>
+                        <div>Go for quantity over quality</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Challenge Statement -->
+        <div class="section">
+            <h2 class="section-title">🎯 Challenge Statement</h2>
+            <div class="tip-box">
+                <h4>💡 Tip: Frame as "How Might We..."</h4>
+                <p>Example: "How might we make public transportation more accessible for elderly riders?"</p>
+            </div>
+            <div style="border: 2px solid #667eea; border-radius: 8px; padding: 1.5rem; min-height: 100px; background: white;">
+                <p style="color: #999; font-style: italic;">Write your "How Might We" statement here...</p>
+            </div>
+        </div>
+
+        <!-- Idea Generation -->
+        <div class="section">
+            <h2 class="section-title">💡 Ideas</h2>
+            <p style="margin-bottom: 1rem; color: #666;">Capture all ideas - aim for quantity! Write one idea per box.</p>
+            <div class="idea-grid">
+                <div class="idea-box">
+                    <div class="idea-box-header">Idea #1</div>
+                </div>
+                <div class="idea-box">
+                    <div class="idea-box-header">Idea #2</div>
+                </div>
+                <div class="idea-box">
+                    <div class="idea-box-header">Idea #3</div>
+                </div>
+                <div class="idea-box">
+                    <div class="idea-box-header">Idea #4</div>
+                </div>
+                <div class="idea-box">
+                    <div class="idea-box-header">Idea #5</div>
+                </div>
+                <div class="idea-box">
+                    <div class="idea-box-header">Idea #6</div>
+                </div>
+                <div class="idea-box">
+                    <div class="idea-box-header">Idea #7</div>
+                </div>
+                <div class="idea-box">
+                    <div class="idea-box-header">Idea #8</div>
+                </div>
+                <div class="idea-box">
+                    <div class="idea-box-header">Idea #9</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Voting & Prioritization -->
+        <div class="section">
+            <h2 class="section-title">⭐ Voting & Prioritization</h2>
+            <div class="voting-area">
+                <p><strong>Instructions:</strong> Give each participant 3-5 dots/votes. Vote for your favorite ideas!</p>
+                <div class="voting-grid">
+                    <div class="vote-box">
+                        <p style="font-weight: 700; color: #ffa726; margin-bottom: 0.5rem;">Top #1</p>
+                        <p style="font-size: 0.9rem; color: #666;">Votes: ___</p>
+                    </div>
+                    <div class="vote-box">
+                        <p style="font-weight: 700; color: #ffa726; margin-bottom: 0.5rem;">Top #2</p>
+                        <p style="font-size: 0.9rem; color: #666;">Votes: ___</p>
+                    </div>
+                    <div class="vote-box">
+                        <p style="font-weight: 700; color: #ffa726; margin-bottom: 0.5rem;">Top #3</p>
+                        <p style="font-size: 0.9rem; color: #666;">Votes: ___</p>
+                    </div>
+                    <div class="vote-box">
+                        <p style="font-weight: 700; color: #ffa726; margin-bottom: 0.5rem;">Top #4</p>
+                        <p style="font-size: 0.9rem; color: #666;">Votes: ___</p>
+                    </div>
+                    <div class="vote-box">
+                        <p style="font-weight: 700; color: #ffa726; margin-bottom: 0.5rem;">Top #5</p>
+                        <p style="font-size: 0.9rem; color: #666;">Votes: ___</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Next Steps -->
+        <div class="section">
+            <h2 class="section-title">🚀 Next Steps</h2>
+            <div class="notes-section">
+                <p style="color: #666; margin-bottom: 1rem;">What will you prototype first? Who will do it? By when?</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer no-print">
+            <p>Free Design Thinking Hub | freedesignthinking.com</p>
+            <p>Download more worksheets at freedesignthinking.com/worksheets.html</p>
+        </div>
+    </div>
+</body>
+</html>

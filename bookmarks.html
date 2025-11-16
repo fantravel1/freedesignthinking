@@ -252,6 +252,28 @@
             <div class="stats-bar" id="statsBar">
                 <!-- Stats will be inserted here -->
             </div>
+
+            <!-- Filters & Sort -->
+            <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap;">
+                <select id="phaseFilter" onchange="filterBookmarks()" style="padding: 0.75rem 1.5rem; border-radius: 10px; background: rgba(26, 26, 46, 0.8); color: #d4af37; border: 2px solid rgba(212, 175, 55, 0.3); cursor: pointer; font-size: 1rem;">
+                    <option value="all">All Phases</option>
+                    <option value="warm-up">🏃 Warm-Up</option>
+                    <option value="brainstorm">🧠 Brainstorm</option>
+                    <option value="prototype">🔧 Prototype</option>
+                    <option value="test">🧪 Test</option>
+                    <option value="reflect">🤔 Reflect</option>
+                </select>
+
+                <select id="sortOrder" onchange="filterBookmarks()" style="padding: 0.75rem 1.5rem; border-radius: 10px; background: rgba(26, 26, 46, 0.8); color: #d4af37; border: 2px solid rgba(212, 175, 55, 0.3); cursor: pointer; font-size: 1rem;">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                    <option value="title">A-Z</option>
+                </select>
+
+                <button onclick="clearAllBookmarks()" style="padding: 0.75rem 1.5rem; border-radius: 10px; background: rgba(255, 107, 107, 0.2); color: #ff6b6b; border: 2px solid rgba(255, 107, 107, 0.5); cursor: pointer; font-weight: 600;">
+                    🗑️ Clear All
+                </button>
+            </div>
         </div>
 
         <!-- Bookmarks Grid -->
@@ -280,15 +302,39 @@
             'reflect': { icon: '🤔', color: '#8360c3', name: 'Reflect' }
         };
 
+        // Load and render bookmarks with filters
+        function filterBookmarks() {
+            const phaseFilter = document.getElementById('phaseFilter')?.value || 'all';
+            const sortOrder = document.getElementById('sortOrder')?.value || 'newest';
+
+            let bookmarks = sessionManager.getBookmarks();
+
+            // Filter by phase
+            if (phaseFilter !== 'all') {
+                bookmarks = bookmarks.filter(b => b.phase === phaseFilter);
+            }
+
+            // Sort
+            if (sortOrder === 'newest') {
+                bookmarks.sort((a, b) => new Date(b.bookmarkedAt) - new Date(a.bookmarkedAt));
+            } else if (sortOrder === 'oldest') {
+                bookmarks.sort((a, b) => new Date(a.bookmarkedAt) - new Date(b.bookmarkedAt));
+            } else if (sortOrder === 'title') {
+                bookmarks.sort((a, b) => a.title.localeCompare(b.title));
+            }
+
+            renderBookmarks(bookmarks);
+        }
+
         // Load and render bookmarks
         function loadBookmarks() {
-            const bookmarks = sessionManager.getBookmarks();
             const stats = sessionManager.getStats();
-
-            // Render stats
             renderStats(stats);
+            filterBookmarks(); // Use filter function which renders
+        }
 
-            // Render bookmarks
+        // Render bookmarks
+        function renderBookmarks(bookmarks) {
             const container = document.getElementById('bookmarksContainer');
 
             if (bookmarks.length === 0) {
@@ -356,6 +402,14 @@
         function removeBookmark(videoId) {
             if (confirm('Remove this video from bookmarks?')) {
                 sessionManager.bookmarkVideo(videoId, {});
+                loadBookmarks();
+            }
+        }
+
+        // Clear all bookmarks
+        function clearAllBookmarks() {
+            if (confirm('Are you sure you want to clear ALL bookmarks? This cannot be undone.')) {
+                sessionManager.clearBookmarks();
                 loadBookmarks();
             }
         }
