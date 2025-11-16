@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Page Not Found - Free Design Thinking Hub</title>
+    <meta name="title" content="Page Not Found - Free Design Thinking Hub">
+    <meta name="description" content="The page you're looking for doesn't exist. Explore our free design thinking resources instead.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔄</text></svg>">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+            color: #e8e8e8;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .error-container {
+            max-width: 600px;
+            text-align: center;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .error-code {
+            font-size: 8rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            color: #d4af37;
+            line-height: 1;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .error-icon {
+            font-size: 6rem;
+            margin-bottom: 2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #f8f8f8;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #c0c0c0;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #d4af37, #b8941f);
+            color: #1a1a2e;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #d4af37;
+            border: 2px solid #d4af37;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .suggestions {
+            margin-top: 3rem;
+            background: rgba(42, 42, 62, 0.6);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .suggestions h2 {
+            color: #d4af37;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .suggestions ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .suggestions li {
+            margin-bottom: 1rem;
+        }
+
+        .suggestions a {
+            color: #e8e8e8;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .suggestions a:hover {
+            background: rgba(212, 175, 55, 0.1);
+            color: #d4af37;
+            transform: translateX(5px);
+        }
+
+        .suggestions a::before {
+            content: "→";
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* Accessibility */
+        *:focus {
+            outline: 3px solid #d4af37;
+            outline-offset: 2px;
+        }
+
+        *:focus:not(:focus-visible) {
+            outline: none;
+        }
+
+        *:focus-visible {
+            outline: 3px solid #d4af37;
+            outline-offset: 2px;
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main role="main" class="error-container">
+        <div class="error-icon" aria-hidden="true">🤔</div>
+        <div class="error-code" aria-label="Error 404">404</div>
+        <h1>Oops! Page Not Found</h1>
+        <p>
+            The page you're looking for seems to have wandered off during a brainstorming session.
+            Don't worry – let's get you back on track to learning design thinking!
+        </p>
+
+        <div class="button-group">
+            <a href="/" class="btn btn-primary">
+                🏠 Back to Homepage
+            </a>
+            <button onclick="history.back()" class="btn btn-secondary">
+                ← Go Back
+            </button>
+        </div>
+
+        <div class="suggestions">
+            <h2>Popular Destinations</h2>
+            <nav aria-label="Popular pages">
+                <ul>
+                    <li><a href="/#videos">Browse Video Library</a></li>
+                    <li><a href="/warm-up.html">Warm-Up Exercises</a></li>
+                    <li><a href="/brainstorm.html">Brainstorming Techniques</a></li>
+                    <li><a href="/prototype.html">Prototyping Methods</a></li>
+                    <li><a href="/#events">View Training Events</a></li>
+                    <li><a href="/#faq">Read FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <p style="margin-top: 3rem; font-size: 0.9rem; color: #888;">
+            If you believe this is an error, please <a href="mailto:info@freedesignthinking.com" style="color: #d4af37; text-decoration: underline;">contact us</a>.
+        </p>
+    </main>
+
+    <script>
+        console.log('404 - Page not found');
+
+        // Log the attempted URL for debugging
+        console.log('Attempted URL:', window.location.href);
+
+        // Optional: Track 404 errors with analytics
+        // if (typeof gtag !== 'undefined') {
+        //     gtag('event', 'page_not_found', {
+        //         'page_path': window.location.pathname
+        //     });
+        // }
+    </script>
+</body>
+</html>
