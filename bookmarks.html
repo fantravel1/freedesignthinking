@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookmarks - Free Design Thinking Hub</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        }
+
+        .page-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 7rem 2rem 4rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            color: #d4af37;
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 1rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: #c0c0c0;
+        }
+
+        .stats-bar {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: rgba(26, 26, 46, 0.8);
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            color: #d4af37;
+            font-weight: 700;
+        }
+
+        .stat-label {
+            color: #c0c0c0;
+            font-size: 0.9rem;
+        }
+
+        .bookmarks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .bookmark-card {
+            background: rgba(26, 26, 46, 0.95);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .bookmark-card:hover {
+            transform: translateY(-5px);
+            border-color: #d4af37;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .bookmark-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(212, 175, 55, 0.2);
+            color: #d4af37;
+            padding: 0.4rem 0.8rem;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .bookmark-title {
+            font-size: 1.3rem;
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            padding-right: 3rem;
+        }
+
+        .bookmark-description {
+            color: #c0c0c0;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .bookmark-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-tag {
+            background: rgba(42, 42, 62, 0.6);
+            padding: 0.3rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: #c0c0c0;
+        }
+
+        .bookmark-actions {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 0.75rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .action-btn-primary {
+            background: linear-gradient(135deg, #d4af37, #aa8c2e);
+            color: #1a1a2e;
+        }
+
+        .action-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .action-btn-secondary {
+            background: rgba(212, 175, 55, 0.2);
+            color: #d4af37;
+            border: 2px solid rgba(212, 175, 55, 0.5);
+        }
+
+        .action-btn-secondary:hover {
+            background: rgba(212, 175, 55, 0.3);
+            border-color: #d4af37;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .empty-icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.5;
+        }
+
+        .empty-title {
+            font-size: 2rem;
+            color: #c0c0c0;
+            margin-bottom: 1rem;
+        }
+
+        .empty-message {
+            color: #999;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4af37, #aa8c2e);
+            color: #1a1a2e;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .bookmarks-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">🎨 Free Design Thinking Hub</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="design-menus.html">Design Menus</a></li>
+                <li><a href="worksheets.html">Worksheets</a></li>
+                <li><a href="bookmarks.html" class="active">Bookmarks</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                <span id="menu-icon">☰</span>
+            </button>
+        </nav>
+        <div class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="index.html" onclick="closeMobileMenu()">Home</a></li>
+                <li><a href="design-menus.html" onclick="closeMobileMenu()">Design Menus</a></li>
+                <li><a href="worksheets.html" onclick="closeMobileMenu()">Worksheets</a></li>
+                <li><a href="bookmarks.html" onclick="closeMobileMenu()">Bookmarks</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="page-container">
+        <!-- Header -->
+        <div class="page-header">
+            <h1 class="page-title">⭐ My Bookmarks</h1>
+            <p class="page-subtitle">Your saved videos for quick access</p>
+
+            <div class="stats-bar" id="statsBar">
+                <!-- Stats will be inserted here -->
+            </div>
+        </div>
+
+        <!-- Bookmarks Grid -->
+        <div id="bookmarksContainer">
+            <!-- Content will be inserted here -->
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Free Design Thinking Hub. All rights reserved. Built with ❤️ for global accessibility.</p>
+        </div>
+    </footer>
+
+    <script src="js/sessionManager.js"></script>
+
+    <script>
+        console.log('⭐ Bookmarks page loaded');
+
+        // Phase configuration
+        const phaseConfig = {
+            'warm-up': { icon: '🏃', color: '#ff6b6b', name: 'Warm-Up' },
+            'brainstorm': { icon: '🧠', color: '#667eea', name: 'Brainstorm' },
+            'prototype': { icon: '🔧', color: '#4ecdc4', name: 'Prototype' },
+            'test': { icon: '🧪', color: '#a8e6cf', name: 'Test' },
+            'reflect': { icon: '🤔', color: '#8360c3', name: 'Reflect' }
+        };
+
+        // Load and render bookmarks
+        function loadBookmarks() {
+            const bookmarks = sessionManager.getBookmarks();
+            const stats = sessionManager.getStats();
+
+            // Render stats
+            renderStats(stats);
+
+            // Render bookmarks
+            const container = document.getElementById('bookmarksContainer');
+
+            if (bookmarks.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">📚</div>
+                        <h2 class="empty-title">No Bookmarks Yet</h2>
+                        <p class="empty-message">
+                            Start bookmarking your favorite videos to build your personal library!
+                        </p>
+                        <a href="index.html#videos" class="cta-button">Browse Videos</a>
+                    </div>
+                `;
+                return;
+            }
+
+            const grid = document.createElement('div');
+            grid.className = 'bookmarks-grid';
+
+            grid.innerHTML = bookmarks.map(bookmark => {
+                const phase = bookmark.phase || 'warm-up';
+                const config = phaseConfig[phase];
+
+                return `
+                    <div class="bookmark-card">
+                        <div class="bookmark-badge">${config.icon} ${config.name}</div>
+                        <h3 class="bookmark-title">${bookmark.title}</h3>
+                        <p class="bookmark-description">${bookmark.description || 'No description available'}</p>
+                        <div class="bookmark-meta">
+                            ${bookmark.duration ? `<span class="meta-tag">⏱ ${bookmark.duration}</span>` : ''}
+                            ${bookmark.difficulty ? `<span class="meta-tag">📊 ${bookmark.difficulty}</span>` : ''}
+                        </div>
+                        <div class="bookmark-actions">
+                            <button class="action-btn action-btn-primary" onclick="window.open('${bookmark.url}', '_blank')">
+                                ▶ Watch
+                            </button>
+                            <button class="action-btn action-btn-secondary" onclick="removeBookmark('${bookmark.videoId}')">
+                                ✕ Remove
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            container.innerHTML = '';
+            container.appendChild(grid);
+        }
+
+        // Render stats
+        function renderStats(stats) {
+            const statsBar = document.getElementById('statsBar');
+            statsBar.innerHTML = `
+                <div class="stat-item">
+                    <div class="stat-number">${stats.totalBookmarks}</div>
+                    <div class="stat-label">Bookmarked Videos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">${stats.completedSessions}</div>
+                    <div class="stat-label">Completed Sessions</div>
+                </div>
+            `;
+        }
+
+        // Remove bookmark
+        function removeBookmark(videoId) {
+            if (confirm('Remove this video from bookmarks?')) {
+                sessionManager.bookmarkVideo(videoId, {});
+                loadBookmarks();
+            }
+        }
+
+        // Mobile menu functions
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobile-nav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const isOpen = mobileNav.classList.contains('active');
+
+            if (isOpen) {
+                mobileNav.classList.remove('active');
+                menuBtn.setAttribute('aria-expanded', 'false');
+                document.getElementById('menu-icon').textContent = '☰';
+            } else {
+                mobileNav.classList.add('active');
+                menuBtn.setAttribute('aria-expanded', 'true');
+                document.getElementById('menu-icon').textContent = '✕';
+            }
+        }
+
+        function closeMobileMenu() {
+            const mobileNav = document.getElementById('mobile-nav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            mobileNav.classList.remove('active');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            document.getElementById('menu-icon').textContent = '☰';
+        }
+
+        // Initialize
+        loadBookmarks();
+    </script>
+</body>
+</html>
