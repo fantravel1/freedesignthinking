@@ -366,6 +366,11 @@
             border: 1px solid rgba(168, 230, 207, 0.3);
         }
 
+        .video-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
         .watch-btn {
             background: linear-gradient(135deg, #a8e6cf, #88d8c0);
             border: none;
@@ -376,12 +381,35 @@
             transition: all 0.3s ease;
             font-weight: bold;
             font-size: 0.9rem;
-            width: 100%;
+            flex: 1;
         }
 
         .watch-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(168, 230, 207, 0.4);
+        }
+
+        .bookmark-btn {
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(168, 230, 207, 0.5);
+            border-radius: 25px;
+            color: #a8e6cf;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .bookmark-btn:hover {
+            background: rgba(168, 230, 207, 0.2);
+            border-color: #a8e6cf;
+            transform: scale(1.1);
+        }
+
+        .bookmark-btn.bookmarked {
+            background: #a8e6cf;
+            color: white;
+            border-color: #a8e6cf;
         }
 
         /* Phase Navigation */
@@ -503,10 +531,10 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#process">Process</a></li>
                 <li><a href="index.html#videos">All Videos</a></li>
-                <li><a href="index.html#community">Community</a></li>
                 <li><a href="design-menus.html">Design Menus</a></li>
                 <li><a href="index.html#community">Community</a></li>
-                <li><a href="index.html#mission">Mission</a></li>
+                <li><a href="worksheets.html">Worksheets</a></li>
+                <li><a href="bookmarks.html">Bookmarks</a></li>
             </ul>
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
                 <span id="menu-icon">☰</span>
@@ -517,8 +545,10 @@
                 <li><a href="index.html" onclick="closeMobileMenu()">Home</a></li>
                 <li><a href="index.html#process" onclick="closeMobileMenu()">Process</a></li>
                 <li><a href="index.html#videos" onclick="closeMobileMenu()">All Videos</a></li>
-                <li><a href="index.html#events" onclick="closeMobileMenu()">Events</a></li>
-                <li><a href="index.html#mission" onclick="closeMobileMenu()">Mission</a></li>
+                <li><a href="design-menus.html" onclick="closeMobileMenu()">Design Menus</a></li>
+                <li><a href="index.html#community" onclick="closeMobileMenu()">Community</a></li>
+                <li><a href="worksheets.html" onclick="closeMobileMenu()">Worksheets</a></li>
+                <li><a href="bookmarks.html" onclick="closeMobileMenu()">Bookmarks</a></li>
             </ul>
         </div>
     </header>
@@ -602,6 +632,7 @@
     </footer>
 
     <script src="js/videoDatabase.js"></script>
+    <script src="js/sessionManager.js"></script>
     <script>
         const currentPhase = 'test';
         const phaseIcon = '🧪';
@@ -662,9 +693,16 @@
                             <div class="video-tags">
                                 ${video.tags.slice(0, 3).map(tag => `<span class="tag">${tag}</span>`).join('')}
                             </div>
-                            <button class="watch-btn" onclick="watchVideo('${video.url}', '${video.id}')">
-                                Watch Now
-                            </button>
+                            <div class="video-actions">
+                                <button class="watch-btn" onclick="watchVideo('${video.url}', '${video.id}')">
+                                    Watch Now
+                                </button>
+                                <button class="bookmark-btn ${sessionManager.isBookmarked(video.id) ? 'bookmarked' : ''}"
+                                        onclick="toggleBookmark(event, '${video.id}', '${video.title.replace(/'/g, "\\'")}', '${currentPhase}')"
+                                        title="${sessionManager.isBookmarked(video.id) ? 'Remove bookmark' : 'Bookmark this video'}">
+                                    ${sessionManager.isBookmarked(video.id) ? '⭐' : '☆'}
+                                </button>
+                            </div>
                         </div>
                     </div>
                 `;
@@ -730,6 +768,40 @@
         function watchVideo(videoUrl, videoId) {
             console.log('🎥 Opening video:', videoId, videoUrl);
            window.location.href = `video.html?id=${videoId}`;
+        }
+
+        // Bookmark toggle function
+        function toggleBookmark(event, videoId, videoTitle, phase) {
+            event.stopPropagation();
+
+            // Get video details from the database
+            const phaseVideos = videoDatabase[phase] || [];
+            const video = phaseVideos.find(v => v.id === videoId);
+
+            if (!video) return;
+
+            // Toggle bookmark
+            sessionManager.bookmarkVideo(videoId, {
+                ...video,
+                phase: phase,
+                title: videoTitle
+            });
+
+            // Update button appearance
+            const button = event.target;
+            const isBookmarked = sessionManager.isBookmarked(videoId);
+
+            if (isBookmarked) {
+                button.classList.add('bookmarked');
+                button.textContent = '⭐';
+                button.title = 'Remove bookmark';
+            } else {
+                button.classList.remove('bookmarked');
+                button.textContent = '☆';
+                button.title = 'Bookmark this video';
+            }
+
+            console.log(`${isBookmarked ? '⭐ Bookmarked' : '☆ Removed bookmark'}:`, videoTitle);
         }
 
         // Mobile menu functionality

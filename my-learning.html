@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Learning - Free Design Thinking Hub</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+        }
+
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 7rem 2rem 4rem;
+        }
+
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .dashboard-title {
+            font-size: 3rem;
+            color: #d4af37;
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .dashboard-subtitle {
+            font-size: 1.2rem;
+            color: #c0c0c0;
+        }
+
+        /* Stats Overview */
+        .stats-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(170, 140, 46, 0.05));
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: #d4af37;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .stat-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #c0c0c0;
+            font-size: 1rem;
+        }
+
+        /* Dashboard Sections */
+        .dashboard-section {
+            background: rgba(26, 26, 46, 0.95);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #d4af37;
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        /* Active Session Card */
+        .active-session-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(170, 140, 46, 0.1));
+            border: 2px solid rgba(212, 175, 55, 0.5);
+            border-radius: 15px;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .session-icon-large {
+            font-size: 4rem;
+        }
+
+        .session-info {
+            flex: 1;
+        }
+
+        .session-name {
+            font-size: 1.5rem;
+            color: #d4af37;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .session-progress {
+            color: #c0c0c0;
+            margin-bottom: 1rem;
+        }
+
+        .progress-bar-small {
+            height: 8px;
+            background: rgba(42, 42, 62, 0.6);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .progress-fill-small {
+            height: 100%;
+            background: linear-gradient(90deg, #d4af37, #aa8c2e);
+            transition: width 0.5s ease;
+        }
+
+        .session-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .action-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .action-btn-primary {
+            background: linear-gradient(135deg, #d4af37, #aa8c2e);
+            color: #1a1a2e;
+            border: none;
+        }
+
+        .action-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .action-btn-secondary {
+            background: transparent;
+            border: 2px solid rgba(212, 175, 55, 0.5);
+            color: #d4af37;
+        }
+
+        .action-btn-secondary:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: #d4af37;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .empty-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .empty-title {
+            font-size: 1.5rem;
+            color: #c0c0c0;
+            margin-bottom: 0.5rem;
+        }
+
+        .empty-message {
+            color: #999;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Quick Links Grid */
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .quick-link-card {
+            background: rgba(42, 42, 62, 0.6);
+            border: 2px solid transparent;
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+
+        .quick-link-card:hover {
+            border-color: #d4af37;
+            transform: translateY(-5px);
+            background: rgba(42, 42, 62, 0.8);
+        }
+
+        .quick-link-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .quick-link-title {
+            font-size: 1.2rem;
+            color: #d4af37;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .quick-link-desc {
+            color: #c0c0c0;
+            font-size: 0.9rem;
+        }
+
+        /* History List */
+        .history-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .history-item {
+            background: rgba(42, 42, 62, 0.4);
+            border-radius: 10px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .history-icon {
+            font-size: 2rem;
+        }
+
+        .history-info {
+            flex: 1;
+        }
+
+        .history-title {
+            color: #d4af37;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .history-meta {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .history-badge {
+            background: rgba(212, 175, 55, 0.2);
+            color: #d4af37;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .dashboard-title {
+                font-size: 2rem;
+            }
+
+            .stats-overview {
+                grid-template-columns: 1fr;
+            }
+
+            .active-session-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .session-actions {
+                width: 100%;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">🎨 Free Design Thinking Hub</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="design-menus.html">Design Menus</a></li>
+                <li><a href="my-learning.html" class="active">My Learning</a></li>
+                <li><a href="bookmarks.html">Bookmarks</a></li>
+                <li><a href="worksheets.html">Worksheets</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                <span id="menu-icon">☰</span>
+            </button>
+        </nav>
+        <div class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="index.html" onclick="closeMobileMenu()">Home</a></li>
+                <li><a href="design-menus.html" onclick="closeMobileMenu()">Design Menus</a></li>
+                <li><a href="my-learning.html" onclick="closeMobileMenu()">My Learning</a></li>
+                <li><a href="bookmarks.html" onclick="closeMobileMenu()">Bookmarks</a></li>
+                <li><a href="worksheets.html" onclick="closeMobileMenu()">Worksheets</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="dashboard-header">
+            <h1 class="dashboard-title">📊 My Learning Dashboard</h1>
+            <p class="dashboard-subtitle">Track your design thinking journey</p>
+        </div>
+
+        <!-- Stats Overview -->
+        <div class="stats-overview" id="statsOverview">
+            <!-- Stats will be inserted here -->
+        </div>
+
+        <!-- Active Session -->
+        <div class="dashboard-section" id="activeSessionSection">
+            <h2 class="section-title">🎯 Active Session</h2>
+            <div id="activeSessionContent">
+                <!-- Content will be inserted here -->
+            </div>
+        </div>
+
+        <!-- Recently Completed -->
+        <div class="dashboard-section" id="historySection">
+            <h2 class="section-title">📜 Recently Completed</h2>
+            <div id="historyContent">
+                <!-- Content will be inserted here -->
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="dashboard-section">
+            <h2 class="section-title">⚡ Quick Actions</h2>
+            <div class="quick-links">
+                <a href="design-menus.html" class="quick-link-card">
+                    <div class="quick-link-icon">🍽️</div>
+                    <div class="quick-link-title">Browse Design Menus</div>
+                    <div class="quick-link-desc">Start a new guided pathway</div>
+                </a>
+                <a href="index.html#videos" class="quick-link-card">
+                    <div class="quick-link-icon">🎥</div>
+                    <div class="quick-link-title">Video Library</div>
+                    <div class="quick-link-desc">Explore all 200+ videos</div>
+                </a>
+                <a href="bookmarks.html" class="quick-link-card">
+                    <div class="quick-link-icon">⭐</div>
+                    <div class="quick-link-title">My Bookmarks</div>
+                    <div class="quick-link-desc">View saved favorites</div>
+                </a>
+                <a href="worksheets.html" class="quick-link-card">
+                    <div class="quick-link-icon">📄</div>
+                    <div class="quick-link-title">Worksheets</div>
+                    <div class="quick-link-desc">Download templates</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Free Design Thinking Hub. All rights reserved. Built with ❤️ for global accessibility.</p>
+        </div>
+    </footer>
+
+    <script src="js/sessionManager.js"></script>
+
+    <script>
+        console.log('📊 My Learning Dashboard loaded');
+
+        // Load dashboard data
+        function loadDashboard() {
+            const stats = sessionManager.getStats();
+            const activeSession = sessionManager.getCurrentSession();
+            const history = sessionManager.getHistory();
+
+            renderStats(stats);
+            renderActiveSession(activeSession);
+            renderHistory(history);
+        }
+
+        // Render stats overview
+        function renderStats(stats) {
+            const container = document.getElementById('statsOverview');
+
+            container.innerHTML = `
+                <div class="stat-card">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-number">${stats.completedSessions}</div>
+                    <div class="stat-label">Sessions Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-number">${stats.totalBookmarks}</div>
+                    <div class="stat-label">Videos Bookmarked</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">${stats.hasActiveSession ? '🔥' : '💤'}</div>
+                    <div class="stat-number">${stats.hasActiveSession ? stats.currentProgress + '%' : '0%'}</div>
+                    <div class="stat-label">Current Progress</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-number">${calculateLevel(stats)}</div>
+                    <div class="stat-label">Your Level</div>
+                </div>
+            `;
+        }
+
+        // Render active session
+        function renderActiveSession(session) {
+            const container = document.getElementById('activeSessionContent');
+
+            if (!session) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">🎯</div>
+                        <div class="empty-title">No Active Session</div>
+                        <div class="empty-message">Start a Design Menu to begin your journey!</div>
+                        <a href="design-menus.html" class="action-btn action-btn-primary">Browse Design Menus</a>
+                    </div>
+                `;
+                return;
+            }
+
+            const progress = (session.completedSteps.length / 5) * 100;
+
+            container.innerHTML = `
+                <div class="active-session-card">
+                    <div class="session-icon-large">${session.menuIcon}</div>
+                    <div class="session-info">
+                        <div class="session-name">${session.menuName}</div>
+                        <div class="session-progress">Step ${session.currentStep + 1} of 5 • ${Math.round(progress)}% Complete</div>
+                        <div class="progress-bar-small">
+                            <div class="progress-fill-small" style="width: ${progress}%"></div>
+                        </div>
+                        <div class="session-actions">
+                            <a href="session.html" class="action-btn action-btn-primary">
+                                ▶ Continue Session
+                            </a>
+                            <button onclick="abandonSession()" class="action-btn action-btn-secondary">
+                                ✕ Cancel Session
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render history
+        function renderHistory(history) {
+            const container = document.getElementById('historyContent');
+
+            if (history.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">📜</div>
+                        <div class="empty-title">No Completed Sessions Yet</div>
+                        <div class="empty-message">Complete your first Design Menu to see it here!</div>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = `
+                <div class="history-list">
+                    ${history.slice(0, 5).map(item => {
+                        const completedDate = new Date(item.completedAt);
+                        const daysAgo = Math.floor((new Date() - completedDate) / (1000 * 60 * 60 * 24));
+                        const timeAgo = daysAgo === 0 ? 'Today' :
+                                       daysAgo === 1 ? 'Yesterday' :
+                                       `${daysAgo} days ago`;
+
+                        return `
+                            <div class="history-item">
+                                <div class="history-icon">${item.menuIcon}</div>
+                                <div class="history-info">
+                                    <div class="history-title">${item.menuName}</div>
+                                    <div class="history-meta">${timeAgo} • ${item.totalTime || '?'} minutes</div>
+                                </div>
+                                <div class="history-badge">✓ Completed</div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            `;
+        }
+
+        // Calculate user level
+        function calculateLevel(stats) {
+            const sessionsCompleted = stats.completedSessions;
+            if (sessionsCompleted === 0) return 'Beginner';
+            if (sessionsCompleted < 3) return 'Learner';
+            if (sessionsCompleted < 6) return 'Practitioner';
+            if (sessionsCompleted < 10) return 'Expert';
+            return 'Master';
+        }
+
+        // Abandon session
+        function abandonSession() {
+            if (confirm('Are you sure you want to abandon your current session? Progress will be lost.')) {
+                sessionManager.cancelSession();
+                loadDashboard();
+            }
+        }
+
+        // Mobile menu functions
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobile-nav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const isOpen = mobileNav.classList.contains('active');
+
+            if (isOpen) {
+                mobileNav.classList.remove('active');
+                menuBtn.setAttribute('aria-expanded', 'false');
+                document.getElementById('menu-icon').textContent = '☰';
+            } else {
+                mobileNav.classList.add('active');
+                menuBtn.setAttribute('aria-expanded', 'true');
+                document.getElementById('menu-icon').textContent = '✕';
+            }
+        }
+
+        function closeMobileMenu() {
+            const mobileNav = document.getElementById('mobile-nav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            mobileNav.classList.remove('active');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            document.getElementById('menu-icon').textContent = '☰';
+        }
+
+        // Initialize
+        loadDashboard();
+    </script>
+</body>
+</html>
