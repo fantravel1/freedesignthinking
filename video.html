@@ -15,10 +15,49 @@
     <meta property="og:url" content="https://www.freedesignthinking.com/video.html">
     <meta property="og:title" content="Design Thinking Video - Free Design Thinking Hub">
     <meta property="og:description" content="Learn design thinking with free video tutorials from top universities.">
-    
+    <meta property="og:image" content="https://www.freedesignthinking.com/images/video-og.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.freedesignthinking.com/video.html">
+
+    <!-- Twitter Card Tags -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.freedesignthinking.com/video.html">
+    <meta property="twitter:title" content="Design Thinking Video - Free Design Thinking Hub">
+    <meta property="twitter:description" content="Learn design thinking with free video tutorials from top universities.">
+    <meta property="twitter:image" content="https://www.freedesignthinking.com/images/video-og.jpg">
+    <meta property="twitter:creator" content="@freedesignthink">
+    <meta property="twitter:site" content="@freedesignthink">
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    
+
+    <!-- Structured Data - VideoObject Schema -->
+    <script type="application/ld+json" id="video-schema">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": "Design Thinking Video",
+      "description": "Learn design thinking with free video tutorials from top universities.",
+      "thumbnailUrl": "https://www.freedesignthinking.com/images/video-og.jpg",
+      "uploadDate": "2024-01-01",
+      "contentUrl": "",
+      "embedUrl": "",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Free Design Thinking Hub",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.freedesignthinking.com/images/logo.png"
+        }
+      },
+      "educationalLevel": "Beginner to Advanced",
+      "learningResourceType": "Video",
+      "isAccessibleForFree": true,
+      "inLanguage": "en"
+    }
+    </script>
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
@@ -35,6 +74,7 @@
             color: #e8e8e8;
             line-height: 1.6;
             min-height: 100vh;
+            font-size: 16px;
         }
 
         .container {
@@ -145,7 +185,8 @@
 
         .mobile-nav a {
             display: block;
-            padding: 1rem;
+            padding: 14px 20px;
+            min-height: 48px;
             color: #e8e8e8;
             text-decoration: none;
             font-weight: 500;
@@ -165,7 +206,7 @@
 
         .breadcrumb {
             margin-bottom: 2rem;
-            color: #888;
+            color: #b5b5b5;
             font-size: 0.9rem;
         }
 
@@ -206,8 +247,8 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: #c0c0c0;
-            font-size: 0.9rem;
+            color: #d0d0d0;
+            font-size: 1rem;
         }
 
         .meta-icon {
@@ -396,7 +437,7 @@
         }
 
         .video-card-description {
-            color: #c0c0c0;
+            color: #d0d0d0;
             font-size: 0.85rem;
             line-height: 1.4;
             margin-bottom: 0.8rem;
@@ -407,7 +448,7 @@
             justify-content: space-between;
             align-items: center;
             font-size: 0.75rem;
-            color: #888;
+            color: #b5b5b5;
         }
 
         /* Action Buttons */
@@ -493,7 +534,7 @@
         .loading {
             text-align: center;
             padding: 4rem 2rem;
-            color: #888;
+            color: #b5b5b5;
         }
 
         .loading-spinner {
@@ -524,7 +565,7 @@
 <body>
     <header>
         <nav class="container">
-            <a href="index.html" class="logo">🎨 Free Design Thinking Hub</a>
+            <a href="index.html" class="logo"><span aria-label="Art and design">🎨</span> Free Design Thinking Hub</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#process">Process</a></li>
@@ -581,19 +622,19 @@
                         <h1 class="video-title" id="video-title">Video Title</h1>
                         <div class="video-meta">
                             <div class="meta-item">
-                                <span class="meta-icon">🎭</span>
+                                <span class="meta-icon"><span aria-hidden="true">🎭</span></span>
                                 <span class="phase-badge" id="video-phase">Phase</span>
                             </div>
                             <div class="meta-item">
-                                <span class="meta-icon">⏱️</span>
+                                <span class="meta-icon"><span aria-hidden="true">⏱️</span></span>
                                 <span id="video-duration">Duration</span>
                             </div>
                             <div class="meta-item">
-                                <span class="meta-icon">👥</span>
+                                <span class="meta-icon"><span aria-hidden="true">👥</span></span>
                                 <span id="video-group-size">Group Size</span>
                             </div>
                             <div class="meta-item">
-                                <span class="meta-icon">📊</span>
+                                <span class="meta-icon"><span aria-hidden="true">📊</span></span>
                                 <span id="video-difficulty">Difficulty</span>
                             </div>
                         </div>
@@ -630,7 +671,7 @@
 
                     <!-- Learning Objectives -->
                     <div class="learning-objectives">
-                        <h3 class="objectives-title">🎯 What You'll Learn</h3>
+                        <h3 class="objectives-title"><span aria-hidden="true">🎯</span> What You'll Learn</h3>
                         <ul class="objectives-list" id="learning-objectives">
                             <!-- Learning objectives will be loaded here -->
                         </ul>
@@ -795,8 +836,52 @@
             const videoTags = currentVideo.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
             tagsContainer.innerHTML = phaseTag + videoTags;
 
+            // Update VideoObject structured data
+            updateVideoSchema();
+
             // Generate learning objectives
             generateLearningObjectives();
+        }
+
+        // Update VideoObject schema with current video data
+        function updateVideoSchema() {
+            const youtubeId = extractYouTubeId(currentVideo.url);
+            const thumbnailUrl = youtubeId ? `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg` : 'https://www.freedesignthinking.com/images/video-og.jpg';
+
+            const schema = {
+                "@context": "https://schema.org",
+                "@type": "VideoObject",
+                "name": currentVideo.title,
+                "description": currentVideo.description,
+                "thumbnailUrl": thumbnailUrl,
+                "uploadDate": "2024-01-01",
+                "duration": currentVideo.duration ? `PT${currentVideo.duration.replace(/[^0-9]/g, '')}M` : "PT10M",
+                "contentUrl": currentVideo.url,
+                "embedUrl": youtubeId ? `https://www.youtube.com/embed/${youtubeId}` : "",
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Free Design Thinking Hub",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://www.freedesignthinking.com/images/logo.png"
+                    }
+                },
+                "educationalLevel": currentVideo.difficulty || "Beginner to Advanced",
+                "learningResourceType": "Video",
+                "isAccessibleForFree": true,
+                "inLanguage": "en",
+                "interactionStatistic": {
+                    "@type": "InteractionCounter",
+                    "interactionType": "http://schema.org/WatchAction",
+                    "userInteractionCount": 0
+                }
+            };
+
+            // Update the schema script
+            const schemaScript = document.getElementById('video-schema');
+            if (schemaScript) {
+                schemaScript.textContent = JSON.stringify(schema, null, 2);
+            }
         }
 
         // Extract YouTube video ID from URL
@@ -892,7 +977,7 @@
             const container = document.getElementById(containerId);
             
             if (videos.length === 0) {
-                container.innerHTML = '<p style="color: #888; text-align: center; padding: 2rem;">No videos available</p>';
+                container.innerHTML = '<p style="color: #b5b5b5; text-align: center; padding: 2rem;">No videos available</p>';
                 return;
             }
 
@@ -904,15 +989,15 @@
                 return `
                     <div class="video-card" onclick="navigateToVideo('${video.id}')">
                         <div class="video-thumbnail">
-                            ${icon}
+                            <span aria-hidden="true">${icon}</span>
                             <div class="video-duration">${video.duration}</div>
                         </div>
                         <div class="video-info">
                             <h4 class="video-card-title">${video.title}</h4>
                             <p class="video-card-description">${video.description}</p>
                             <div class="video-card-meta">
-                                <span>👥 ${video.groupSize}</span>
-                                <span>📊 ${video.difficulty}</span>
+                                <span><span aria-hidden="true">👥</span> ${video.groupSize}</span>
+                                <span><span aria-hidden="true">📊</span> ${video.difficulty}</span>
                             </div>
                         </div>
                     </div>
