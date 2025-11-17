@@ -6,11 +6,13 @@
   "display": "standalone",
   "background_color": "#1a1a2e",
   "theme_color": "#d4af37",
-  "orientation": "portrait-primary",
+  "orientation": "any",
   "scope": "/",
   "lang": "en-US",
   "dir": "ltr",
   "categories": ["education", "productivity", "lifestyle"],
+  "display_override": ["window-controls-overlay", "standalone"],
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "/icon-72x72.png",

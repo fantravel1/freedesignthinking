@@ -1,33 +1,66 @@
 // Service Worker for Free Design Thinking Hub
 // Enables offline functionality and improves performance
+// Network-first strategy for SEO, with cache fallback for offline support
 
-const CACHE_NAME = 'design-thinking-hub-v1';
-const urlsToCache = [
+const CACHE_VERSION = 'v2.0.0';
+const CACHE_NAME = `design-thinking-hub-${CACHE_VERSION}`;
+const OFFLINE_CACHE = `offline-${CACHE_VERSION}`;
+
+// Critical assets to cache on install (minimal for fast installation)
+const CRITICAL_ASSETS = [
     '/',
     '/index.html',
     '/css/styles.css',
     '/js/videoDatabase.js',
+    '/js/pwa-init.js',
     '/404.html',
-    '/manifest.json',
-    'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap'
+    '/offline.html',
+    '/manifest.json'
 ];
 
-// Install event - cache resources
+// Runtime cache patterns (cached as they're requested)
+const RUNTIME_CACHE_PATTERNS = [
+    /\.html$/,
+    /\.css$/,
+    /\.js$/,
+    /\.(png|jpg|jpeg|gif|svg|webp|ico)$/,
+    /\.(woff|woff2|ttf|otf|eot)$/
+];
+
+// Never cache these
+const NEVER_CACHE = [
+    /\/api\//,
+    /chrome-extension/,
+    /google-analytics/,
+    /googletagmanager/
+];
+
+// Maximum cache size
+const MAX_CACHE_SIZE = 100;
+
+// Install event - cache critical resources only
 self.addEventListener('install', (event) => {
-    console.log('Service Worker: Installing...');
+    console.log('[SW] Installing...');
 
     event.waitUntil(
         caches.open(CACHE_NAME)
             .then((cache) => {
-                console.log('Service Worker: Caching files');
-                return cache.addAll(urlsToCache);
+                console.log('[SW] Caching critical assets');
+                // Don't let install fail if one asset fails
+                return Promise.allSettled(
+                    CRITICAL_ASSETS.map(url =>
+                        cache.add(url).catch(err => {
+                            console.warn(`[SW] Failed to cache ${url}:`, err);
+                        })
+                    )
+                );
             })
             .then(() => {
-                console.log('Service Worker: Installed successfully');
+                console.log('[SW] Installation complete');
                 return self.skipWaiting();
             })
             .catch((error) => {
-                console.error('Service Worker: Installation failed:', error);
+                console.error('[SW] Installation failed:', error);
             })
     );
 });
@@ -53,49 +86,104 @@ self.addEventListener('activate', (event) => {
     );
 });
 
-// Fetch event - serve from cache, fallback to network
+// Fetch event - NETWORK-FIRST strategy for SEO
+// Always tries network first for fresh content, falls back to cache offline
 self.addEventListener('fetch', (event) => {
+    const { request } = event;
+    const url = new URL(request.url);
+
     // Skip non-GET requests
-    if (event.request.method !== 'GET') {
+    if (request.method !== 'GET') {
         return;
     }
 
-    // Skip external video requests (YouTube, etc.)
-    if (event.request.url.includes('youtube.com') || event.request.url.includes('youtu.be')) {
+    // Skip cross-origin requests and never-cache patterns
+    if (url.origin !== location.origin || shouldNeverCache(request.url)) {
         return;
     }
 
-    event.respondWith(
-        caches.match(event.request)
-            .then((response) => {
-                // Return cached version or fetch from network
-                return response || fetch(event.request)
-                    .then((fetchResponse) => {
-                        // Check if valid response
-                        if (!fetchResponse || fetchResponse.status !== 200 || fetchResponse.type !== 'basic') {
-                            return fetchResponse;
-                        }
+    // Skip YouTube and external video requests
+    if (request.url.includes('youtube.com') ||
+        request.url.includes('youtu.be') ||
+        request.url.includes('vimeo.com')) {
+        return;
+    }
 
-                        // Clone the response
-                        const responseToCache = fetchResponse.clone();
+    // NETWORK-FIRST strategy for HTML pages (SEO-friendly)
+    if (request.mode === 'navigate' || request.destination === 'document') {
+        event.respondWith(
+            fetch(request)
+                .then((response) => {
+                    // Clone and cache the fresh response
+                    if (response && response.status === 200) {
+                        const responseToCache = response.clone();
+                        caches.open(CACHE_NAME).then((cache) => {
+                            cache.put(request, responseToCache);
+                        });
+                    }
+                    return response;
+                })
+                .catch(() => {
+                    // If network fails, try cache, then offline page
+                    return caches.match(request)
+                        .then((cachedResponse) => {
+                            return cachedResponse || caches.match('/offline.html');
+                        });
+                })
+        );
+        return;
+    }
 
-                        // Cache the new response
-                        caches.open(CACHE_NAME)
-                            .then((cache) => {
-                                cache.put(event.request, responseToCache);
-                            });
+    // NETWORK-FIRST for CSS, JS, images, fonts (ensures fresh content)
+    if (shouldRuntimeCache(request.url)) {
+        event.respondWith(
+            fetch(request)
+                .then((response) => {
+                    // Cache successful responses
+                    if (response && response.status === 200) {
+                        const responseToCache = response.clone();
+                        caches.open(CACHE_NAME).then((cache) => {
+                            cache.put(request, responseToCache);
+                            limitCacheSize(CACHE_NAME, MAX_CACHE_SIZE);
+                        });
+                    }
+                    return response;
+                })
+                .catch(() => {
+                    // Fallback to cache if offline
+                    return caches.match(request);
+                })
+        );
+        return;
+    }
 
-                        return fetchResponse;
-                    })
-                    .catch(() => {
-                        // If both cache and network fail, show offline page
-                        if (event.request.destination === 'document') {
-                            return caches.match('/404.html');
-                        }
-                    });
-            })
-    );
+    // Default: network only
+    event.respondWith(fetch(request));
 });
+
+// Helper: Check if URL should never be cached
+function shouldNeverCache(url) {
+    return NEVER_CACHE.some(pattern => pattern.test(url));
+}
+
+// Helper: Check if URL should be runtime cached
+function shouldRuntimeCache(url) {
+    return RUNTIME_CACHE_PATTERNS.some(pattern => pattern.test(url));
+}
+
+// Helper: Limit cache size
+async function limitCacheSize(cacheName, maxSize) {
+    const cache = await caches.open(cacheName);
+    const keys = await cache.keys();
+
+    if (keys.length > maxSize) {
+        const deleteCount = keys.length - maxSize;
+        for (let i = 0; i < deleteCount; i++) {
+            await cache.delete(keys[i]);
+        }
+        console.log(`[SW] Cache trimmed to ${maxSize} items`);
+    }
+}
 
 // Message event - handle messages from the app
 self.addEventListener('message', (event) => {
