@@ -220,11 +220,19 @@ nav {
     text-decoration: none;
     color: var(--text-primary);
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid transparent;
 }
 
 .nav-links a:hover {
     color: var(--accent-primary);
+}
+
+.nav-links a.active {
+    color: var(--accent-primary);
+    border-bottom-color: var(--accent-primary);
+    font-weight: 600;
 }
 
 /* Mobile Menu */
@@ -981,5 +989,243 @@ footer {
 
     .skip-to-content, .search-container {
         display: none !important;
+    }
+}
+
+/* ========================================
+   DESIGN MENUS SHOWCASE SECTION
+   ======================================== */
+
+.design-menus-showcase {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #2a2a3e 0%, #1a1a2e 50%, #0f0f23 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.design-menus-showcase::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="menu-pattern" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(212,175,55,0.05)"/></pattern></defs><rect width="1000" height="1000" fill="url(%23menu-pattern)"/></svg>');
+    opacity: 0.5;
+}
+
+.design-menus-showcase .container {
+    position: relative;
+    z-index: 2;
+}
+
+.showcase-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.showcase-header h2 {
+    font-size: 2.5rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #f8f8f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.showcase-header .sparkle {
+    display: inline-block;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    50% { transform: scale(1.2) rotate(180deg); opacity: 0.8; }
+}
+
+.showcase-header p {
+    font-size: 1.2rem;
+    color: #d0d0d0;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.menu-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.menu-showcase-card {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(184, 148, 31, 0.05));
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-showcase-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.menu-showcase-card:hover::before {
+    opacity: 1;
+}
+
+.menu-showcase-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: rgba(212, 175, 55, 0.6);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+}
+
+.menu-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    display: block;
+    animation: float 3s ease-in-out infinite;
+}
+
+.menu-showcase-card:nth-child(1) .menu-icon { animation-delay: 0s; }
+.menu-showcase-card:nth-child(2) .menu-icon { animation-delay: 0.3s; }
+.menu-showcase-card:nth-child(3) .menu-icon { animation-delay: 0.6s; }
+.menu-showcase-card:nth-child(4) .menu-icon { animation-delay: 0.9s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.menu-showcase-card h3 {
+    font-size: 1.3rem;
+    color: #d4af37;
+    margin-bottom: 0.75rem;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.menu-showcase-card p {
+    color: #d0d0d0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.menu-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #d4af37, #b8941f);
+    color: #1a1a2e;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.explore-all-cta {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.explore-all-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, #d4af37, #b8941f);
+    color: #1a1a2e;
+    padding: 1.25rem 2.5rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.explore-all-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.explore-all-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.explore-all-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+}
+
+.explore-all-btn .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.explore-all-btn:hover .arrow {
+    transform: translateX(5px);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .design-menus-showcase {
+        padding: 3rem 0;
+    }
+
+    .showcase-header h2 {
+        font-size: 2rem;
+        flex-direction: column;
+    }
+
+    .showcase-header p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .menu-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .menu-showcase-card {
+        padding: 1.5rem;
+    }
+
+    .explore-all-btn {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-icon {
+        font-size: 3rem;
+    }
+
+    .menu-showcase-card h3 {
+        font-size: 1.1rem;
     }
 }
