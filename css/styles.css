@@ -125,6 +125,10 @@ body {
     background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-mid) 50%, var(--bg-gradient-end) 100%);
     color: var(--text-primary);
     line-height: 1.6;
+    /* Mobile-specific optimizations */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 /* Respect user's motion preferences */
@@ -871,6 +875,48 @@ footer {
 
     .cta-button:hover {
         transform: none;
+    }
+
+    /* Enhanced tap targets for touch devices */
+    button, a, input[type="button"], input[type="submit"] {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    /* Remove tap highlight color for better UX */
+    * {
+        -webkit-tap-highlight-color: rgba(212, 175, 55, 0.2);
+        -webkit-touch-callout: none;
+    }
+
+    /* Improve scroll performance */
+    * {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* PWA-specific styles */
+.pwa-mode {
+    /* Additional padding for notched devices */
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.pwa-mode header {
+    padding-top: max(1rem, env(safe-area-inset-top));
+}
+
+/* iOS-specific adjustments */
+@supports (-webkit-touch-callout: none) {
+    /* iOS Safari specific styles */
+    body {
+        /* Prevent rubber-band scrolling */
+        overscroll-behavior-y: none;
+    }
+
+    /* Fix for iOS Safari bottom bar */
+    .hero {
+        min-height: -webkit-fill-available;
     }
 }
 
