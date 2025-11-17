@@ -373,13 +373,16 @@
     
     <!-- PWA Initialization Script -->
     <script src="/js/pwa-init.js" defer></script>
+    <!-- Unified Navigation Script -->
+    <script src="/js/unified-nav.js" defer></script>
+
 </head>
 
 <body>
     <header>
         <nav class="container">
             <a href="index.html" class="logo"><span aria-label="Art and design">🎨</span> Free Design Thinking Hub</a>
-            <ul class="nav-links">
+            <ul class="nav-links unified-nav">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="design-menus.html">Design Menus</a></li>
                 <li><a href="my-learning.html" class="active">My Learning</a></li>
@@ -390,7 +393,7 @@
                 <span id="menu-icon">☰</span>
             </button>
         </nav>
-        <div class="mobile-nav" id="mobile-nav">
+        <div class="mobile-nav unified-nav" id="mobile-nav">
             <ul>
                 <li><a href="index.html" onclick="closeMobileMenu()">Home</a></li>
                 <li><a href="design-menus.html" onclick="closeMobileMenu()">Design Menus</a></li>
@@ -458,7 +461,7 @@
     </div>
 
     <footer>
-        <div class="container">
+        <div class="container unified-footer">
             <p>&copy; 2025 Free Design Thinking Hub. All rights reserved. Built with <span aria-label="love">❤️</span> for global accessibility.</p>
         </div>
     </footer>
