@@ -5,6 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Bookmarks - Free Design Thinking Hub</title>
 
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="My Bookmarks - Free Design Thinking Hub">
+    <meta name="description" content="Your saved design thinking videos and resources. Access your bookmarked content anytime.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.freedesignthinking.com/bookmarks.html">
+    <meta property="og:title" content="My Bookmarks - Free Design Thinking Hub">
+    <meta property="og:description" content="Your saved design thinking videos and resources. Access your bookmarked content anytime.">
+    <meta property="og:image" content="https://www.freedesignthinking.com/images/bookmarks-og.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.freedesignthinking.com/bookmarks.html">
+
+    <!-- Twitter Card Tags -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.freedesignthinking.com/bookmarks.html">
+    <meta property="twitter:title" content="My Bookmarks - Free Design Thinking Hub">
+    <meta property="twitter:description" content="Your saved design thinking videos and resources. Access your bookmarked content anytime.">
+    <meta property="twitter:image" content="https://www.freedesignthinking.com/images/bookmarks-og.jpg">
+    <meta property="twitter:creator" content="@freedesignthink">
+    <meta property="twitter:site" content="@freedesignthink">
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
@@ -39,7 +62,7 @@
 
         .page-subtitle {
             font-size: 1.2rem;
-            color: #c0c0c0;
+            color: #d0d0d0;
         }
 
         .stats-bar {
@@ -64,8 +87,8 @@
         }
 
         .stat-label {
-            color: #c0c0c0;
-            font-size: 0.9rem;
+            color: #d0d0d0;
+            font-size: 1rem;
         }
 
         .bookmarks-grid {
@@ -98,7 +121,7 @@
             color: #d4af37;
             padding: 0.4rem 0.8rem;
             border-radius: 10px;
-            font-size: 0.8rem;
+            font-size: 1rem;
             font-weight: 600;
         }
 
@@ -111,7 +134,7 @@
         }
 
         .bookmark-description {
-            color: #c0c0c0;
+            color: #d0d0d0;
             margin-bottom: 1rem;
             line-height: 1.5;
             font-size: 0.95rem;
@@ -119,7 +142,7 @@
 
         .bookmark-meta {
             display: flex;
-            gap: 1rem;
+            gap: 12px;
             margin-bottom: 1rem;
             flex-wrap: wrap;
         }
@@ -129,7 +152,7 @@
             padding: 0.3rem 0.8rem;
             border-radius: 8px;
             font-size: 0.85rem;
-            color: #c0c0c0;
+            color: #d0d0d0;
         }
 
         .bookmark-actions {
@@ -145,7 +168,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
 
         .action-btn-primary {
@@ -182,12 +205,12 @@
 
         .empty-title {
             font-size: 2rem;
-            color: #c0c0c0;
+            color: #d0d0d0;
             margin-bottom: 1rem;
         }
 
         .empty-message {
-            color: #999;
+            color: #c5c5c5;
             margin-bottom: 2rem;
         }
 
@@ -222,7 +245,7 @@
 <body>
     <header>
         <nav class="container">
-            <a href="index.html" class="logo">🎨 Free Design Thinking Hub</a>
+            <a href="index.html" class="logo"><span aria-label="Art and design">🎨</span> Free Design Thinking Hub</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="design-menus.html">Design Menus</a></li>
@@ -246,7 +269,7 @@
     <div class="page-container">
         <!-- Header -->
         <div class="page-header">
-            <h1 class="page-title">⭐ My Bookmarks</h1>
+            <h1 class="page-title"><span aria-label="Bookmarks">⭐</span> My Bookmarks</h1>
             <p class="page-subtitle">Your saved videos for quick access</p>
 
             <div class="stats-bar" id="statsBar">
@@ -257,11 +280,11 @@
             <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap;">
                 <select id="phaseFilter" onchange="filterBookmarks()" style="padding: 0.75rem 1.5rem; border-radius: 10px; background: rgba(26, 26, 46, 0.8); color: #d4af37; border: 2px solid rgba(212, 175, 55, 0.3); cursor: pointer; font-size: 1rem;">
                     <option value="all">All Phases</option>
-                    <option value="warm-up">🏃 Warm-Up</option>
-                    <option value="brainstorm">🧠 Brainstorm</option>
-                    <option value="prototype">🔧 Prototype</option>
-                    <option value="test">🧪 Test</option>
-                    <option value="reflect">🤔 Reflect</option>
+                    <option value="warm-up"><span aria-hidden="true">🏃</span> Warm-Up</option>
+                    <option value="brainstorm"><span aria-hidden="true">🧠</span> Brainstorm</option>
+                    <option value="prototype"><span aria-hidden="true">🔧</span> Prototype</option>
+                    <option value="test"><span aria-hidden="true">🧪</span> Test</option>
+                    <option value="reflect"><span aria-hidden="true">🤔</span> Reflect</option>
                 </select>
 
                 <select id="sortOrder" onchange="filterBookmarks()" style="padding: 0.75rem 1.5rem; border-radius: 10px; background: rgba(26, 26, 46, 0.8); color: #d4af37; border: 2px solid rgba(212, 175, 55, 0.3); cursor: pointer; font-size: 1rem;">
@@ -271,7 +294,7 @@
                 </select>
 
                 <button onclick="clearAllBookmarks()" style="padding: 0.75rem 1.5rem; border-radius: 10px; background: rgba(255, 107, 107, 0.2); color: #ff6b6b; border: 2px solid rgba(255, 107, 107, 0.5); cursor: pointer; font-weight: 600;">
-                    🗑️ Clear All
+                    <span aria-hidden="true">🗑️</span> Clear All
                 </button>
             </div>
         </div>
@@ -284,7 +307,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Free Design Thinking Hub. All rights reserved. Built with ❤️ for global accessibility.</p>
+            <p>&copy; 2025 Free Design Thinking Hub. All rights reserved. Built with <span aria-label="love">❤️</span> for global accessibility.</p>
         </div>
     </footer>
 
@@ -340,7 +363,7 @@
             if (bookmarks.length === 0) {
                 container.innerHTML = `
                     <div class="empty-state">
-                        <div class="empty-icon">📚</div>
+                        <div class="empty-icon"><span aria-hidden="true">📚</span></div>
                         <h2 class="empty-title">No Bookmarks Yet</h2>
                         <p class="empty-message">
                             Start bookmarking your favorite videos to build your personal library!
@@ -360,7 +383,7 @@
 
                 return `
                     <div class="bookmark-card">
-                        <div class="bookmark-badge">${config.icon} ${config.name}</div>
+                        <div class="bookmark-badge"><span aria-hidden="true">${config.icon}</span> ${config.name}</div>
                         <h3 class="bookmark-title">${bookmark.title}</h3>
                         <p class="bookmark-description">${bookmark.description || 'No description available'}</p>
                         <div class="bookmark-meta">

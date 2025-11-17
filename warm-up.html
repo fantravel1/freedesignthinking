@@ -16,7 +16,19 @@
     <meta property="og:title" content="Warm-Up Phase - Free Design Thinking Hub">
     <meta property="og:description" content="Energize your team with 70+ free warm-up exercises from top universities. Build rapport and boost creativity.">
     <meta property="og:image" content="https://www.freedesignthinking.com/images/warm-up-og.jpg">
-    
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.freedesignthinking.com/warm-up.html">
+
+    <!-- Twitter Card Tags -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.freedesignthinking.com/warm-up.html">
+    <meta property="twitter:title" content="Warm-Up Phase - Free Design Thinking Hub">
+    <meta property="twitter:description" content="Energize your team with 70+ free warm-up exercises from top universities. Build rapport and boost creativity.">
+    <meta property="twitter:image" content="https://www.freedesignthinking.com/images/warm-up-og.jpg">
+    <meta property="twitter:creator" content="@freedesignthink">
+    <meta property="twitter:site" content="@freedesignthink">
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     
@@ -36,6 +48,7 @@
             color: #e8e8e8;
             line-height: 1.6;
             min-height: 100vh;
+            font-size: 16px;
         }
 
         .container {
@@ -128,7 +141,8 @@
 
         .mobile-nav a {
             display: block;
-            padding: 1rem;
+            padding: 14px 20px;
+            min-height: 48px;
             color: #e8e8e8;
             text-decoration: none;
             font-weight: 500;
@@ -235,7 +249,7 @@
         .filter-tabs {
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            gap: 12px;
             flex-wrap: wrap;
             margin-bottom: 2rem;
         }
@@ -244,7 +258,8 @@
             background: rgba(255, 255, 255, 0.1);
             border: 2px solid rgba(255, 107, 107, 0.3);
             color: #e8e8e8;
-            padding: 8px 16px;
+            padding: 12px 20px;
+            min-height: 48px;
             border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -288,7 +303,8 @@
             background: linear-gradient(135deg, #ff6b6b, #ffa726);
             border: none;
             color: white;
-            padding: 1rem 3rem;
+            padding: 12px 20px;
+            min-height: 48px;
             border-radius: 25px;
             font-size: 1.1rem;
             font-weight: 700;
@@ -309,7 +325,7 @@
         }
 
         .video-count-info {
-            color: #c0c0c0;
+            color: #d0d0d0;
             margin-top: 1rem;
             font-size: 0.9rem;
         }
@@ -365,9 +381,9 @@
         }
 
         .video-description {
-            color: #c0c0c0;
+            color: #d0d0d0;
             margin-bottom: 1rem;
-            font-size: 0.9rem;
+            font-size: 1rem;
             line-height: 1.5;
         }
 
@@ -375,8 +391,8 @@
             display: flex;
             gap: 1rem;
             margin-bottom: 1rem;
-            font-size: 0.8rem;
-            color: #a0a0a0;
+            font-size: 1rem;
+            color: #c5c5c5;
         }
 
         .video-meta span {
@@ -394,23 +410,25 @@
 
         .tag {
             background: rgba(255, 107, 107, 0.2);
-            padding: 0.3rem 0.8rem;
+            padding: 10px 16px;
+            min-height: 48px;
             border-radius: 20px;
-            font-size: 0.7rem;
+            font-size: 0.875rem;
             color: #ff6b6b;
             border: 1px solid rgba(255, 107, 107, 0.3);
         }
 
         .video-actions {
             display: flex;
-            gap: 0.5rem;
+            gap: 12px;
         }
 
         .watch-btn {
             background: linear-gradient(135deg, #ff6b6b, #ffa726);
             border: none;
             color: white;
-            padding: 12px 24px;
+            padding: 12px 20px;
+            min-height: 48px;
             border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -425,7 +443,9 @@
         }
 
         .bookmark-btn {
-            padding: 12px 16px;
+            padding: 12px 20px;
+            min-height: 48px;
+            min-width: 48px;
             background: rgba(255, 255, 255, 0.1);
             border: 2px solid rgba(255, 107, 107, 0.5);
             border-radius: 25px;
@@ -548,20 +568,20 @@
         .loading {
             text-align: center;
             padding: 3rem;
-            color: #c0c0c0;
+            color: #d0d0d0;
         }
 
         .no-results {
             text-align: center;
             padding: 3rem;
-            color: #c0c0c0;
+            color: #d0d0d0;
         }
     </style>
 </head>
 <body>
     <header>
         <nav class="container">
-            <a href="index.html" class="logo">🎨 Free Design Thinking Hub</a>
+            <a href="index.html" class="logo"><span aria-label="Art and design" role="img"><span aria-hidden="true">🎨</span></span> Free Design Thinking Hub</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#process">Process</a></li>
@@ -572,7 +592,7 @@
                 <li><a href="bookmarks.html">Bookmarks</a></li>
             </ul>
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
-                <span id="menu-icon">☰</span>
+                <span id="menu-icon" aria-hidden="true">☰</span>
             </button>
         </nav>
         <div class="mobile-nav" id="mobile-nav">
@@ -591,7 +611,7 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-icon">🏃</div>
+                <div class="hero-icon" aria-label="Warm-up exercises" role="img"><span aria-hidden="true">🏃</span></div>
                 <h1>Warm-Up</h1>
                 <p class="hero-description">
                     Energize your team and activate creativity with our extensive collection of warm-up exercises. 
@@ -656,19 +676,19 @@
         <div class="container">
             <h3>Explore Other Design Thinking Phases</h3>
             <div class="phase-links">
-                <a href="warm-up.html" class="phase-link current">🏃 Warm-Up</a>
-                <a href="brainstorm.html" class="phase-link">🧠 Brainstorm</a>
-                <a href="prototype.html" class="phase-link">🔧 Prototype</a>
-                <a href="test.html" class="phase-link">🧪 Test</a>
-                <a href="reflect.html" class="phase-link">🤔 Reflect</a>
-                <a href="next-steps.html" class="phase-link">🚀 Next Steps</a>
+                <a href="warm-up.html" class="phase-link current"><span aria-label="Warm-up exercises" role="img"><span aria-hidden="true">🏃</span></span> Warm-Up</a>
+                <a href="brainstorm.html" class="phase-link"><span aria-label="Brainstorming" role="img"><span aria-hidden="true">🧠</span></span> Brainstorm</a>
+                <a href="prototype.html" class="phase-link"><span aria-label="Prototyping" role="img"><span aria-hidden="true">🔧</span></span> Prototype</a>
+                <a href="test.html" class="phase-link"><span aria-label="Testing" role="img"><span aria-hidden="true">🧪</span></span> Test</a>
+                <a href="reflect.html" class="phase-link"><span aria-label="Reflection" role="img"><span aria-hidden="true">🤔</span></span> Reflect</a>
+                <a href="next-steps.html" class="phase-link"><span aria-label="Next steps" role="img"><span aria-hidden="true">🚀</span></span> Next Steps</a>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Free Design Thinking Hub. All rights reserved. Built with ❤️ for global accessibility.</p>
+            <p>&copy; 2025 Free Design Thinking Hub. All rights reserved. Built with <span aria-label="love" role="img"><span aria-hidden="true">❤️</span></span> for global accessibility.</p>
         </div>
     </footer>
 
@@ -743,8 +763,8 @@
                             <h3 class="video-title">${video.title}</h3>
                             <p class="video-description">${video.description}</p>
                             <div class="video-meta">
-                                <span>👥 ${video.groupSize}</span>
-                                <span>📊 ${video.difficulty}</span>
+                                <span><span aria-label="Group size" role="img"><span aria-hidden="true">👥</span></span> ${video.groupSize}</span>
+                                <span><span aria-label="Difficulty level" role="img"><span aria-hidden="true">📊</span></span> ${video.difficulty}</span>
                             </div>
                             <div class="video-tags">
                                 ${video.tags.slice(0, 3).map(tag => `<span class="tag">${tag}</span>`).join('')}
@@ -755,8 +775,8 @@
                                 </button>
                                 <button class="bookmark-btn ${sessionManager.isBookmarked(video.id) ? 'bookmarked' : ''}"
                                         onclick="toggleBookmark(event, '${video.id}', '${video.title.replace(/'/g, "\\'")}', '${currentPhase}')"
-                                        title="${sessionManager.isBookmarked(video.id) ? 'Remove bookmark' : 'Bookmark this video'}">
-                                    ${sessionManager.isBookmarked(video.id) ? '⭐' : '☆'}
+                                        aria-label="${sessionManager.isBookmarked(video.id) ? 'Remove bookmark' : 'Bookmark this video'}">
+                                    <span aria-hidden="true">${sessionManager.isBookmarked(video.id) ? '⭐' : '☆'}</span>
                                 </button>
                             </div>
                         </div>
@@ -882,12 +902,12 @@
 
             if (isBookmarked) {
                 button.classList.add('bookmarked');
-                button.textContent = '⭐';
-                button.title = 'Remove bookmark';
+                button.innerHTML = '<span aria-hidden="true">⭐</span>';
+                button.setAttribute('aria-label', 'Remove bookmark');
             } else {
                 button.classList.remove('bookmarked');
-                button.textContent = '☆';
-                button.title = 'Bookmark this video';
+                button.innerHTML = '<span aria-hidden="true">☆</span>';
+                button.setAttribute('aria-label', 'Bookmark this video');
             }
 
             console.log(`${isBookmarked ? '⭐ Bookmarked' : '☆ Removed bookmark'}:`, videoTitle);
@@ -900,7 +920,7 @@
             
             if (mobileNav) {
                 mobileNav.classList.toggle('active');
-                menuIcon.textContent = mobileNav.classList.contains('active') ? '✕' : '☰';
+                menuIcon.textContent = mobileNav.classList.contains('active') ? '\u2715' : '\u2630';
             }
         }
 
@@ -910,7 +930,7 @@
             
             if (mobileNav) {
                 mobileNav.classList.remove('active');
-                menuIcon.textContent = '☰';
+                menuIcon.textContent = '\u2630';
             }
         }
 

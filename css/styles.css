@@ -18,8 +18,8 @@
     --bg-gradient-end: #0f0f23;
 
     --text-primary: #e8e8e8;
-    --text-secondary: #c0c0c0;
-    --text-muted: #888;
+    --text-secondary: #d0d0d0;
+    --text-muted: #b5b5b5;
 
     --accent-primary: #d4af37;
     --accent-secondary: #b8941f;
@@ -475,7 +475,7 @@ nav {
 }
 
 .video-description {
-    color: #c0c0c0;
+    color: #d0d0d0;
     margin-bottom: 1rem;
 }
 
@@ -675,7 +675,7 @@ footer {
 }
 
 .footer-section p, .footer-section a {
-    color: #c0c0c0;
+    color: #d0d0d0;
     text-decoration: none;
     line-height: 1.8;
 }

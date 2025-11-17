@@ -15,6 +15,19 @@
     <meta property="og:url" content="https://www.freedesignthinking.com/design-menus.html">
     <meta property="og:title" content="Design Menus - Curated Design Thinking Pathways">
     <meta property="og:description" content="Explore 12+ curated design thinking pathways for any project type.">
+    <meta property="og:image" content="https://www.freedesignthinking.com/images/design-menus-og.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.freedesignthinking.com/design-menus.html">
+
+    <!-- Twitter Card Tags -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.freedesignthinking.com/design-menus.html">
+    <meta property="twitter:title" content="Design Menus - Curated Design Thinking Pathways">
+    <meta property="twitter:description" content="Explore 12+ curated design thinking pathways for any project type.">
+    <meta property="twitter:image" content="https://www.freedesignthinking.com/images/design-menus-og.jpg">
+    <meta property="twitter:creator" content="@freedesignthink">
+    <meta property="twitter:site" content="@freedesignthink">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -28,6 +41,7 @@
     <style>
         body {
             background: linear-gradient(135deg, #d4af37 0%, #aa8c2e 100%);
+            font-size: 16px;
         }
 
         .hero {
@@ -54,7 +68,7 @@
             max-width: 800px;
             margin: 0 auto 3rem;
             line-height: 1.8;
-            color: #c0c0c0;
+            color: #d0d0d0;
         }
 
         .filter-section {
@@ -66,7 +80,7 @@
         .filter-tabs {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 12px;
             justify-content: center;
             margin-bottom: 1rem;
         }
@@ -74,8 +88,9 @@
         .filter-tab {
             background: transparent;
             border: 2px solid rgba(212, 175, 55, 0.3);
-            color: #c0c0c0;
-            padding: 0.75rem 1.5rem;
+            color: #d0d0d0;
+            padding: 12px 20px;
+            min-height: 48px;
             border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -166,7 +181,7 @@
         }
 
         .menu-description {
-            color: #c0c0c0;
+            color: #d0d0d0;
             margin-bottom: 1.5rem;
             line-height: 1.6;
         }
@@ -184,8 +199,8 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: #c0c0c0;
-            font-size: 0.9rem;
+            color: #d0d0d0;
+            font-size: 1rem;
         }
 
         .meta-icon {
@@ -224,14 +239,15 @@
         }
 
         .step-video {
-            color: #c0c0c0;
+            color: #d0d0d0;
             font-size: 0.9rem;
         }
 
         .view-menu-btn {
             margin-top: 1.5rem;
             width: 100%;
-            padding: 1rem;
+            padding: 12px 20px;
+            min-height: 48px;
             background: linear-gradient(135deg, #d4af37, #aa8c2e);
             border: none;
             border-radius: 10px;
@@ -285,8 +301,8 @@
             border: none;
             color: #d4af37;
             font-size: 2rem;
-            width: 40px;
-            height: 40px;
+            min-width: 48px;
+            min-height: 48px;
             border-radius: 50%;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -315,7 +331,7 @@
         }
 
         .modal-subtitle {
-            color: #c0c0c0;
+            color: #d0d0d0;
             font-size: 1.1rem;
         }
 
@@ -359,7 +375,7 @@
         }
 
         .pathway-step-duration {
-            color: #c0c0c0;
+            color: #d0d0d0;
             font-size: 0.9rem;
         }
 
@@ -370,7 +386,7 @@
         }
 
         .pathway-step-description {
-            color: #c0c0c0;
+            color: #d0d0d0;
             line-height: 1.6;
             margin-bottom: 1rem;
         }
@@ -379,7 +395,8 @@
             background: rgba(212, 175, 55, 0.2);
             border: 2px solid #d4af37;
             color: #d4af37;
-            padding: 0.75rem 1.5rem;
+            padding: 12px 20px;
+            min-height: 48px;
             border-radius: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -423,7 +440,7 @@
         .loading {
             text-align: center;
             padding: 4rem 0;
-            color: #c0c0c0;
+            color: #d0d0d0;
             font-size: 1.2rem;
         }
 
@@ -443,7 +460,7 @@
 <body>
     <header>
         <nav class="container">
-            <a href="index.html" class="logo">🎨 Free Design Thinking Hub</a>
+            <a href="index.html" class="logo"><span aria-label="Art and design">🎨</span> Free Design Thinking Hub</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#process">Process</a></li>
@@ -506,7 +523,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Free Design Thinking Hub. All rights reserved. Built with ❤️ for global accessibility.</p>
+            <p>&copy; 2025 Free Design Thinking Hub. All rights reserved. Built with <span aria-label="love">❤️</span> for global accessibility.</p>
         </div>
     </footer>
 
@@ -607,7 +624,7 @@
                 : designMenus.filter(menu => menu.difficulty === filter);
 
             if (filteredMenus.length === 0) {
-                grid.innerHTML = '<p style="text-align: center; color: #c0c0c0;">No menus found for this filter.</p>';
+                grid.innerHTML = '<p style="text-align: center; color: #d0d0d0;">No menus found for this filter.</p>';
                 return;
             }
 
@@ -621,7 +638,7 @@
                 return `
                     <div class="menu-card" style="--menu-color: ${menu.color}" onclick="openMenuModal('${menu.id}')">
                         <div class="menu-header">
-                            <div class="menu-icon">${menu.icon}</div>
+                            <div class="menu-icon"><span aria-hidden="true">${menu.icon}</span></div>
                             <div class="menu-title">${menu.name}</div>
                         </div>
                         <div class="difficulty-badge">${menu.difficulty}</div>
@@ -708,7 +725,7 @@
                                 <button class="watch-video-btn" onclick="window.open('${video.url}', '_blank')">
                                     ▶ Watch Video
                                 </button>
-                            ` : '<p style="color: #c0c0c0; font-style: italic;">Video coming soon</p>'}
+                            ` : '<p style="color: #d0d0d0; font-style: italic;">Video coming soon</p>'}
                         </div>
                     `).join('')}
                 </div>

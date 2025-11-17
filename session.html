@@ -5,6 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Active Session - Free Design Thinking Hub</title>
 
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Active Session - Free Design Thinking Hub">
+    <meta name="description" content="Your active design thinking session. Follow guided pathways and complete your design thinking journey.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.freedesignthinking.com/session.html">
+    <meta property="og:title" content="Active Session - Free Design Thinking Hub">
+    <meta property="og:description" content="Your active design thinking session. Follow guided pathways and complete your design thinking journey.">
+    <meta property="og:image" content="https://www.freedesignthinking.com/images/session-og.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.freedesignthinking.com/session.html">
+
+    <!-- Twitter Card Tags -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.freedesignthinking.com/session.html">
+    <meta property="twitter:title" content="Active Session - Free Design Thinking Hub">
+    <meta property="twitter:description" content="Your active design thinking session. Follow guided pathways and complete your design thinking journey.">
+    <meta property="twitter:image" content="https://www.freedesignthinking.com/images/session-og.jpg">
+    <meta property="twitter:creator" content="@freedesignthink">
+    <meta property="twitter:site" content="@freedesignthink">
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
@@ -18,6 +41,7 @@
         body {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
             min-height: 100vh;
+            font-size: 16px;
         }
 
         .session-container {
@@ -52,7 +76,7 @@
         }
 
         .session-subtitle {
-            color: #c0c0c0;
+            color: #d0d0d0;
             font-size: 1.1rem;
         }
 
@@ -107,7 +131,7 @@
 
         .step-number {
             font-size: 0.9rem;
-            color: #c0c0c0;
+            color: #d0d0d0;
             margin-bottom: 0.25rem;
         }
 
@@ -163,12 +187,12 @@
         }
 
         .activity-duration {
-            color: #c0c0c0;
+            color: #d0d0d0;
             font-size: 1rem;
         }
 
         .activity-description {
-            color: #c0c0c0;
+            color: #d0d0d0;
             line-height: 1.8;
             font-size: 1.1rem;
             margin-bottom: 2rem;
@@ -222,7 +246,7 @@
         }
 
         .timer-label {
-            color: #c0c0c0;
+            color: #d0d0d0;
             font-size: 0.9rem;
             margin-bottom: 0.5rem;
         }
@@ -245,7 +269,8 @@
             background: rgba(212, 175, 55, 0.2);
             border: 2px solid #d4af37;
             color: #d4af37;
-            padding: 0.75rem 1.5rem;
+            padding: 12px 20px;
+            min-height: 48px;
             border-radius: 10px;
             cursor: pointer;
             font-weight: 600;
@@ -271,7 +296,8 @@
         }
 
         .nav-btn {
-            padding: 1rem 2rem;
+            padding: 12px 20px;
+            min-height: 48px;
             border-radius: 10px;
             font-weight: 600;
             font-size: 1rem;
@@ -285,7 +311,7 @@
 
         .nav-btn-secondary {
             background: rgba(42, 42, 62, 0.8);
-            color: #c0c0c0;
+            color: #d0d0d0;
             border: 2px solid rgba(212, 175, 55, 0.3);
         }
 
@@ -345,7 +371,7 @@
 
         .completion-message {
             font-size: 1.3rem;
-            color: #c0c0c0;
+            color: #d0d0d0;
             margin-bottom: 3rem;
             line-height: 1.8;
         }
@@ -372,8 +398,8 @@
         }
 
         .stat-label {
-            color: #c0c0c0;
-            font-size: 0.9rem;
+            color: #d0d0d0;
+            font-size: 1rem;
         }
 
         .completion-actions {
@@ -453,12 +479,12 @@
 
         .no-session-title {
             font-size: 2rem;
-            color: #c0c0c0;
+            color: #d0d0d0;
             margin-bottom: 1rem;
         }
 
         .no-session-message {
-            color: #999;
+            color: #c5c5c5;
             margin-bottom: 2rem;
         }
     </style>
@@ -467,7 +493,7 @@
 <body>
     <header>
         <nav class="container">
-            <a href="index.html" class="logo">🎨 Free Design Thinking Hub</a>
+            <a href="index.html" class="logo"><span aria-label="Art and design">🎨</span> Free Design Thinking Hub</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="design-menus.html">Design Menus</a></li>
@@ -489,7 +515,7 @@
     <div class="session-container">
         <!-- No Session State -->
         <div id="noSessionState" class="no-session">
-            <div class="no-session-icon">🎯</div>
+            <div class="no-session-icon"><span aria-hidden="true">🎯</span></div>
             <h1 class="no-session-title">No Active Session</h1>
             <p class="no-session-message">Start a Design Menu to begin your design thinking journey!</p>
             <a href="design-menus.html" class="watch-video-btn">Browse Design Menus</a>
@@ -500,7 +526,7 @@
             <!-- Header -->
             <div class="session-header">
                 <div class="menu-badge">
-                    <span id="menuIcon">🌱</span>
+                    <span id="menuIcon"><span aria-hidden="true">🌱</span></span>
                     <span id="menuName">Loading...</span>
                 </div>
                 <h1 class="session-title" id="sessionTitle">Your Design Thinking Session</h1>
@@ -538,7 +564,7 @@
 
         <!-- Completion Screen -->
         <div id="completionScreen" class="completion-screen">
-            <div class="completion-icon">🎉</div>
+            <div class="completion-icon"><span aria-hidden="true">🎉</span></div>
             <h1 class="completion-title">Congratulations!</h1>
             <p class="completion-message">
                 You've completed the <strong id="completedMenuName">Design Menu</strong>!<br>
@@ -569,7 +595,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Free Design Thinking Hub. All rights reserved. Built with ❤️ for global accessibility.</p>
+            <p>&copy; 2025 Free Design Thinking Hub. All rights reserved. Built with <span aria-label="love">❤️</span> for global accessibility.</p>
         </div>
     </footer>
 
@@ -641,7 +667,7 @@
                     <div class="progress-step ${isCompleted ? 'completed' : ''} ${isActive ? 'active' : ''}"
                          onclick="goToStep(${index})">
                         <div class="step-number">Step ${index + 1}/5</div>
-                        <div class="step-icon">${config.icon}</div>
+                        <div class="step-icon"><span aria-hidden="true">${config.icon}</span></div>
                         <div class="step-name">${config.name}</div>
                     </div>
                 `;
@@ -671,7 +697,7 @@
 
             activityCard.innerHTML = `
                 <div class="activity-header">
-                    <div class="activity-icon-large" style="color: ${config.color}">${config.icon}</div>
+                    <div class="activity-icon-large" style="color: ${config.color}"><span aria-hidden="true">${config.icon}</span></div>
                     <div class="activity-info">
                         <div class="activity-phase" style="color: ${config.color}">${config.name}</div>
                         <h2 class="activity-title">${video.title}</h2>
@@ -684,7 +710,7 @@
                     <div class="video-container">
                         <iframe src="${embedUrl}" allowfullscreen></iframe>
                     </div>
-                ` : '<p style="color: #c0c0c0;">Video coming soon</p>'}
+                ` : '<p style="color: #d0d0d0;">Video coming soon</p>'}
 
                 <div class="timer-section">
                     <div class="timer-label">Activity Timer</div>
