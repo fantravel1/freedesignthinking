@@ -279,6 +279,41 @@
             gap: 2rem;
         }
 
+        .load-more-container {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .load-more-btn {
+            background: linear-gradient(135deg, #ff6b6b, #ffa726);
+            border: none;
+            color: white;
+            padding: 1rem 3rem;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .load-more-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        .load-more-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .video-count-info {
+            color: #c0c0c0;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
         .video-card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -533,7 +568,8 @@
                 <li><a href="index.html#videos">All Videos</a></li>
                 <li><a href="design-menus.html">Design Menus</a></li>
                 <li><a href="index.html#community">Community</a></li>
-                <li><a href="index.html#mission">Mission</a></li>
+                <li><a href="worksheets.html">Worksheets</a></li>
+                <li><a href="bookmarks.html">Bookmarks</a></li>
             </ul>
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
                 <span id="menu-icon">☰</span>
@@ -546,7 +582,8 @@
                 <li><a href="index.html#videos" onclick="closeMobileMenu()">All Videos</a></li>
                 <li><a href="design-menus.html" onclick="closeMobileMenu()">Design Menus</a></li>
                 <li><a href="index.html#community" onclick="closeMobileMenu()">Community</a></li>
-                <li><a href="index.html#mission" onclick="closeMobileMenu()">Mission</a></li>
+                <li><a href="worksheets.html" onclick="closeMobileMenu()">Worksheets</a></li>
+                <li><a href="bookmarks.html" onclick="closeMobileMenu()">Bookmarks</a></li>
             </ul>
         </div>
     </header>
@@ -606,6 +643,12 @@
             <div class="video-grid" id="videoGrid">
                 <div class="loading">Loading warm-up exercises...</div>
             </div>
+            <div class="load-more-container" id="loadMoreContainer" style="display: none;">
+                <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreVideos()">
+                    Load More Videos
+                </button>
+                <div class="video-count-info" id="videoCountInfo"></div>
+            </div>
         </div>
     </section>
 
@@ -634,10 +677,15 @@
     <script>
         const currentPhase = 'warm-up';
         const phaseIcon = '🏃';
-        
+
         // Icons for warm-up videos
         const warmupIcons = ["🏃", "🎨", "🌳", "⚽", "🗣️", "🎪", "🤹", "🎭", "🎵", "🔥"];
-        
+
+        // Pagination variables
+        let videosPerPage = 12;
+        let currentlyDisplayed = 0;
+        let allVideos = [];
+
         function getRandomIcon(index) {
             return warmupIcons[index % warmupIcons.length];
         }
@@ -645,7 +693,7 @@
         // Load videos for current phase
         function loadPhaseVideos() {
             const videoGrid = document.getElementById('videoGrid');
-            
+
             if (typeof videoDatabase === 'undefined') {
                 videoGrid.innerHTML = `
                     <div class="no-results">
@@ -657,7 +705,7 @@
             }
 
             const phaseVideos = videoDatabase[currentPhase] || [];
-            
+
             if (phaseVideos.length === 0) {
                 videoGrid.innerHTML = `
                     <div class="no-results">
@@ -671,10 +719,20 @@
             // Update video count
             document.getElementById('video-count').textContent = phaseVideos.length;
 
+            allVideos = phaseVideos;
+            currentlyDisplayed = 0;
+            renderVideos();
+        }
+
+        function renderVideos() {
+            const videoGrid = document.getElementById('videoGrid');
+            const videosToShow = allVideos.slice(0, currentlyDisplayed + videosPerPage);
+            currentlyDisplayed = videosToShow.length;
+
             let videosHtml = '';
-            phaseVideos.forEach((video, index) => {
+            videosToShow.forEach((video, index) => {
                 const icon = getRandomIcon(index);
-                
+
                 videosHtml += `
                     <div class="video-card" data-difficulty="${video.difficulty}" data-group="${video.groupSize.includes('any') ? 'any' : video.groupSize.includes('pair') ? 'pairs' : 'group'}" data-keywords="${video.tags.join(' ')} ${video.title} ${video.description}">
                         <div class="video-thumbnail">
@@ -707,6 +765,39 @@
             });
 
             videoGrid.innerHTML = videosHtml;
+
+            // Update load more button visibility and text
+            const loadMoreContainer = document.getElementById('loadMoreContainer');
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            const videoCountInfo = document.getElementById('videoCountInfo');
+
+            if (currentlyDisplayed < allVideos.length) {
+                loadMoreContainer.style.display = 'block';
+                loadMoreBtn.disabled = false;
+                videoCountInfo.textContent = `Showing ${currentlyDisplayed} of ${allVideos.length} videos`;
+            } else {
+                if (allVideos.length > videosPerPage) {
+                    loadMoreContainer.style.display = 'block';
+                    loadMoreBtn.disabled = true;
+                    loadMoreBtn.textContent = '✓ All Videos Loaded';
+                    videoCountInfo.textContent = `Showing all ${allVideos.length} videos`;
+                } else {
+                    loadMoreContainer.style.display = 'none';
+                }
+            }
+        }
+
+        function loadMoreVideos() {
+            renderVideos();
+
+            // Smooth scroll to first new video
+            const videoCards = document.querySelectorAll('.video-card');
+            if (videoCards.length > currentlyDisplayed - videosPerPage) {
+                const targetCard = videoCards[currentlyDisplayed - videosPerPage];
+                if (targetCard) {
+                    targetCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            }
         }
 
         // Search functionality
