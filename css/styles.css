@@ -211,7 +211,7 @@ nav {
 }
 
 .nav-links {
-    display: flex;
+    display: none; /* Hidden - using hamburger menu for all screen sizes */
     list-style: none;
     gap: 2rem;
 }
@@ -235,15 +235,17 @@ nav {
     font-weight: 600;
 }
 
-/* Mobile Menu */
+/* Menu Button - Always visible for cleaner unified navigation */
 .mobile-menu-btn {
-    display: none;
+    display: block;
     background: none;
     border: none;
     color: #d4af37;
     font-size: 1.5rem;
     cursor: pointer;
     padding: 0.5rem;
+    min-height: 44px;
+    min-width: 44px;
 }
 
 .mobile-nav {
@@ -756,14 +758,6 @@ footer {
    ======================================== */
 
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-
-    .mobile-menu-btn {
-        display: block;
-    }
-
     .theme-toggle {
         padding: 0.4rem 0.8rem;
         font-size: 1.1rem;
