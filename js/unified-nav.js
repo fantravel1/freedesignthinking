@@ -26,7 +26,8 @@ function createUnifiedNav() {
         { text: 'Community', href: isIndexPage ? '#community' : 'index.html#community', id: 'community' },
         { text: 'Worksheets', href: 'worksheets.html', id: 'worksheets.html' },
         { text: 'Bookmarks', href: 'bookmarks.html', id: 'bookmarks.html' },
-        { text: 'My Learning', href: 'my-learning.html', id: 'my-learning.html' }
+        { text: 'My Learning', href: 'my-learning.html', id: 'my-learning.html' },
+        { text: 'Research & Thinking', href: 'research.html', id: 'research.html' }
     ];
     
     // Build desktop nav links
@@ -65,7 +66,7 @@ function createUnifiedFooter() {
                 <p><a href="index.html#community">Join Community</a></p>
                 <p><a href="bookmarks.html">My Bookmarks</a></p>
                 <p><a href="my-learning.html">My Learning</a></p>
-                <p><a href="index.html#faq">FAQ</a></p>
+                <p><a href="research.html">Research & Thinking</a></p>
             </div>
         </div>
         <div style="border-top: 1px solid #333; padding-top: 2rem; margin-top: 2rem;">
