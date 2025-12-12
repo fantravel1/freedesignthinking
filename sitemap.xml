@@ -62,4 +62,52 @@
         <priority>0.7</priority>
     </url>
 
+    <!-- Design Menus -->
+    <url>
+        <loc>https://www.freedesignthinking.com/design-menus.html</loc>
+        <lastmod>2025-12-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Worksheets -->
+    <url>
+        <loc>https://www.freedesignthinking.com/worksheets.html</loc>
+        <lastmod>2025-12-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Bookmarks -->
+    <url>
+        <loc>https://www.freedesignthinking.com/bookmarks.html</loc>
+        <lastmod>2025-12-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- My Learning -->
+    <url>
+        <loc>https://www.freedesignthinking.com/my-learning.html</loc>
+        <lastmod>2025-12-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Session -->
+    <url>
+        <loc>https://www.freedesignthinking.com/session.html</loc>
+        <lastmod>2025-12-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Research & Thinking -->
+    <url>
+        <loc>https://www.freedesignthinking.com/research.html</loc>
+        <lastmod>2025-12-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
 </urlset>
