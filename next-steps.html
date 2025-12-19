@@ -116,6 +116,64 @@
     }
     </script>
 
+    <!-- Structured Data - FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What are next steps in design thinking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Next steps in design thinking involve translating insights and prototypes into actionable implementation plans. This includes creating roadmaps, assigning responsibilities, setting timelines, and establishing metrics for success. The focus shifts from exploration to execution while maintaining the iterative, user-centered mindset of design thinking."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I prioritize which ideas to implement?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prioritize ideas using a framework that considers impact, feasibility, and resources. Create a 2x2 matrix plotting effort vs. impact, focus on quick wins and high-impact projects first. Consider user needs, business goals, technical constraints, and available resources. Involve stakeholders in prioritization discussions and be willing to phase implementation over time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is an implementation roadmap?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An implementation roadmap is a strategic plan that outlines what will be built, when, and by whom. It includes milestones, dependencies, resource allocation, and success metrics. Effective roadmaps are visual, collaborative, and flexible enough to adapt as you learn. They bridge the gap between design thinking insights and executable action plans."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I present design thinking outcomes to stakeholders?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Present outcomes by telling a story: 1) Start with the problem and user needs, 2) Show your process and key insights, 3) Present solutions with prototypes or demos, 4) Share user feedback and validation, 5) Outline implementation plans with clear metrics, 6) Address risks and mitigation strategies. Use visuals, keep it concise, and focus on business impact alongside user value."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I maintain momentum after a design thinking session?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Maintain momentum by: 1) Documenting insights and decisions immediately, 2) Scheduling follow-up meetings within a week, 3) Assigning clear owners to action items, 4) Creating visible progress tracking (kanban boards, shared docs), 5) Celebrating small wins, 6) Continuing to involve users in development, 7) Holding regular retrospectives to reflect and adjust."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What metrics should I track for design thinking projects?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Track both process and outcome metrics. Process metrics: number of user interviews, prototypes tested, iterations completed. Outcome metrics: user satisfaction scores, task completion rates, time saved, error reduction, adoption rates, business KPIs (revenue, retention, etc.). Choose 3-5 key metrics that align with your project goals and track them consistently throughout implementation."
+          }
+        }
+      ]
+    }
+    </script>
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     
@@ -389,12 +447,21 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease;
             border: 1px solid rgba(255, 154, 158, 0.2);
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            color: inherit;
         }
 
         .video-card:hover {
             transform: translateY(-5px);
             border-color: rgba(255, 154, 158, 0.4);
             box-shadow: 0 8px 25px rgba(255, 154, 158, 0.2);
+        }
+
+        .video-card:focus {
+            outline: 3px solid #ff9a9e;
+            outline-offset: 2px;
         }
 
         .video-thumbnail {
@@ -407,6 +474,39 @@
             color: #fff;
             font-size: 3rem;
             position: relative;
+            overflow: hidden;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover .video-thumbnail img {
+            transform: scale(1.05);
+        }
+
+        .video-thumbnail .play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-card:hover .play-overlay {
+            opacity: 1;
         }
 
         .video-duration {
@@ -627,6 +727,24 @@
             padding: 3rem;
             color: #d0d0d0;
         }
+
+        /* FAQ Section */
+        .faq-section { padding: 4rem 0; background: rgba(26, 26, 46, 0.6); }
+        .faq-section h2 { text-align: center; font-size: 2.5rem; font-family: 'Space Grotesk', sans-serif; font-weight: 600; margin-bottom: 1rem; color: #f8f8f8; }
+        .faq-subtitle { text-align: center; color: #d0d0d0; font-size: 1.1rem; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .big-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+        .big-fact { background: linear-gradient(135deg, rgba(255, 154, 158, 0.15), rgba(254, 207, 239, 0.15)); border: 1px solid rgba(255, 154, 158, 0.3); border-radius: 15px; padding: 2rem; text-align: center; }
+        .big-fact-number { font-size: 3rem; font-weight: 700; color: #ff9a9e; font-family: 'Space Grotesk', sans-serif; }
+        .big-fact-text { font-size: 1.1rem; color: #e8e8e8; margin-top: 0.5rem; }
+        .faq-list { max-width: 900px; margin: 0 auto; }
+        .faq-item { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 154, 158, 0.2); border-radius: 12px; margin-bottom: 1rem; overflow: hidden; }
+        .faq-question { width: 100%; background: none; border: none; padding: 1.5rem; text-align: left; color: #f8f8f8; font-size: 1.1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.3s ease; }
+        .faq-question:hover { background: rgba(255, 154, 158, 0.1); }
+        .faq-question::after { content: '+'; font-size: 1.5rem; color: #ff9a9e; transition: transform 0.3s ease; }
+        .faq-item.active .faq-question::after { transform: rotate(45deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-item.active .faq-answer { max-height: 500px; }
+        .faq-answer-content { padding: 0 1.5rem 1.5rem; color: #d0d0d0; line-height: 1.7; }
     </style>
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json">
@@ -746,6 +864,67 @@
         </div>
     </section>
 
+    <section class="faq-section">
+        <div class="container">
+            <h2>Implementation Facts & FAQ</h2>
+            <p class="faq-subtitle">Discover why effective next steps are critical and get answers to common questions about implementation and project planning.</p>
+
+            <div class="big-facts">
+                <div class="big-fact">
+                    <div class="big-fact-number">70%</div>
+                    <div class="big-fact-text">of projects fail without clear next steps and implementation plans</div>
+                </div>
+                <div class="big-fact">
+                    <div class="big-fact-number">2x</div>
+                    <div class="big-fact-text">success rate with stakeholder alignment and clear ownership</div>
+                </div>
+                <div class="big-fact">
+                    <div class="big-fact-number">80%</div>
+                    <div class="big-fact-text">of innovation value lost without proper execution strategy</div>
+                </div>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">What are next steps in design thinking?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">Next steps in design thinking involve translating insights and prototypes into actionable implementation plans. This includes creating roadmaps, assigning responsibilities, setting timelines, and establishing metrics for success. The focus shifts from exploration to execution while maintaining the iterative, user-centered mindset of design thinking.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How do I prioritize which ideas to implement?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">Prioritize ideas using a framework that considers impact, feasibility, and resources. Create a 2x2 matrix plotting effort vs. impact, focus on quick wins and high-impact projects first. Consider user needs, business goals, technical constraints, and available resources. Involve stakeholders in prioritization discussions and be willing to phase implementation over time.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What is an implementation roadmap?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">An implementation roadmap is a strategic plan that outlines what will be built, when, and by whom. It includes milestones, dependencies, resource allocation, and success metrics. Effective roadmaps are visual, collaborative, and flexible enough to adapt as you learn. They bridge the gap between design thinking insights and executable action plans.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How do I present design thinking outcomes to stakeholders?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">Present outcomes by telling a story: 1) Start with the problem and user needs, 2) Show your process and key insights, 3) Present solutions with prototypes or demos, 4) Share user feedback and validation, 5) Outline implementation plans with clear metrics, 6) Address risks and mitigation strategies. Use visuals, keep it concise, and focus on business impact alongside user value.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How do I maintain momentum after a design thinking session?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">Maintain momentum by: 1) Documenting insights and decisions immediately, 2) Scheduling follow-up meetings within a week, 3) Assigning clear owners to action items, 4) Creating visible progress tracking (kanban boards, shared docs), 5) Celebrating small wins, 6) Continuing to involve users in development, 7) Holding regular retrospectives to reflect and adjust.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What metrics should I track for design thinking projects?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">Track both process and outcome metrics. <strong>Process metrics:</strong> number of user interviews, prototypes tested, iterations completed. <strong>Outcome metrics:</strong> user satisfaction scores, task completion rates, time saved, error reduction, adoption rates, business KPIs (revenue, retention, etc.). Choose 3-5 key metrics that align with your project goals and track them consistently throughout implementation.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="container unified-footer">
             <p>&copy; 2025 Free Design Thinking Hub. All rights reserved. Built with <span aria-label="love">❤️</span> for global accessibility.</p>
@@ -763,6 +942,17 @@
         
         function getRandomIcon(index) {
             return nextStepsIcons[index % nextStepsIcons.length];
+        }
+
+        // Extract YouTube video ID from URL and generate thumbnail
+        function getYouTubeThumbnail(url) {
+            if (!url) return null;
+            const patterns = [/youtu\.be\/([a-zA-Z0-9_-]+)/, /youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/, /youtube\.com\/embed\/([a-zA-Z0-9_-]+)/];
+            for (const pattern of patterns) {
+                const match = url.match(pattern);
+                if (match && match[1]) return `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg`;
+            }
+            return null;
         }
 
         // Load videos for current phase
@@ -797,11 +987,16 @@
             let videosHtml = '';
             phaseVideos.forEach((video, index) => {
                 const icon = getRandomIcon(index);
-                
+                const thumbnail = getYouTubeThumbnail(video.url);
+                const thumbnailHtml = thumbnail
+                    ? `<img src="${thumbnail}" alt="${video.title} thumbnail" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span class="fallback-icon" aria-hidden="true" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center; font-size:3rem;">${icon}</span>`
+                    : `<span aria-hidden="true">${icon}</span>`;
+
                 videosHtml += `
-                    <div class="video-card" data-difficulty="${video.difficulty}" data-keywords="${video.tags.join(' ')} ${video.title} ${video.description}">
+                    <a href="video.html?id=${video.id}" class="video-card" data-difficulty="${video.difficulty}" data-keywords="${video.tags.join(' ')} ${video.title} ${video.description}">
                         <div class="video-thumbnail">
-                            <span aria-hidden="true">${icon}</span>
+                            ${thumbnailHtml}
+                            <div class="play-overlay"><span aria-hidden="true">▶</span></div>
                             <div class="video-duration">${video.duration}</div>
                         </div>
                         <div class="video-info">
@@ -815,9 +1010,7 @@
                                 ${video.tags.slice(0, 3).map(tag => `<span class="tag">${tag}</span>`).join('')}
                             </div>
                             <div class="video-actions">
-                                <button class="watch-btn" onclick="watchVideo('${video.url}', '${video.id}')">
-                                    Watch Now
-                                </button>
+                                <span class="watch-btn">Watch Now</span>
                                 <button class="bookmark-btn ${sessionManager.isBookmarked(video.id) ? 'bookmarked' : ''}"
                                         onclick="toggleBookmark(event, '${video.id}', '${video.title.replace(/'/g, "\\'")}', '${currentPhase}')"
                                         aria-label="${sessionManager.isBookmarked(video.id) ? 'Remove bookmark' : 'Bookmark this video'}"
@@ -826,7 +1019,7 @@
                                 </button>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 `;
             });
 
@@ -894,24 +1087,14 @@
         // Bookmark toggle function
         function toggleBookmark(event, videoId, videoTitle, phase) {
             event.stopPropagation();
-
-            // Get video details from the database
+            event.preventDefault();
             const phaseVideos = videoDatabase[phase] || [];
             const video = phaseVideos.find(v => v.id === videoId);
-
             if (!video) return;
-
-            // Toggle bookmark
-            sessionManager.bookmarkVideo(videoId, {
-                ...video,
-                phase: phase,
-                title: videoTitle
-            });
-
-            // Update button appearance
-            const button = event.target;
+            sessionManager.bookmarkVideo(videoId, { ...video, phase: phase, title: videoTitle });
+            const button = event.target.closest('.bookmark-btn');
+            if (!button) return;
             const isBookmarked = sessionManager.isBookmarked(videoId);
-
             if (isBookmarked) {
                 button.classList.add('bookmarked');
                 button.innerHTML = '<span aria-hidden="true">⭐</span>';
@@ -923,7 +1106,6 @@
                 button.setAttribute('aria-label', 'Bookmark this video');
                 button.title = 'Bookmark this video';
             }
-
             console.log(`${isBookmarked ? '⭐ Bookmarked' : '☆ Removed bookmark'}:`, videoTitle);
         }
 
@@ -941,16 +1123,27 @@
         function closeMobileMenu() {
             const mobileNav = document.getElementById('mobile-nav');
             const menuIcon = document.getElementById('menu-icon');
-            
+
             if (mobileNav) {
                 mobileNav.classList.remove('active');
                 menuIcon.textContent = '☰';
             }
         }
 
+        // FAQ toggle functionality
+        function initFAQ() {
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.querySelector('.faq-question').addEventListener('click', () => {
+                    document.querySelectorAll('.faq-item').forEach(other => { if (other !== item) other.classList.remove('active'); });
+                    item.classList.toggle('active');
+                });
+            });
+        }
+
         // Initialize page
         document.addEventListener('DOMContentLoaded', function() {
             loadPhaseVideos();
+            initFAQ();
             console.log(`✅ Loaded ${currentPhase} phase page`);
         });
     </script>
