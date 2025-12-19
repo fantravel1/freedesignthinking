@@ -116,6 +116,64 @@
     }
     </script>
 
+    <!-- Structured Data - FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is prototyping in design thinking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prototyping in design thinking is the process of creating quick, low-cost representations of your ideas to test and refine them. Prototypes range from simple paper sketches to interactive digital mockups. The goal is to fail fast and learn quickly - spending minimal time and resources to validate concepts before full development."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between low-fidelity and high-fidelity prototypes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Low-fidelity prototypes are quick, rough representations (paper sketches, cardboard models, sticky notes) used early in the design process to explore concepts. High-fidelity prototypes closely resemble the final product with detailed visuals and functionality, used later for user testing and stakeholder buy-in. Start low-fi to iterate quickly, then increase fidelity as you refine."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What materials are best for rapid prototyping?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Common rapid prototyping materials include: cardboard and foam core for 3D models, paper and sticky notes for interface mockups, LEGO for modular concepts, pipe cleaners and clay for form exploration, and role-playing for service design. Digital tools like Figma, Sketch, and Marvel work well for app and web prototypes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long should I spend on a prototype?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Follow the 'minimum viable prototype' principle - spend just enough time to test your hypothesis. Early prototypes might take 15-30 minutes. More refined prototypes could take a few hours. If you're spending days on a prototype, you're likely over-engineering. Remember: the goal is learning, not perfection."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a storyboard prototype?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A storyboard prototype is a sequence of drawings or images that illustrate how a user interacts with your solution over time. Like a comic strip, it shows the user's journey, emotions, and key touchpoints. Storyboards are excellent for communicating service experiences, app flows, and scenarios that unfold across multiple steps."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When should I move from prototyping to building?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Move to building when: 1) User testing consistently validates your core concept, 2) You've iterated enough to understand key requirements, 3) Stakeholders are aligned on the direction, 4) The remaining questions require a functional product to answer. Don't move too early - the cost of changes increases dramatically once you start building."
+          }
+        }
+      ]
+    }
+    </script>
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     
@@ -425,12 +483,21 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease;
             border: 1px solid rgba(78, 205, 196, 0.2);
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            color: inherit;
         }
 
         .video-card:hover {
             transform: translateY(-5px);
             border-color: rgba(78, 205, 196, 0.4);
             box-shadow: 0 8px 25px rgba(78, 205, 196, 0.2);
+        }
+
+        .video-card:focus {
+            outline: 3px solid #4ecdc4;
+            outline-offset: 2px;
         }
 
         .video-thumbnail {
@@ -443,6 +510,39 @@
             color: #fff;
             font-size: 3rem;
             position: relative;
+            overflow: hidden;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover .video-thumbnail img {
+            transform: scale(1.05);
+        }
+
+        .video-thumbnail .play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-card:hover .play-overlay {
+            opacity: 1;
         }
 
         .video-duration {
@@ -663,6 +763,26 @@
             padding: 3rem;
             color: #d0d0d0;
         }
+
+        /* FAQ Section */
+        .faq-section { padding: 4rem 0; background: rgba(26, 26, 46, 0.6); }
+        .faq-section h2 { text-align: center; font-size: 2.5rem; font-family: 'Space Grotesk', sans-serif; font-weight: 600; margin-bottom: 1rem; color: #f8f8f8; }
+        .faq-subtitle { text-align: center; color: #d0d0d0; font-size: 1.1rem; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .big-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+        .big-fact { background: linear-gradient(135deg, rgba(78, 205, 196, 0.15), rgba(68, 160, 141, 0.15)); border: 1px solid rgba(78, 205, 196, 0.3); border-radius: 15px; padding: 2rem; text-align: center; }
+        .big-fact-number { font-size: 3rem; font-weight: 700; color: #4ecdc4; font-family: 'Space Grotesk', sans-serif; }
+        .big-fact-text { font-size: 1.1rem; color: #e8e8e8; margin-top: 0.5rem; }
+        .faq-list { max-width: 900px; margin: 0 auto; }
+        .faq-item { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(78, 205, 196, 0.2); border-radius: 12px; margin-bottom: 1rem; overflow: hidden; }
+        .faq-question { width: 100%; background: none; border: none; padding: 1.5rem; text-align: left; color: #f8f8f8; font-size: 1.1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.3s ease; }
+        .faq-question:hover { background: rgba(78, 205, 196, 0.1); }
+        .faq-question::after { content: '+'; font-size: 1.5rem; color: #4ecdc4; transition: transform 0.3s ease; }
+        .faq-item.active .faq-question::after { transform: rotate(45deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-item.active .faq-answer { max-height: 500px; }
+        .faq-answer-content { padding: 0 1.5rem 1.5rem; color: #d0d0d0; line-height: 1.7; }
+        .faq-answer-content ul { margin-top: 0.5rem; padding-left: 1.5rem; }
+        .faq-answer-content li { margin-bottom: 0.5rem; }
     </style>
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json">
@@ -788,6 +908,90 @@
         </div>
     </section>
 
+    <section class="faq-section">
+        <div class="container">
+            <h2>Prototyping Facts & FAQ</h2>
+            <p class="faq-subtitle">Discover why prototyping is essential for innovation and get answers to common questions about building and testing ideas.</p>
+
+            <div class="big-facts">
+                <div class="big-fact">
+                    <div class="big-fact-number">10x</div>
+                    <div class="big-fact-text">cheaper to find and fix problems in prototypes than in production</div>
+                </div>
+                <div class="big-fact">
+                    <div class="big-fact-number">80%</div>
+                    <div class="big-fact-text">of successful products started with low-fidelity prototypes</div>
+                </div>
+                <div class="big-fact">
+                    <div class="big-fact-number">15-30 min</div>
+                    <div class="big-fact-text">is all you need for your first prototype iteration</div>
+                </div>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">What is prototyping in design thinking?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Prototyping in design thinking is the process of creating quick, low-cost representations of your ideas to test and refine them. Prototypes range from simple paper sketches to interactive digital mockups. The goal is to fail fast and learn quickly - spending minimal time and resources to validate concepts before full development.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">What is the difference between low-fidelity and high-fidelity prototypes?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <strong>Low-fidelity prototypes</strong> are quick, rough representations (paper sketches, cardboard models, sticky notes) used early in the design process to explore concepts. <strong>High-fidelity prototypes</strong> closely resemble the final product with detailed visuals and functionality, used later for user testing and stakeholder buy-in. Start low-fi to iterate quickly, then increase fidelity as you refine.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">What materials are best for rapid prototyping?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Common rapid prototyping materials include:
+                            <ul>
+                                <li><strong>Cardboard and foam core:</strong> Great for 3D models and physical products</li>
+                                <li><strong>Paper and sticky notes:</strong> Perfect for interface and service mockups</li>
+                                <li><strong>LEGO:</strong> Excellent for modular concepts and space design</li>
+                                <li><strong>Digital tools (Figma, Sketch):</strong> Ideal for app and web prototypes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">How long should I spend on a prototype?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Follow the "minimum viable prototype" principle - spend just enough time to test your hypothesis. Early prototypes might take 15-30 minutes. More refined prototypes could take a few hours. If you're spending days on a prototype, you're likely over-engineering. Remember: the goal is learning, not perfection.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">What is a storyboard prototype?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            A storyboard prototype is a sequence of drawings or images that illustrate how a user interacts with your solution over time. Like a comic strip, it shows the user's journey, emotions, and key touchpoints. Storyboards are excellent for communicating service experiences, app flows, and scenarios that unfold across multiple steps.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">When should I move from prototyping to building?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Move to building when: 1) User testing consistently validates your core concept, 2) You've iterated enough to understand key requirements, 3) Stakeholders are aligned on the direction, 4) The remaining questions require a functional product to answer. Don't move too early - the cost of changes increases dramatically once you start building.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="container unified-footer">
             <p>&copy; 2025 Free Design Thinking Hub. All rights reserved. Built with <span aria-label="love">❤️</span> for global accessibility.</p>
@@ -802,6 +1006,17 @@
 
         // Icons for prototype videos
         const prototypeIcons = ["🧱", "📝", "📦", "🎬", "🏃‍♂️", "🔨", "📱", "🎨", "⚙️", "🛠️"];
+
+        // Extract YouTube video ID from URL and generate thumbnail
+        function getYouTubeThumbnail(url) {
+            if (!url) return null;
+            const patterns = [/youtu\.be\/([a-zA-Z0-9_-]+)/, /youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/, /youtube\.com\/embed\/([a-zA-Z0-9_-]+)/];
+            for (const pattern of patterns) {
+                const match = url.match(pattern);
+                if (match && match[1]) return `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg`;
+            }
+            return null;
+        }
 
         // Pagination variables
         let videosPerPage = 12;
@@ -855,11 +1070,16 @@
             videosToShow.forEach((video, index) => {
                 const icon = getRandomIcon(index);
                 const isQuick = parseInt(video.duration) <= 10 || video.duration.includes('min') && parseInt(video.duration) <= 10;
+                const thumbnail = getYouTubeThumbnail(video.url);
+                const thumbnailHtml = thumbnail
+                    ? `<img src="${thumbnail}" alt="${video.title} thumbnail" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span class="fallback-icon" aria-hidden="true" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center; font-size:3rem;">${icon}</span>`
+                    : `<span aria-hidden="true">${icon}</span>`;
 
                 videosHtml += `
-                    <div class="video-card" data-difficulty="${video.difficulty}" data-quick="${isQuick}" data-keywords="${video.tags.join(' ')} ${video.title} ${video.description}">
+                    <a href="video.html?id=${video.id}" class="video-card" data-difficulty="${video.difficulty}" data-quick="${isQuick}" data-keywords="${video.tags.join(' ')} ${video.title} ${video.description}">
                         <div class="video-thumbnail">
-                            <span aria-hidden="true">${icon}</span>
+                            ${thumbnailHtml}
+                            <div class="play-overlay"><span aria-hidden="true">▶</span></div>
                             <div class="video-duration">${video.duration}</div>
                         </div>
                         <div class="video-info">
@@ -873,9 +1093,7 @@
                                 ${video.tags.slice(0, 3).map(tag => `<span class="tag">${tag}</span>`).join('')}
                             </div>
                             <div class="video-actions">
-                                <button class="watch-btn" onclick="watchVideo('${video.url}', '${video.id}')">
-                                    Watch Now
-                                </button>
+                                <span class="watch-btn">Watch Now</span>
                                 <button class="bookmark-btn ${sessionManager.isBookmarked(video.id) ? 'bookmarked' : ''}"
                                         onclick="toggleBookmark(event, '${video.id}', '${video.title.replace(/'/g, "\\'")}', '${currentPhase}')"
                                         aria-label="${sessionManager.isBookmarked(video.id) ? 'Remove bookmark' : 'Bookmark this video'}"
@@ -884,7 +1102,7 @@
                                 </button>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 `;
             });
 
@@ -987,22 +1205,16 @@
         // Bookmark toggle function
         function toggleBookmark(event, videoId, videoTitle, phase) {
             event.stopPropagation();
+            event.preventDefault();
 
-            // Get video details from the database
             const phaseVideos = videoDatabase[phase] || [];
             const video = phaseVideos.find(v => v.id === videoId);
-
             if (!video) return;
 
-            // Toggle bookmark
-            sessionManager.bookmarkVideo(videoId, {
-                ...video,
-                phase: phase,
-                title: videoTitle
-            });
+            sessionManager.bookmarkVideo(videoId, { ...video, phase: phase, title: videoTitle });
 
-            // Update button appearance
-            const button = event.target;
+            const button = event.target.closest('.bookmark-btn');
+            if (!button) return;
             const isBookmarked = sessionManager.isBookmarked(videoId);
 
             if (isBookmarked) {
@@ -1016,7 +1228,6 @@
                 button.setAttribute('aria-label', 'Bookmark this video');
                 button.title = 'Bookmark this video';
             }
-
             console.log(`${isBookmarked ? '⭐ Bookmarked' : '☆ Removed bookmark'}:`, videoTitle);
         }
 
@@ -1041,9 +1252,20 @@
             }
         }
 
+        // FAQ toggle functionality
+        function initFAQ() {
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.querySelector('.faq-question').addEventListener('click', () => {
+                    document.querySelectorAll('.faq-item').forEach(other => { if (other !== item) other.classList.remove('active'); });
+                    item.classList.toggle('active');
+                });
+            });
+        }
+
         // Initialize page
         document.addEventListener('DOMContentLoaded', function() {
             loadPhaseVideos();
+            initFAQ();
             console.log(`✅ Loaded ${currentPhase} phase page`);
         });
     </script>
