@@ -116,6 +116,64 @@
     }
     </script>
 
+    <!-- Structured Data - FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is user testing in design thinking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "User testing in design thinking is the process of gathering feedback from real users to validate and refine your solutions. It involves observing how people interact with prototypes, asking questions, and identifying pain points. The goal is to learn quickly and iterate based on real user needs rather than assumptions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many users do I need for effective testing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Research by Jakob Nielsen shows that 5 users typically uncover 85% of usability issues. For early prototypes, 3-5 users is often sufficient. For more comprehensive testing or diverse user groups, 8-12 users may be needed. The key is testing early and often rather than waiting for large sample sizes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between usability testing and user interviews?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usability testing observes users completing specific tasks with a prototype, focusing on behavior and ease of use. User interviews are conversations that explore attitudes, needs, and past experiences without task performance. Use usability testing to validate how well a design works; use interviews to understand why users behave certain ways."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What questions should I avoid during user testing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Avoid leading questions ('Don't you think this is easy?'), hypothetical questions ('Would you use this?'), and questions about future behavior. Instead, ask about specific past experiences, observe current behavior, and use prompts like 'Tell me more about that' or 'What are you thinking right now?' during task observation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I run a remote user testing session?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For remote testing: use video conferencing with screen sharing, send prototypes in advance if needed, ask participants to think aloud, record sessions with permission, and test your technology beforehand. Tools like UserTesting, Lookback, and Maze can facilitate remote sessions. Allow extra time for technical issues."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What should I do with user testing feedback?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "After testing: 1) Debrief immediately while insights are fresh, 2) Identify patterns across multiple users, 3) Prioritize issues by severity and frequency, 4) Distinguish between usability problems and feature requests, 5) Share findings with your team through highlight reels or summary reports, 6) Iterate on your prototype and test again."
+          }
+        }
+      ]
+    }
+    </script>
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     
@@ -389,12 +447,21 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease;
             border: 1px solid rgba(168, 230, 207, 0.2);
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            color: inherit;
         }
 
         .video-card:hover {
             transform: translateY(-5px);
             border-color: rgba(168, 230, 207, 0.4);
             box-shadow: 0 8px 25px rgba(168, 230, 207, 0.2);
+        }
+
+        .video-card:focus {
+            outline: 3px solid #a8e6cf;
+            outline-offset: 2px;
         }
 
         .video-thumbnail {
@@ -407,6 +474,39 @@
             color: #fff;
             font-size: 3rem;
             position: relative;
+            overflow: hidden;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover .video-thumbnail img {
+            transform: scale(1.05);
+        }
+
+        .video-thumbnail .play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-card:hover .play-overlay {
+            opacity: 1;
         }
 
         .video-duration {
@@ -627,6 +727,24 @@
             padding: 3rem;
             color: #d0d0d0;
         }
+
+        /* FAQ Section */
+        .faq-section { padding: 4rem 0; background: rgba(26, 26, 46, 0.6); }
+        .faq-section h2 { text-align: center; font-size: 2.5rem; font-family: 'Space Grotesk', sans-serif; font-weight: 600; margin-bottom: 1rem; color: #f8f8f8; }
+        .faq-subtitle { text-align: center; color: #d0d0d0; font-size: 1.1rem; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .big-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+        .big-fact { background: linear-gradient(135deg, rgba(168, 230, 207, 0.15), rgba(136, 216, 192, 0.15)); border: 1px solid rgba(168, 230, 207, 0.3); border-radius: 15px; padding: 2rem; text-align: center; }
+        .big-fact-number { font-size: 3rem; font-weight: 700; color: #a8e6cf; font-family: 'Space Grotesk', sans-serif; }
+        .big-fact-text { font-size: 1.1rem; color: #e8e8e8; margin-top: 0.5rem; }
+        .faq-list { max-width: 900px; margin: 0 auto; }
+        .faq-item { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(168, 230, 207, 0.2); border-radius: 12px; margin-bottom: 1rem; overflow: hidden; }
+        .faq-question { width: 100%; background: none; border: none; padding: 1.5rem; text-align: left; color: #f8f8f8; font-size: 1.1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.3s ease; }
+        .faq-question:hover { background: rgba(168, 230, 207, 0.1); }
+        .faq-question::after { content: '+'; font-size: 1.5rem; color: #a8e6cf; transition: transform 0.3s ease; }
+        .faq-item.active .faq-question::after { transform: rotate(45deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-item.active .faq-answer { max-height: 500px; }
+        .faq-answer-content { padding: 0 1.5rem 1.5rem; color: #d0d0d0; line-height: 1.7; }
     </style>
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json">
@@ -746,6 +864,67 @@
         </div>
     </section>
 
+    <section class="faq-section">
+        <div class="container">
+            <h2>User Testing Facts & FAQ</h2>
+            <p class="faq-subtitle">Discover why user testing is essential and get answers to common questions about validating your designs with real users.</p>
+
+            <div class="big-facts">
+                <div class="big-fact">
+                    <div class="big-fact-number">5 users</div>
+                    <div class="big-fact-text">uncover 85% of usability issues according to Nielsen research</div>
+                </div>
+                <div class="big-fact">
+                    <div class="big-fact-number">$100</div>
+                    <div class="big-fact-text">spent on testing saves $10,000 in development costs</div>
+                </div>
+                <div class="big-fact">
+                    <div class="big-fact-number">90%</div>
+                    <div class="big-fact-text">of product failures can be prevented with early user testing</div>
+                </div>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">What is user testing in design thinking?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">User testing in design thinking is the process of gathering feedback from real users to validate and refine your solutions. It involves observing how people interact with prototypes, asking questions, and identifying pain points. The goal is to learn quickly and iterate based on real user needs rather than assumptions.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How many users do I need for effective testing?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">Research by Jakob Nielsen shows that 5 users typically uncover 85% of usability issues. For early prototypes, 3-5 users is often sufficient. For more comprehensive testing or diverse user groups, 8-12 users may be needed. The key is testing early and often rather than waiting for large sample sizes.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What is the difference between usability testing and user interviews?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content"><strong>Usability testing</strong> observes users completing specific tasks with a prototype, focusing on behavior and ease of use. <strong>User interviews</strong> are conversations that explore attitudes, needs, and past experiences without task performance. Use usability testing to validate how well a design works; use interviews to understand why users behave certain ways.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What questions should I avoid during user testing?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">Avoid leading questions ("Don't you think this is easy?"), hypothetical questions ("Would you use this?"), and questions about future behavior. Instead, ask about specific past experiences, observe current behavior, and use prompts like "Tell me more about that" or "What are you thinking right now?" during task observation.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How do I run a remote user testing session?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">For remote testing: use video conferencing with screen sharing, send prototypes in advance if needed, ask participants to think aloud, record sessions with permission, and test your technology beforehand. Tools like UserTesting, Lookback, and Maze can facilitate remote sessions. Allow extra time for technical issues.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What should I do with user testing feedback?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">After testing: 1) Debrief immediately while insights are fresh, 2) Identify patterns across multiple users, 3) Prioritize issues by severity and frequency, 4) Distinguish between usability problems and feature requests, 5) Share findings with your team through highlight reels or summary reports, 6) Iterate on your prototype and test again.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="container unified-footer">
             <p>&copy; 2025 Free Design Thinking Hub. All rights reserved. Built with <span aria-label="love">❤️</span> for global accessibility.</p>
@@ -757,51 +936,56 @@
     <script>
         const currentPhase = 'test';
         const phaseIcon = '🧪';
-        
+
         // Icons for test videos
         const testIcons = ["❤️", "🎤", "👀", "⚡", "🧪", "📊", "🔍", "👥", "📋", "🎯"];
-        
+
         function getRandomIcon(index) {
             return testIcons[index % testIcons.length];
+        }
+
+        // Extract YouTube video ID from URL and generate thumbnail
+        function getYouTubeThumbnail(url) {
+            if (!url) return null;
+            const patterns = [/youtu\.be\/([a-zA-Z0-9_-]+)/, /youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/, /youtube\.com\/embed\/([a-zA-Z0-9_-]+)/];
+            for (const pattern of patterns) {
+                const match = url.match(pattern);
+                if (match && match[1]) return `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg`;
+            }
+            return null;
         }
 
         // Load videos for current phase
         function loadPhaseVideos() {
             const videoGrid = document.getElementById('videoGrid');
-            
+
             if (typeof videoDatabase === 'undefined') {
-                videoGrid.innerHTML = `
-                    <div class="no-results">
-                        <h3>Video database not found</h3>
-                        <p>Please make sure js/videoDatabase.js is uploaded to your repository</p>
-                    </div>
-                `;
+                videoGrid.innerHTML = `<div class="no-results"><h3>Video database not found</h3><p>Please make sure js/videoDatabase.js is uploaded to your repository</p></div>`;
                 return;
             }
 
             const phaseVideos = videoDatabase[currentPhase] || [];
-            
+
             if (phaseVideos.length === 0) {
-                videoGrid.innerHTML = `
-                    <div class="no-results">
-                        <h3>No videos found</h3>
-                        <p>Videos for this phase are coming soon!</p>
-                    </div>
-                `;
+                videoGrid.innerHTML = `<div class="no-results"><h3>No videos found</h3><p>Videos for this phase are coming soon!</p></div>`;
                 return;
             }
 
-            // Update video count
             document.getElementById('video-count').textContent = phaseVideos.length;
 
             let videosHtml = '';
             phaseVideos.forEach((video, index) => {
                 const icon = getRandomIcon(index);
-                
+                const thumbnail = getYouTubeThumbnail(video.url);
+                const thumbnailHtml = thumbnail
+                    ? `<img src="${thumbnail}" alt="${video.title} thumbnail" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span class="fallback-icon" aria-hidden="true" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center; font-size:3rem;">${icon}</span>`
+                    : `<span aria-hidden="true">${icon}</span>`;
+
                 videosHtml += `
-                    <div class="video-card" data-difficulty="${video.difficulty}" data-keywords="${video.tags.join(' ')} ${video.title} ${video.description}">
+                    <a href="video.html?id=${video.id}" class="video-card" data-difficulty="${video.difficulty}" data-keywords="${video.tags.join(' ')} ${video.title} ${video.description}">
                         <div class="video-thumbnail">
-                            <span aria-hidden="true">${icon}</span>
+                            ${thumbnailHtml}
+                            <div class="play-overlay"><span aria-hidden="true">▶</span></div>
                             <div class="video-duration">${video.duration}</div>
                         </div>
                         <div class="video-info">
@@ -815,9 +999,7 @@
                                 ${video.tags.slice(0, 3).map(tag => `<span class="tag">${tag}</span>`).join('')}
                             </div>
                             <div class="video-actions">
-                                <button class="watch-btn" onclick="watchVideo('${video.url}', '${video.id}')">
-                                    Watch Now
-                                </button>
+                                <span class="watch-btn">Watch Now</span>
                                 <button class="bookmark-btn ${sessionManager.isBookmarked(video.id) ? 'bookmarked' : ''}"
                                         onclick="toggleBookmark(event, '${video.id}', '${video.title.replace(/'/g, "\\'")}', '${currentPhase}')"
                                         aria-label="${sessionManager.isBookmarked(video.id) ? 'Remove bookmark' : 'Bookmark this video'}"
@@ -826,7 +1008,7 @@
                                 </button>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 `;
             });
 
@@ -895,24 +1077,14 @@
         // Bookmark toggle function
         function toggleBookmark(event, videoId, videoTitle, phase) {
             event.stopPropagation();
-
-            // Get video details from the database
+            event.preventDefault();
             const phaseVideos = videoDatabase[phase] || [];
             const video = phaseVideos.find(v => v.id === videoId);
-
             if (!video) return;
-
-            // Toggle bookmark
-            sessionManager.bookmarkVideo(videoId, {
-                ...video,
-                phase: phase,
-                title: videoTitle
-            });
-
-            // Update button appearance
-            const button = event.target;
+            sessionManager.bookmarkVideo(videoId, { ...video, phase: phase, title: videoTitle });
+            const button = event.target.closest('.bookmark-btn');
+            if (!button) return;
             const isBookmarked = sessionManager.isBookmarked(videoId);
-
             if (isBookmarked) {
                 button.classList.add('bookmarked');
                 button.innerHTML = '<span aria-hidden="true">⭐</span>';
@@ -924,7 +1096,6 @@
                 button.setAttribute('aria-label', 'Bookmark this video');
                 button.title = 'Bookmark this video';
             }
-
             console.log(`${isBookmarked ? '⭐ Bookmarked' : '☆ Removed bookmark'}:`, videoTitle);
         }
 
@@ -949,9 +1120,20 @@
             }
         }
 
+        // FAQ toggle functionality
+        function initFAQ() {
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.querySelector('.faq-question').addEventListener('click', () => {
+                    document.querySelectorAll('.faq-item').forEach(other => { if (other !== item) other.classList.remove('active'); });
+                    item.classList.toggle('active');
+                });
+            });
+        }
+
         // Initialize page
         document.addEventListener('DOMContentLoaded', function() {
             loadPhaseVideos();
+            initFAQ();
             console.log(`✅ Loaded ${currentPhase} phase page`);
         });
     </script>
