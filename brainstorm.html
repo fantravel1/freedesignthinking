@@ -116,6 +116,80 @@
     }
     </script>
 
+    <!-- Structured Data - FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is brainstorming in design thinking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Brainstorming is the ideation phase of the design thinking process where teams generate a wide range of creative ideas without judgment. The goal is divergent thinking - producing as many ideas as possible before converging on solutions. Effective brainstorming encourages wild ideas, builds on others' suggestions, and defers judgment to create an open, creative environment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the key rules of effective brainstorming?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The core rules of brainstorming, developed at IDEO and Stanford d.school, include: Defer judgment (no criticism during ideation), Encourage wild ideas (the crazier the better), Build on others' ideas (use 'Yes, and...' to expand concepts), Go for quantity (aim for 100+ ideas), One conversation at a time, Be visual (sketch ideas), and Stay on topic."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many ideas should a brainstorming session generate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A productive brainstorming session should aim for at least 50-100 ideas within 30-60 minutes. Research from the Stanford d.school shows that the best ideas often come after the obvious ones are exhausted - typically after idea #40 or #50. This is why quantity matters: pushing past the easy answers leads to truly innovative solutions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between divergent and convergent thinking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Divergent thinking is the creative, expansive phase where you generate many possibilities without judgment. It's about exploring widely and considering unconventional ideas. Convergent thinking comes after, where you evaluate, combine, and select the most promising ideas. Effective design thinking requires both: first diverge to explore the problem space, then converge to focus on solutions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the best brainstorming techniques for teams?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Popular team brainstorming techniques include: Crazy 8s (sketch 8 ideas in 8 minutes), Mind Mapping (visual expansion of concepts), SCAMPER (systematic prompts to modify ideas), Brainwriting (silent written ideation), How Might We (reframe problems as opportunity questions), and Worst Possible Idea (generate terrible ideas to spark creativity)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long should a brainstorming session last?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Optimal brainstorming sessions last 30-60 minutes. Shorter sessions (15-20 minutes) work well for focused techniques like Crazy 8s. Research shows creativity tends to decline after 60-90 minutes, so it's better to take breaks and run multiple shorter sessions. Always include a 5-10 minute warm-up activity to get participants in a creative mindset."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is 'Yes, and...' important in brainstorming?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "'Yes, and...' is an improv technique that encourages building on ideas rather than shutting them down. When someone says 'Yes, and...' they accept the previous idea and add to it, creating psychological safety and momentum. Teams using 'Yes, and...' generate 40% more ideas and report higher engagement during brainstorming sessions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can introverts be effective brainstormers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely! Introverts often excel at brainstorming when given the right format. Techniques like brainwriting (silent written ideation), individual sketching before group sharing, and digital collaboration tools allow introverts to contribute fully. Research shows diverse teams with both introverts and extroverts generate more innovative solutions than homogeneous groups."
+          }
+        }
+      ]
+    }
+    </script>
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     
@@ -425,12 +499,21 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease;
             border: 1px solid rgba(102, 126, 234, 0.2);
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            color: inherit;
         }
 
         .video-card:hover {
             transform: translateY(-5px);
             border-color: rgba(102, 126, 234, 0.4);
             box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        .video-card:focus {
+            outline: 3px solid #667eea;
+            outline-offset: 2px;
         }
 
         .video-thumbnail {
@@ -443,6 +526,39 @@
             color: #fff;
             font-size: 3rem;
             position: relative;
+            overflow: hidden;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover .video-thumbnail img {
+            transform: scale(1.05);
+        }
+
+        .video-thumbnail .play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-card:hover .play-overlay {
+            opacity: 1;
         }
 
         .video-duration {
@@ -663,6 +779,128 @@
             padding: 3rem;
             color: #d0d0d0;
         }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 4rem 0;
+            background: rgba(26, 26, 46, 0.6);
+        }
+
+        .faq-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #f8f8f8;
+        }
+
+        .faq-subtitle {
+            text-align: center;
+            color: #d0d0d0;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .big-facts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .big-fact {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .big-fact-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #667eea;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .big-fact-text {
+            font-size: 1.1rem;
+            color: #e8e8e8;
+            margin-top: 0.5rem;
+        }
+
+        .faq-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 1.5rem;
+            text-align: left;
+            color: #f8f8f8;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 1.5rem 1.5rem;
+            color: #d0d0d0;
+            line-height: 1.7;
+        }
+
+        .faq-answer-content ul {
+            margin-top: 0.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .faq-answer-content li {
+            margin-bottom: 0.5rem;
+        }
     </style>
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json">
@@ -788,6 +1026,119 @@
         </div>
     </section>
 
+    <section class="faq-section">
+        <div class="container">
+            <h2>Brainstorming Facts & FAQ</h2>
+            <p class="faq-subtitle">Discover why brainstorming is essential in design thinking and get answers to the most common questions about ideation techniques.</p>
+
+            <div class="big-facts">
+                <div class="big-fact">
+                    <div class="big-fact-number">94%</div>
+                    <div class="big-fact-text">of senior executives say innovation is critical to business growth</div>
+                </div>
+                <div class="big-fact">
+                    <div class="big-fact-number">6x</div>
+                    <div class="big-fact-text">more ideas generated using structured brainstorming vs. unstructured sessions</div>
+                </div>
+                <div class="big-fact">
+                    <div class="big-fact-number">70%</div>
+                    <div class="big-fact-text">of breakthrough innovations come from divergent thinking techniques</div>
+                </div>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">What is brainstorming in design thinking?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Brainstorming is the ideation phase of the design thinking process where teams generate a wide range of creative ideas without judgment. The goal is divergent thinking - producing as many ideas as possible before converging on solutions. Effective brainstorming encourages wild ideas, builds on others' suggestions, and defers judgment to create an open, creative environment.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">What are the key rules of effective brainstorming?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            The core rules of brainstorming, developed at IDEO and Stanford d.school, include:
+                            <ul>
+                                <li><strong>Defer judgment:</strong> No criticism or evaluation during ideation</li>
+                                <li><strong>Encourage wild ideas:</strong> The crazier the better - they can be tamed later</li>
+                                <li><strong>Build on others' ideas:</strong> Use "Yes, and..." to expand concepts</li>
+                                <li><strong>Go for quantity:</strong> Aim for 100+ ideas, not perfect ones</li>
+                                <li><strong>One conversation at a time:</strong> Stay focused and listen</li>
+                                <li><strong>Be visual:</strong> Sketch and draw ideas, don't just talk</li>
+                                <li><strong>Stay on topic:</strong> Keep the problem statement in focus</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">How many ideas should a brainstorming session generate?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            A productive brainstorming session should aim for at least 50-100 ideas within 30-60 minutes. Research from the Stanford d.school shows that the best ideas often come after the obvious ones are exhausted - typically after idea #40 or #50. This is why quantity matters: pushing past the easy answers leads to truly innovative solutions.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">What is the difference between divergent and convergent thinking?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <strong>Divergent thinking</strong> is the creative, expansive phase where you generate many possibilities without judgment. It's about exploring widely and considering unconventional ideas. <strong>Convergent thinking</strong> comes after, where you evaluate, combine, and select the most promising ideas. Effective design thinking requires both: first diverge to explore the problem space, then converge to focus on solutions.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">What are the best brainstorming techniques for teams?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Popular team brainstorming techniques include:
+                            <ul>
+                                <li><strong>Crazy 8s:</strong> Sketch 8 ideas in 8 minutes to force rapid ideation</li>
+                                <li><strong>Mind Mapping:</strong> Visual expansion of concepts and connections</li>
+                                <li><strong>SCAMPER:</strong> Systematic prompts to modify existing ideas</li>
+                                <li><strong>Brainwriting:</strong> Silent written ideation to include introverts</li>
+                                <li><strong>How Might We:</strong> Reframe problems as opportunity questions</li>
+                                <li><strong>Worst Possible Idea:</strong> Generate terrible ideas to spark creativity</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">How long should a brainstorming session last?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Optimal brainstorming sessions last 30-60 minutes. Shorter sessions (15-20 minutes) work well for focused techniques like Crazy 8s. Research shows creativity tends to decline after 60-90 minutes, so it's better to take breaks and run multiple shorter sessions. Always include a 5-10 minute warm-up activity to get participants in a creative mindset before the main brainstorming begins.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">Why is "Yes, and..." important in brainstorming?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            "Yes, and..." is an improv technique that encourages building on ideas rather than shutting them down. When someone says "Yes, and..." they accept the previous idea and add to it, creating psychological safety and momentum. This contrasts with "No, but..." or "That won't work because..." which kills creativity. Teams using "Yes, and..." generate 40% more ideas and report higher engagement during brainstorming sessions.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">Can introverts be effective brainstormers?</button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Absolutely! Introverts often excel at brainstorming when given the right format. Techniques like brainwriting (silent written ideation), individual sketching before group sharing, and digital collaboration tools allow introverts to contribute fully. Research shows diverse teams with both introverts and extroverts generate more innovative solutions than homogeneous groups. The key is providing multiple channels for participation.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="container unified-footer">
             <p>&copy; 2025 Free Design Thinking Hub. All rights reserved. Built with <span aria-label="love">❤️</span> for global accessibility.</p>
@@ -802,6 +1153,27 @@
 
         // Icons for brainstorming videos
         const brainstormIcons = ["🧠", "💡", "❓", "🗺️", "🔧", "📋", "🎯", "💭", "⚡", "🌟"];
+
+        // Extract YouTube video ID from URL and generate thumbnail
+        function getYouTubeThumbnail(url) {
+            if (!url) return null;
+
+            // Match various YouTube URL formats
+            const patterns = [
+                /youtu\.be\/([a-zA-Z0-9_-]+)/,
+                /youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/,
+                /youtube\.com\/embed\/([a-zA-Z0-9_-]+)/
+            ];
+
+            for (const pattern of patterns) {
+                const match = url.match(pattern);
+                if (match && match[1]) {
+                    // Return high quality thumbnail
+                    return `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg`;
+                }
+            }
+            return null;
+        }
 
         // Pagination variables
         let videosPerPage = 12;
@@ -854,11 +1226,17 @@
             let videosHtml = '';
             videosToShow.forEach((video, index) => {
                 const icon = getRandomIcon(index);
+                const thumbnail = getYouTubeThumbnail(video.url);
+                const thumbnailHtml = thumbnail
+                    ? `<img src="${thumbnail}" alt="${video.title} thumbnail" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                       <span class="fallback-icon" aria-hidden="true" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center; font-size:3rem;">${icon}</span>`
+                    : `<span aria-hidden="true">${icon}</span>`;
 
                 videosHtml += `
-                    <div class="video-card" data-difficulty="${video.difficulty}" data-group="${video.groupSize.includes('any') ? 'any' : video.groupSize.includes('pair') ? 'individual' : 'group'}" data-keywords="${video.tags.join(' ')} ${video.title} ${video.description}">
+                    <a href="video.html?id=${video.id}" class="video-card" data-difficulty="${video.difficulty}" data-group="${video.groupSize.includes('any') ? 'any' : video.groupSize.includes('pair') ? 'individual' : 'group'}" data-keywords="${video.tags.join(' ')} ${video.title} ${video.description}">
                         <div class="video-thumbnail">
-                            <span aria-hidden="true">${icon}</span>
+                            ${thumbnailHtml}
+                            <div class="play-overlay"><span aria-hidden="true">▶</span></div>
                             <div class="video-duration">${video.duration}</div>
                         </div>
                         <div class="video-info">
@@ -872,9 +1250,9 @@
                                 ${video.tags.slice(0, 3).map(tag => `<span class="tag">${tag}</span>`).join('')}
                             </div>
                             <div class="video-actions">
-                                <button class="watch-btn" onclick="watchVideo('${video.url}', '${video.id}')">
+                                <span class="watch-btn">
                                     Watch Now
-                                </button>
+                                </span>
                                 <button class="bookmark-btn ${sessionManager.isBookmarked(video.id) ? 'bookmarked' : ''}"
                                         onclick="toggleBookmark(event, '${video.id}', '${video.title.replace(/'/g, "\\'")}', '${currentPhase}')"
                                         aria-label="${sessionManager.isBookmarked(video.id) ? 'Remove bookmark' : 'Bookmark this video'}"
@@ -883,7 +1261,7 @@
                                 </button>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 `;
             });
 
@@ -985,6 +1363,7 @@
         // Bookmark toggle function
         function toggleBookmark(event, videoId, videoTitle, phase) {
             event.stopPropagation();
+            event.preventDefault();
 
             // Get video details from the database
             const phaseVideos = videoDatabase[phase] || [];
@@ -999,8 +1378,10 @@
                 title: videoTitle
             });
 
-            // Update button appearance
-            const button = event.target;
+            // Update button appearance - find the closest button element
+            const button = event.target.closest('.bookmark-btn');
+            if (!button) return;
+
             const isBookmarked = sessionManager.isBookmarked(videoId);
 
             if (isBookmarked) {
@@ -1039,9 +1420,28 @@
             }
         }
 
+        // FAQ toggle functionality
+        function initFAQ() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(other => {
+                        if (other !== item) {
+                            other.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        }
+
         // Initialize page
         document.addEventListener('DOMContentLoaded', function() {
             loadPhaseVideos();
+            initFAQ();
             console.log(`✅ Loaded ${currentPhase} phase page`);
         });
     </script>
