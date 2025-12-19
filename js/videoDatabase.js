@@ -1754,6 +1754,116 @@ const videoDatabase = {
       tags: ["rapid", "concept-testing", "feedback"],
       difficulty: "medium",
       groupSize: "facilitator + 5-10 users"
+    },
+    {
+      id: "usability-testing-basics",
+      title: "Usability Testing Basics",
+      url: "https://www.youtube.com/watch?v=BrVnBdW6_rE",
+      duration: "12 mins",
+      description: "Fundamentals of conducting effective usability tests with real users",
+      tags: ["usability", "testing", "fundamentals"],
+      difficulty: "easy",
+      groupSize: "facilitator + 1 user"
+    },
+    {
+      id: "think-aloud-protocol",
+      title: "Think Aloud Protocol",
+      url: "https://www.youtube.com/watch?v=ScYiN_PYA60",
+      duration: "10 mins",
+      description: "Guide users to verbalize their thoughts while testing your prototype",
+      tags: ["think-aloud", "verbalization", "cognitive"],
+      difficulty: "medium",
+      groupSize: "facilitator + 1 user"
+    },
+    {
+      id: "guerrilla-testing",
+      title: "Guerrilla Testing",
+      url: "https://www.youtube.com/watch?v=0YL0xoSmyZI",
+      duration: "8 mins",
+      description: "Quick, informal testing with people in public spaces",
+      tags: ["guerrilla", "quick", "informal"],
+      difficulty: "easy",
+      groupSize: "1-2 researchers + random users"
+    },
+    {
+      id: "ab-testing-intro",
+      title: "A/B Testing Introduction",
+      url: "https://www.youtube.com/watch?v=XDoKhUZ5dnE",
+      duration: "15 mins",
+      description: "Compare two versions to see which performs better with users",
+      tags: ["a/b-testing", "comparison", "data-driven"],
+      difficulty: "medium",
+      groupSize: "any"
+    },
+    {
+      id: "card-sorting",
+      title: "Card Sorting",
+      url: "https://www.youtube.com/watch?v=TbEfjaE94sU",
+      duration: "12 mins",
+      description: "Help users organize information the way they think about it",
+      tags: ["card-sorting", "information-architecture", "organization"],
+      difficulty: "easy",
+      groupSize: "facilitator + 1-5 users"
+    },
+    {
+      id: "focus-groups-facilitation",
+      title: "Focus Groups Facilitation",
+      url: "https://www.youtube.com/watch?v=UMrxL2mVQcs",
+      duration: "18 mins",
+      description: "Guide group discussions to gather collective feedback and insights",
+      tags: ["focus-groups", "group-feedback", "facilitation"],
+      difficulty: "advanced",
+      groupSize: "facilitator + 6-10 participants"
+    },
+    {
+      id: "accessibility-testing",
+      title: "Accessibility Testing",
+      url: "https://www.youtube.com/watch?v=cOmehxAU_4s",
+      duration: "14 mins",
+      description: "Ensure your designs work for users of all abilities",
+      tags: ["accessibility", "inclusive", "diverse-users"],
+      difficulty: "medium",
+      groupSize: "tester + diverse users"
+    },
+    {
+      id: "survey-design",
+      title: "Survey Design Best Practices",
+      url: "https://www.youtube.com/watch?v=akHnzHasNqU",
+      duration: "16 mins",
+      description: "Create effective surveys that generate meaningful user insights",
+      tags: ["surveys", "questionnaires", "quantitative"],
+      difficulty: "medium",
+      groupSize: "any"
+    },
+    {
+      id: "prototype-feedback-session",
+      title: "Prototype Feedback Session",
+      url: "https://www.youtube.com/watch?v=sz4YqwH_6D0",
+      duration: "10 mins",
+      description: "Structure sessions to get actionable feedback on your prototypes",
+      tags: ["feedback", "prototype", "structured"],
+      difficulty: "easy",
+      groupSize: "facilitator + 3-8 users"
+    },
+    {
+      id: "contextual-inquiry",
+      title: "Contextual Inquiry",
+      url: "https://www.youtube.com/watch?v=CxbF8y7U-lQ",
+      duration: "15 mins",
+      description: "Observe and interview users in their natural work environment",
+      tags: ["contextual", "observation", "workplace"],
+      difficulty: "advanced",
+      groupSize: "researcher + 1 user"
+    },
+    {
+      id: "diary-studies",
+      title: "Diary Studies",
+      url: "https://www.youtube.com/watch?v=C9xPM-LBGic",
+      duration: "12 mins",
+      description: "Have users document their experiences over time",
+      tags: ["diary", "longitudinal", "self-report"],
+      difficulty: "medium",
+      groupSize: "researcher + multiple participants"
     }
   ],
 
@@ -1967,6 +2077,116 @@ const videoDatabase = {
       description: "Identify and address biases in research and analysis",
       tags: ["bias", "testing", "objectivity"],
       difficulty: "advanced",
+      groupSize: "any"
+    },
+    {
+      id: "affinity-mapping",
+      title: "Affinity Mapping",
+      url: "https://www.youtube.com/watch?v=UynxDyr0lAo",
+      duration: "12 mins",
+      description: "Group insights and ideas into natural clusters to find patterns",
+      tags: ["affinity", "clustering", "patterns"],
+      difficulty: "easy",
+      groupSize: "3-8 people"
+    },
+    {
+      id: "rose-thorn-bud",
+      title: "Rose, Thorn, Bud",
+      url: "https://www.youtube.com/watch?v=rXj9kUaFQh4",
+      duration: "8 mins",
+      description: "Identify positives (roses), challenges (thorns), and opportunities (buds)",
+      tags: ["rose-thorn-bud", "structured", "balanced"],
+      difficulty: "easy",
+      groupSize: "any"
+    },
+    {
+      id: "plus-delta",
+      title: "Plus/Delta Retrospective",
+      url: "https://www.youtube.com/watch?v=x7dAGOKdOXo",
+      duration: "6 mins",
+      description: "Simple framework: what went well (+) and what to change (delta)",
+      tags: ["plus-delta", "retrospective", "simple"],
+      difficulty: "easy",
+      groupSize: "any"
+    },
+    {
+      id: "five-whys",
+      title: "Five Whys Root Cause Analysis",
+      url: "https://www.youtube.com/watch?v=t1xkm6Z9oAM",
+      duration: "10 mins",
+      description: "Ask 'why' five times to uncover the root cause of problems",
+      tags: ["five-whys", "root-cause", "analysis"],
+      difficulty: "easy",
+      groupSize: "any"
+    },
+    {
+      id: "what-so-what-now-what",
+      title: "What? So What? Now What?",
+      url: "https://www.youtube.com/watch?v=vFBJ-bJgzho",
+      duration: "8 mins",
+      description: "Three-stage reflection framework for extracting actionable insights",
+      tags: ["what-so-what", "framework", "action-oriented"],
+      difficulty: "easy",
+      groupSize: "any"
+    },
+    {
+      id: "dot-voting",
+      title: "Dot Voting",
+      url: "https://www.youtube.com/watch?v=O3bDwPbeqUw",
+      duration: "6 mins",
+      description: "Democratic prioritization using limited votes to surface group preferences",
+      tags: ["voting", "prioritization", "democratic"],
+      difficulty: "easy",
+      groupSize: "4-20 people"
+    },
+    {
+      id: "swot-analysis",
+      title: "SWOT Analysis for Design",
+      url: "https://www.youtube.com/watch?v=mF74vunlLfA",
+      duration: "12 mins",
+      description: "Analyze Strengths, Weaknesses, Opportunities, and Threats",
+      tags: ["swot", "strategic", "comprehensive"],
+      difficulty: "medium",
+      groupSize: "3-8 people"
+    },
+    {
+      id: "sailboat-retrospective",
+      title: "Sailboat Retrospective",
+      url: "https://www.youtube.com/watch?v=7JD2pXWEM3g",
+      duration: "10 mins",
+      description: "Visual metaphor for reflecting on goals, progress, and obstacles",
+      tags: ["sailboat", "visual", "metaphor"],
+      difficulty: "easy",
+      groupSize: "4-12 people"
+    },
+    {
+      id: "starfish-retrospective",
+      title: "Starfish Retrospective",
+      url: "https://www.youtube.com/watch?v=jkgRKFNJLU4",
+      duration: "12 mins",
+      description: "Five categories: Keep, More, Less, Stop, Start",
+      tags: ["starfish", "five-categories", "comprehensive"],
+      difficulty: "medium",
+      groupSize: "4-12 people"
+    },
+    {
+      id: "insight-synthesis",
+      title: "Insight Synthesis",
+      url: "https://www.youtube.com/watch?v=BlEDJjCAVf0",
+      duration: "15 mins",
+      description: "Transform raw data into meaningful, actionable insights",
+      tags: ["synthesis", "insights", "transformation"],
+      difficulty: "advanced",
+      groupSize: "2-6 people"
+    },
+    {
+      id: "point-of-view-statements",
+      title: "Point of View (POV) Statements",
+      url: "https://www.youtube.com/watch?v=a2Opp7w2vvI",
+      duration: "10 mins",
+      description: "Frame user needs as actionable design challenges",
+      tags: ["pov", "problem-framing", "user-needs"],
+      difficulty: "medium",
       groupSize: "any"
     }
   ],

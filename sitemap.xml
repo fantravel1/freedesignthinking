@@ -6,7 +6,7 @@
     <!-- Homepage -->
     <url>
         <loc>https://www.freedesignthinking.com/</loc>
-        <lastmod>2025-11-16</lastmod>
+        <lastmod>2025-12-19</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -35,14 +35,14 @@
 
     <url>
         <loc>https://www.freedesignthinking.com/test.html</loc>
-        <lastmod>2025-11-16</lastmod>
+        <lastmod>2025-12-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://www.freedesignthinking.com/reflect.html</loc>
-        <lastmod>2025-11-16</lastmod>
+        <lastmod>2025-12-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -57,7 +57,7 @@
     <!-- Video Page -->
     <url>
         <loc>https://www.freedesignthinking.com/video.html</loc>
-        <lastmod>2025-11-16</lastmod>
+        <lastmod>2025-12-19</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>

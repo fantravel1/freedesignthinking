@@ -717,6 +717,39 @@
                             <!-- Learning objectives will be loaded here -->
                         </ul>
                     </div>
+
+                    <!-- Facilitator Notes -->
+                    <div class="facilitator-notes" style="background: rgba(139, 195, 74, 0.1); border-left: 4px solid #8bc34a; padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
+                        <h3 style="font-weight: 700; margin-bottom: 1rem; color: #8bc34a; font-size: 1.2rem;"><span aria-hidden="true">📋</span> Facilitator Tips</h3>
+                        <ul id="facilitator-tips" style="list-style: none; padding: 0;">
+                            <!-- Facilitator tips will be loaded here -->
+                        </ul>
+                    </div>
+
+                    <!-- Discussion Prompts -->
+                    <div class="discussion-prompts" style="background: rgba(102, 126, 234, 0.1); border-left: 4px solid #667eea; padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
+                        <h3 style="font-weight: 700; margin-bottom: 1rem; color: #667eea; font-size: 1.2rem;"><span aria-hidden="true">💬</span> Discussion Prompts</h3>
+                        <p style="color: #d0d0d0; margin-bottom: 1rem; font-size: 0.95rem;">After watching, reflect on these questions individually or discuss with your team:</p>
+                        <ol id="discussion-prompts" style="padding-left: 1.5rem; color: #e0e0e0;">
+                            <!-- Discussion prompts will be loaded here -->
+                        </ol>
+                    </div>
+
+                    <!-- Research Connection -->
+                    <div class="research-connection" id="research-connection" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(139, 69, 19, 0.05)); border: 1px solid rgba(212, 175, 55, 0.3); padding: 2rem; border-radius: 15px; margin-bottom: 3rem;">
+                        <h3 style="font-weight: 700; margin-bottom: 1rem; color: #d4af37; font-size: 1.2rem;"><span aria-hidden="true">📚</span> Why This Works: Research Insights</h3>
+                        <p id="research-insight" style="color: #e0e0e0; line-height: 1.7; margin-bottom: 1.5rem;">
+                            <!-- Research insight will be loaded here -->
+                        </p>
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <a href="research.html#featured" class="btn btn-outline" style="font-size: 0.85rem;">
+                                <span aria-hidden="true">🧠</span> Neuroscience of Creativity
+                            </a>
+                            <a href="research.html#featured-indigenous" class="btn btn-outline" style="font-size: 0.85rem; border-color: #8bc34a; color: #8bc34a;">
+                                <span aria-hidden="true">🌱</span> Indigenous Design Wisdom
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Recommendations -->
@@ -882,6 +915,15 @@
 
             // Generate learning objectives
             generateLearningObjectives();
+
+            // Generate facilitator tips
+            generateFacilitatorTips();
+
+            // Generate discussion prompts
+            generateDiscussionPrompts();
+
+            // Generate research insights
+            generateResearchInsights();
         }
 
         // Update VideoObject schema with current video data
@@ -976,6 +1018,147 @@
             const phaseObjectives = objectives[currentPhase] || ['Learn new design thinking techniques'];
             const container = document.getElementById('learning-objectives');
             container.innerHTML = phaseObjectives.map(obj => `<li>${obj}</li>`).join('');
+        }
+
+        // Generate facilitator tips based on phase
+        function generateFacilitatorTips() {
+            const tips = {
+                'warm-up': [
+                    '<strong>Time it right:</strong> Run warm-ups at the start of sessions when energy is fresh, or after lunch to re-energize the group.',
+                    '<strong>Participate fully:</strong> Join in yourself—your enthusiasm sets the tone and builds psychological safety.',
+                    '<strong>No opt-outs:</strong> Gently encourage everyone to participate, but adapt activities for different comfort levels.',
+                    '<strong>Debrief briefly:</strong> After the activity, ask "How did that feel?" to transition into the main work.',
+                    '<strong>Read the room:</strong> If energy is already high, choose a focusing exercise instead of an energizer.'
+                ],
+                'brainstorm': [
+                    '<strong>Defer judgment:</strong> Remind the group that ALL ideas are welcome—wild ideas often spark practical solutions.',
+                    '<strong>Quantity over quality:</strong> Set a target number (e.g., "Let\'s get 50 ideas in 10 minutes") to push past obvious answers.',
+                    '<strong>Build on ideas:</strong> Encourage "Yes, and..." responses rather than "No, but..." thinking.',
+                    '<strong>Silent before sharing:</strong> Have individuals write ideas silently first to prevent groupthink.',
+                    '<strong>Capture everything:</strong> Use sticky notes or a whiteboard so nothing gets lost—assign a dedicated scribe if needed.'
+                ],
+                'prototype': [
+                    '<strong>Embrace rough:</strong> Remind the team that prototypes should be "quick and dirty"—perfection slows learning.',
+                    '<strong>Set time limits:</strong> Short timeboxes (15-30 min) force decisions and prevent over-engineering.',
+                    '<strong>Multiple versions:</strong> Encourage creating 2-3 different prototypes to test different approaches.',
+                    '<strong>Materials matter:</strong> Have diverse materials ready (cardboard, paper, LEGO, markers, tape, scissors).',
+                    '<strong>Build to think:</strong> Start building even before the idea is fully formed—making reveals new insights.'
+                ],
+                'test': [
+                    '<strong>Real users:</strong> Test with actual target users, not just teammates or friends.',
+                    '<strong>Stay neutral:</strong> Don\'t defend your prototype—you\'re testing the design, not yourself.',
+                    '<strong>Observe behavior:</strong> Watch what users DO, not just what they SAY they\'ll do.',
+                    '<strong>Ask "why":</strong> Follow up on unexpected reactions with curious questions.',
+                    '<strong>Document everything:</strong> Take notes, photos, or video (with permission) to capture insights.'
+                ],
+                'reflect': [
+                    '<strong>Fresh perspective:</strong> Wait a day before reflecting if possible—distance reveals patterns.',
+                    '<strong>Structure helps:</strong> Use frameworks (I Like/Wish/Wonder, Plus/Delta) to organize feedback.',
+                    '<strong>Include everyone:</strong> Ensure quieter team members share their observations too.',
+                    '<strong>Look for patterns:</strong> Group similar feedback to identify themes rather than individual opinions.',
+                    '<strong>Celebrate learning:</strong> Frame "failures" as valuable data—what did we learn?'
+                ],
+                'next-steps': [
+                    '<strong>Be specific:</strong> Convert insights into concrete action items with clear owners and deadlines.',
+                    '<strong>Prioritize ruthlessly:</strong> Focus on the 2-3 most impactful changes rather than trying everything.',
+                    '<strong>Schedule check-ins:</strong> Set regular touchpoints to maintain momentum and accountability.',
+                    '<strong>Document decisions:</strong> Record what was decided and why for future reference.',
+                    '<strong>Celebrate progress:</strong> Acknowledge completed milestones to keep team motivation high.'
+                ]
+            };
+
+            const phaseTips = tips[currentPhase] || ['Adapt this exercise to your team\'s needs and context.'];
+            const container = document.getElementById('facilitator-tips');
+            container.innerHTML = phaseTips.map(tip =>
+                `<li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative; color: #e0e0e0;">
+                    <span style="position: absolute; left: 0; color: #8bc34a;">✓</span>${tip}
+                </li>`
+            ).join('');
+        }
+
+        // Generate discussion prompts based on phase
+        function generateDiscussionPrompts() {
+            const prompts = {
+                'warm-up': [
+                    'What surprised you about this activity? Did anything feel uncomfortable or liberating?',
+                    'How did the group energy shift during the exercise? What created that shift?',
+                    'What does this activity reveal about how we collaborate as a team?',
+                    'How might you adapt this warm-up for a virtual or hybrid setting?',
+                    'What assumptions about "professional behavior" did this exercise challenge?'
+                ],
+                'brainstorm': [
+                    'Which ideas excited you most? What made them compelling?',
+                    'Were there moments when you held back an idea? What stopped you?',
+                    'How did building on others\' ideas change your own thinking?',
+                    'What patterns do you notice across the ideas generated?',
+                    'Which "wild" ideas might actually contain seeds of practical solutions?'
+                ],
+                'prototype': [
+                    'What did you discover through building that you couldn\'t have imagined beforehand?',
+                    'Where did you get stuck? What did that reveal about your concept?',
+                    'How did the materials you used shape or constrain your prototype?',
+                    'What would you change if you built a second version right now?',
+                    'How does this prototype make your idea more tangible and testable?'
+                ],
+                'test': [
+                    'What surprised you most about how users interacted with your prototype?',
+                    'Where was the gap between what users said and what they did?',
+                    'What assumptions were validated? Which were challenged?',
+                    'What emotions did you observe in users during testing?',
+                    'If you could ask users one more question, what would it be?'
+                ],
+                'reflect': [
+                    'What\'s the single most important insight from this project so far?',
+                    'How has your understanding of the problem evolved through this process?',
+                    'What would you do differently if you started over today?',
+                    'Which feedback was hardest to hear? Why?',
+                    'How might the seven generations principle apply to your design decisions?'
+                ],
+                'next-steps': [
+                    'What\'s the smallest experiment you could run to learn more?',
+                    'Who else needs to be involved to move this forward?',
+                    'What resources (time, money, expertise) do you need?',
+                    'What obstacles might derail progress? How will you address them?',
+                    'How will you know if you\'re succeeding? What does "done" look like?'
+                ]
+            };
+
+            const phasePrompts = prompts[currentPhase] || ['What did you learn from this exercise?'];
+            const container = document.getElementById('discussion-prompts');
+            container.innerHTML = phasePrompts.map(prompt => `<li style="margin-bottom: 0.8rem; line-height: 1.6;">${prompt}</li>`).join('');
+        }
+
+        // Generate research insights based on phase
+        function generateResearchInsights() {
+            const insights = {
+                'warm-up': {
+                    text: '<strong>Neuroscience research shows</strong> that the brain\'s <em>default mode network (DMN)</em>—crucial for creativity—activates during playful, low-pressure activities. Warm-up exercises create the psychological safety needed for genuine creative risk-taking. As our research on play-based learning demonstrates, spontaneous play produces more original ideas than structured ideation. Indigenous traditions like Ubuntu also teach that creativity emerges from <em>relational connection</em>—we create together, not alone.',
+                    link: 'research.html#neuroscience'
+                },
+                'brainstorm': {
+                    text: '<strong>The myth of the lone genius is just that—a myth.</strong> Research in divergent thinking shows that suspending judgment during ideation dramatically increases both quantity AND quality of ideas. Japanese Shu-Ha-Ri philosophy teaches that innovation emerges from mastery, not ignoring foundations. Our research reveals that exercises combining physical movement with mental ideation activate different brain networks, producing more diverse solutions.',
+                    link: 'research.html#play'
+                },
+                'prototype': {
+                    text: '<strong>Building to think, not thinking to build.</strong> Prototyping externalizes ideas, allowing the brain to process them differently. The Japanese concept of <em>wabi-sabi</em> embraces imperfection—rough prototypes reveal more than polished presentations. Indigenous making traditions understand that <em>the process of creation is itself knowledge</em>. Navajo weaving philosophy teaches that thoughts become tangible through making, affecting the material world.',
+                    link: 'research.html#featured-indigenous'
+                },
+                'test': {
+                    text: '<strong>Observation trumps assumption.</strong> User testing activates empathy circuits in the brain differently than imagining user needs. The Andean principle of <em>ayni</em> (reciprocity) reminds us that testing should give back to participants, not just extract data. Research shows that watching users struggle often reveals more than success—what Robin Wall Kimmerer calls "the Honorable Harvest" applies to insights too.',
+                    link: 'research.html#principle-4'
+                },
+                'reflect': {
+                    text: '<strong>Reflection requires cognitive distance.</strong> The brain consolidates learning during reflection, but only when we create space from the immediate experience. Indigenous <em>Sankofa</em> philosophy teaches that we must look back to move forward wisely. Our research shows structured reflection frameworks help teams extract actionable insights rather than just opinions. Haudenosaunee seven generations thinking asks: how do our decisions affect those who come after?',
+                    link: 'research.html#principle-1'
+                },
+                'next-steps': {
+                    text: '<strong>Implementation is where design thinking often fails.</strong> Research shows teams need explicit structures—roles, deadlines, check-ins—to maintain momentum. Oaxacan <em>comunalidad</em> demonstrates how collective responsibility systems (like <em>tequio</em>) sustain long-term projects. The key insight: next steps should distribute ownership across the community, not concentrate it in individuals.',
+                    link: 'research.html#principle-7'
+                }
+            };
+
+            const phaseInsight = insights[currentPhase] || { text: 'Design thinking research supports experiential, collaborative learning approaches.', link: 'research.html' };
+            document.getElementById('research-insight').innerHTML = phaseInsight.text;
         }
 
         // Load recommendations
