@@ -668,6 +668,23 @@
             return icons[index % icons.length];
         }
 
+        // Extract YouTube video ID from URL and generate thumbnail
+        function getYouTubeThumbnail(url) {
+            if (!url) return null;
+            const patterns = [
+                /youtu\.be\/([a-zA-Z0-9_-]+)/,
+                /youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/,
+                /youtube\.com\/embed\/([a-zA-Z0-9_-]+)/
+            ];
+            for (const pattern of patterns) {
+                const match = url.match(pattern);
+                if (match && match[1]) {
+                    return `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg`;
+                }
+            }
+            return null;
+        }
+
         // Load videos dynamically from the external database
         function loadAllVideos() {
             const videoGrid = document.getElementById('videoGrid');
@@ -677,21 +694,28 @@
                 videoDatabase[phase].forEach((video, index) => {
                     const phaseCapitalized = phase.charAt(0).toUpperCase() + phase.slice(1).replace('-', ' ');
                     const icon = getPhaseIcon(phase, index);
-                    
+                    const thumbnail = getYouTubeThumbnail(video.url);
+                    const thumbnailHtml = thumbnail
+                        ? `<img src="${thumbnail}" alt="${video.title} thumbnail" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span class="fallback-icon" aria-hidden="true">${icon}</span>`
+                        : `<span aria-hidden="true">${icon}</span>`;
+
                     allVideosHtml += `
-                        <div class="video-card" role="listitem" data-phase="${phase}" data-keywords="${video.tags.join(' ')} ${video.difficulty}">
-                            <div class="video-thumbnail" aria-hidden="true">${icon}</div>
+                        <a href="video.html?id=${video.id}" class="video-card" role="listitem" data-phase="${phase}" data-keywords="${video.tags.join(' ')} ${video.difficulty}">
+                            <div class="video-thumbnail">
+                                ${thumbnailHtml}
+                                <div class="play-overlay"><span aria-hidden="true">▶</span></div>
+                                <div class="video-duration">${video.duration}</div>
+                            </div>
                             <div class="video-info">
                                 <h3 class="video-title">${video.title}</h3>
                                 <p class="video-description">${video.description}</p>
                                 <div class="video-tags" aria-label="Video tags">
                                     <span class="tag" style="background: linear-gradient(135deg, #d4af37, #b8941f); color: #1a1a2e;">${phaseCapitalized}</span>
                                     ${video.tags.slice(0, 2).map(tag => `<span class="tag">${tag}</span>`).join('')}
-                                    <span class="tag">${video.duration}</span>
                                 </div>
-                                <button class="interactive-btn" onclick="watchVideo('${video.url}', '${video.id}')" aria-label="Watch ${video.title}">Watch Now</button>
+                                <span class="watch-btn-label">Watch Now</span>
                             </div>
-                        </div>
+                        </a>
                     `;
                 });
             });
