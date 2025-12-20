@@ -181,7 +181,8 @@ const videoDatabase = {
       description: "IDEO brainstorming - high-energy team warm-up",
       tags: ["competitive", "energy", "fun"],
       difficulty: "easy",
-      groupSize: "10-50 people"
+      groupSize: "10-50 people",
+      comingSoon: true
     },
     {
       id: "sushi-making-machine",
@@ -191,7 +192,8 @@ const videoDatabase = {
       description: "IDEO brainstorming - creative collaboration exercise",
       tags: ["collaboration", "machine", "creativity"],
       difficulty: "medium",
-      groupSize: "6-12 people"
+      groupSize: "6-12 people",
+      comingSoon: true
     },
     {
       id: "i-am-a-tree-v2",
@@ -201,7 +203,8 @@ const videoDatabase = {
       description: "IDEO brainstorming - building on others' ideas exercise",
       tags: ["improv", "building-ideas", "advanced"],
       difficulty: "medium",
-      groupSize: "5-15 people"
+      groupSize: "5-15 people",
+      comingSoon: true
     },
     {
       id: "neighbour-portrait",
@@ -511,7 +514,8 @@ const videoDatabase = {
       description: "IDEO brainstorming - imagination and visioning exercise",
       tags: ["imagination", "visioning", "creativity"],
       difficulty: "easy",
-      groupSize: "any"
+      groupSize: "any",
+      comingSoon: true
     },
     {
       id: "fill-the-board",
@@ -521,7 +525,8 @@ const videoDatabase = {
       description: "IDEO brainstorming - rapid idea generation techniques",
       tags: ["rapid-generation", "visual", "quantity"],
       difficulty: "easy",
-      groupSize: "any"
+      groupSize: "any",
+      comingSoon: true
     },
     {
       id: "knockout",
@@ -531,7 +536,8 @@ const videoDatabase = {
       description: "IDEO brainstorming - idea selection and elimination",
       tags: ["competitive", "elimination", "selection"],
       difficulty: "medium",
-      groupSize: "6-15 people"
+      groupSize: "6-15 people",
+      comingSoon: true
     },
     {
       id: "animate-your-name",
@@ -631,7 +637,8 @@ const videoDatabase = {
       description: "IDEO brainstorming - visual perception and interpretation",
       tags: ["visual", "perception", "interpretation"],
       difficulty: "easy",
-      groupSize: "any"
+      groupSize: "any",
+      comingSoon: true
     },
     {
       id: "unrelated-questions",
@@ -641,7 +648,8 @@ const videoDatabase = {
       description: "IDEO brainstorming - questions to spark new thinking",
       tags: ["questions", "random", "thinking"],
       difficulty: "easy",
-      groupSize: "any"
+      groupSize: "any",
+      comingSoon: true
     },
     {
       id: "creatively-use-me",
@@ -651,7 +659,8 @@ const videoDatabase = {
       description: "IDEO brainstorming - creative alternative uses exercise",
       tags: ["objects", "alternative-uses", "creativity"],
       difficulty: "easy",
-      groupSize: "any"
+      groupSize: "any",
+      comingSoon: true
     },
     {
       id: "wedded-words",
@@ -661,7 +670,8 @@ const videoDatabase = {
       description: "IDEO brainstorming - word combinations and connections",
       tags: ["words", "combinations", "connections"],
       difficulty: "easy",
-      groupSize: "any"
+      groupSize: "any",
+      comingSoon: true
     },
     {
       id: "ask-me-anything",
@@ -671,7 +681,8 @@ const videoDatabase = {
       description: "IDEO brainstorming - open questions and improvisation",
       tags: ["questions", "improv", "open"],
       difficulty: "medium",
-      groupSize: "any"
+      groupSize: "any",
+      comingSoon: true
     },
     {
       id: "opposites-attract",
@@ -681,7 +692,8 @@ const videoDatabase = {
       description: "IDEO brainstorming - finding connections between opposites",
       tags: ["opposites", "connections", "paradox"],
       difficulty: "medium",
-      groupSize: "any"
+      groupSize: "any",
+      comingSoon: true
     },
     {
       id: "against-the-rules",
@@ -691,7 +703,8 @@ const videoDatabase = {
       description: "IDEO brainstorming - breaking conventional thinking patterns",
       tags: ["rule-breaking", "unconventional", "patterns"],
       difficulty: "medium",
-      groupSize: "any"
+      groupSize: "any",
+      comingSoon: true
     },
     {
       id: "connecting-the-dots",
@@ -701,7 +714,8 @@ const videoDatabase = {
       description: "IDEO brainstorming - connecting unrelated concepts",
       tags: ["connections", "relationships", "synthesis"],
       difficulty: "medium",
-      groupSize: "any"
+      groupSize: "any",
+      comingSoon: true
     },
     {
       id: "5-dollar-seed-funding",
@@ -805,7 +819,8 @@ const videoDatabase = {
       description: "IDEO brainstorming techniques for challenging assumptions",
       tags: ["assumptions", "advanced", "critical-thinking"],
       difficulty: "advanced",
-      groupSize: "any"
+      groupSize: "any",
+      comingSoon: true
     },
     {
       id: "connect-combine",
@@ -825,7 +840,8 @@ const videoDatabase = {
       description: "IDEO brainstorming techniques for identifying and developing ideas",
       tags: ["selection", "development", "quality"],
       difficulty: "medium",
-      groupSize: "any"
+      groupSize: "any",
+      comingSoon: true
     },
     {
       id: "worst-ideas",
@@ -835,7 +851,8 @@ const videoDatabase = {
       description: "IDEO brainstorming - using unconventional ideas for breakthrough thinking",
       tags: ["reverse-thinking", "breakthrough", "unconventional"],
       difficulty: "medium",
-      groupSize: "any"
+      groupSize: "any",
+      comingSoon: true
     },
     {
       id: "worst-to-best-ideas",
@@ -845,7 +862,8 @@ const videoDatabase = {
       description: "IDEO brainstorming - transforming ideas into brilliant solutions",
       tags: ["transformation", "reversal", "improvement"],
       difficulty: "medium",
-      groupSize: "any"
+      groupSize: "any",
+      comingSoon: true
     },
     {
       id: "new-questions",
@@ -875,7 +893,8 @@ const videoDatabase = {
       description: "IDEO's Tom Kelley on different thinking perspectives in design",
       tags: ["six-hats", "thinking-modes", "perspective"],
       difficulty: "medium",
-      groupSize: "4-8 people"
+      groupSize: "4-8 people",
+      comingSoon: true
     },
     {
       id: "idea-mash-ups",
@@ -1219,7 +1238,8 @@ const videoDatabase = {
       description: "IDEO's Tom Kelley on prototyping and presenting concepts",
       tags: ["commercial", "video", "storytelling"],
       difficulty: "medium",
-      groupSize: "2-5 people"
+      groupSize: "2-5 people",
+      comingSoon: true
     },
     {
       id: "1-min-commercial",
@@ -1229,7 +1249,8 @@ const videoDatabase = {
       description: "IDEO's Tom Kelley on presenting and pitching design concepts",
       tags: ["commercial", "extended", "presentation"],
       difficulty: "medium",
-      groupSize: "3-6 people"
+      groupSize: "3-6 people",
+      comingSoon: true
     },
     {
       id: "presentations",
@@ -1239,7 +1260,8 @@ const videoDatabase = {
       description: "IDEO's Tom Kelley on design thinking presentations and pitches",
       tags: ["presentation", "pitch", "communication"],
       difficulty: "medium",
-      groupSize: "any"
+      groupSize: "any",
+      comingSoon: true
     },
     {
       id: "creative-story-telling",
@@ -1603,7 +1625,8 @@ const videoDatabase = {
       description: "IDEO's Tom Kelley on the importance of empathy in design thinking",
       tags: ["empathy", "fundamentals", "user-centered"],
       difficulty: "beginner",
-      groupSize: "any"
+      groupSize: "any",
+      comingSoon: true
     },
     {
       id: "interviews",
@@ -1653,7 +1676,8 @@ const videoDatabase = {
       description: "IDEO brainstorming - quick voting and preference testing",
       tags: ["voting", "preferences", "rapid"],
       difficulty: "easy",
-      groupSize: "facilitator + 5-20 users"
+      groupSize: "facilitator + 5-20 users",
+      comingSoon: true
     },
     {
       id: "end-user-word-storm",
@@ -1793,7 +1817,8 @@ const videoDatabase = {
       description: "Jakob Nielsen on testing methods and comparing designs with users",
       tags: ["a/b-testing", "comparison", "data-driven"],
       difficulty: "medium",
-      groupSize: "any"
+      groupSize: "any",
+      comingSoon: true
     },
     {
       id: "card-sorting",
@@ -1833,7 +1858,8 @@ const videoDatabase = {
       description: "Jakob Nielsen on gathering user insights through research methods",
       tags: ["surveys", "questionnaires", "quantitative"],
       difficulty: "medium",
-      groupSize: "any"
+      groupSize: "any",
+      comingSoon: true
     },
     {
       id: "prototype-feedback-session",
@@ -1853,7 +1879,8 @@ const videoDatabase = {
       description: "Jakob Nielsen on observing and interviewing users",
       tags: ["contextual", "observation", "workplace"],
       difficulty: "advanced",
-      groupSize: "researcher + 1 user"
+      groupSize: "researcher + 1 user",
+      comingSoon: true
     },
     {
       id: "diary-studies",
@@ -1863,7 +1890,8 @@ const videoDatabase = {
       description: "Jakob Nielsen on understanding user experiences through research",
       tags: ["diary", "longitudinal", "self-report"],
       difficulty: "medium",
-      groupSize: "researcher + multiple participants"
+      groupSize: "researcher + multiple participants",
+      comingSoon: true
     }
   ],
 
@@ -2211,7 +2239,8 @@ const videoDatabase = {
       description: "IDEO brainstorming - aligning teams on next steps",
       tags: ["team-meeting", "alignment", "decisions"],
       difficulty: "easy",
-      groupSize: "team"
+      groupSize: "team",
+      comingSoon: true
     },
     {
       id: "set-deadlines",

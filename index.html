@@ -694,7 +694,7 @@
                 videoDatabase[phase].forEach((video, index) => {
                     const phaseCapitalized = phase.charAt(0).toUpperCase() + phase.slice(1).replace('-', ' ');
                     const icon = getPhaseIcon(phase, index);
-                    const thumbnail = getYouTubeThumbnail(video.url);
+                    const thumbnail = video.comingSoon ? 'images/coming-soon.svg' : getYouTubeThumbnail(video.url);
                     const thumbnailHtml = thumbnail
                         ? `<img src="${thumbnail}" alt="${video.title} thumbnail" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span class="fallback-icon" aria-hidden="true">${icon}</span>`
                         : `<span aria-hidden="true">${icon}</span>`;
