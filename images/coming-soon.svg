@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" width="480" height="360">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="iconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.7" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="480" height="360" fill="url(#bgGrad)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="60" cy="60" r="80" fill="rgba(255,255,255,0.05)"/>
+  <circle cx="420" cy="300" r="100" fill="rgba(255,255,255,0.05)"/>
+  <circle cx="400" cy="80" r="40" fill="rgba(255,255,255,0.08)"/>
+
+  <!-- Video/Play icon outline -->
+  <g transform="translate(240, 140)">
+    <circle cx="0" cy="0" r="50" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-dasharray="8 4"/>
+    <polygon points="-15,-20 -15,20 20,0" fill="url(#iconGrad)" opacity="0.6"/>
+  </g>
+
+  <!-- Coming Soon text -->
+  <text x="240" y="240" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="600" fill="#ffffff">
+    Coming Soon
+  </text>
+
+  <!-- Subtitle -->
+  <text x="240" y="275" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="rgba(255,255,255,0.7)">
+    Video in development
+  </text>
+
+  <!-- Light bulb icon (design thinking) -->
+  <g transform="translate(240, 320)" opacity="0.5">
+    <path d="M-8,-12 Q-8,-20 0,-20 Q8,-20 8,-12 Q8,-6 4,-4 L4,2 L-4,2 L-4,-4 Q-8,-6 -8,-12" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+    <line x1="-3" y1="4" x2="3" y2="4" stroke="#ffffff" stroke-width="1.5"/>
+    <line x1="-2" y1="7" x2="2" y2="7" stroke="#ffffff" stroke-width="1.5"/>
+  </g>
+</svg>

@@ -1020,7 +1020,7 @@
             let videosHtml = '';
             phaseVideos.forEach((video, index) => {
                 const icon = getRandomIcon(index);
-                const thumbnail = getYouTubeThumbnail(video.url);
+                const thumbnail = video.comingSoon ? 'images/coming-soon.svg' : getYouTubeThumbnail(video.url);
                 const thumbnailHtml = thumbnail
                     ? `<img src="${thumbnail}" alt="${video.title} thumbnail" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span class="fallback-icon" aria-hidden="true" style="display:none; position:absolute; inset:0; align-items:center; justify-content:center; font-size:3rem;">${icon}</span>`
                     : `<span aria-hidden="true">${icon}</span>`;
