@@ -1,7 +1,67 @@
 /**
  * Unified Navigation Component
  * Creates consistent header and footer across all pages
+ * Includes global theme toggle functionality
  */
+
+// ============================================
+// GLOBAL THEME FUNCTIONALITY
+// ============================================
+
+// Get user's preferred theme (localStorage > system preference > dark default)
+function getPreferredTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        return savedTheme;
+    }
+    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+}
+
+// Set theme and update localStorage
+function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+
+    // Update all theme toggle buttons on the page
+    const themeIcons = document.querySelectorAll('#theme-icon, .theme-icon');
+    const themeToggles = document.querySelectorAll('#theme-toggle, .theme-toggle');
+
+    themeIcons.forEach(icon => {
+        icon.textContent = theme === 'dark' ? '🌙' : '☀️';
+    });
+
+    themeToggles.forEach(toggle => {
+        toggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        toggle.setAttribute('title', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    });
+
+    console.log(`🎨 Theme set to: ${theme}`);
+}
+
+// Toggle between light and dark themes
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+}
+
+// Initialize theme immediately (before DOM ready to prevent flash)
+setTheme(getPreferredTheme());
+
+// Listen for system theme changes
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    // Only auto-switch if user hasn't manually set a preference
+    if (!localStorage.getItem('theme')) {
+        setTheme(e.matches ? 'dark' : 'light');
+    }
+});
+
+// Make toggleTheme globally available
+window.toggleTheme = toggleTheme;
+
+// ============================================
+// END GLOBAL THEME FUNCTIONALITY
+// ============================================
 
 // Detect current page for active state
 function getCurrentPage() {
@@ -75,30 +135,99 @@ function createUnifiedFooter() {
     `;
 }
 
+// Create theme toggle button HTML
+function createThemeToggleButton() {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    const icon = currentTheme === 'dark' ? '🌙' : '☀️';
+    const ariaLabel = currentTheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
+
+    const button = document.createElement('button');
+    button.id = 'theme-toggle';
+    button.className = 'theme-toggle';
+    button.setAttribute('aria-label', ariaLabel);
+    button.setAttribute('title', ariaLabel);
+    button.innerHTML = `<span id="theme-icon" class="theme-icon">${icon}</span>`;
+    button.addEventListener('click', toggleTheme);
+
+    return button;
+}
+
 // Initialize navigation on page load
 document.addEventListener('DOMContentLoaded', function() {
     // Update navigation if unified-nav class exists
     const navList = document.querySelector('.nav-links.unified-nav');
     const mobileNavList = document.querySelector('.mobile-nav.unified-nav ul');
     const footer = document.querySelector('footer .container.unified-footer');
-    
+
     if (navList || mobileNavList || footer) {
         const { desktopNavHTML, mobileNavHTML } = createUnifiedNav();
-        
+
         if (navList) {
             navList.innerHTML = desktopNavHTML;
         }
-        
+
         if (mobileNavList) {
             mobileNavList.innerHTML = mobileNavHTML;
         }
-        
+
         if (footer) {
             footer.innerHTML = createUnifiedFooter();
         }
-        
+
         console.log('✅ Unified navigation loaded');
     }
+
+    // ============================================
+    // THEME TOGGLE BUTTON INSERTION
+    // ============================================
+
+    // Check if theme toggle button already exists
+    let themeToggle = document.getElementById('theme-toggle');
+
+    if (!themeToggle) {
+        // Find the mobile menu button to insert theme toggle before it
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+
+        if (mobileMenuBtn && mobileMenuBtn.parentElement) {
+            // Create a wrapper div if one doesn't exist
+            let buttonWrapper = mobileMenuBtn.parentElement;
+
+            // If the parent isn't a flex container, we need to handle differently
+            if (!buttonWrapper.style.display || buttonWrapper.style.display !== 'flex') {
+                // Create a new wrapper
+                const wrapper = document.createElement('div');
+                wrapper.style.display = 'flex';
+                wrapper.style.alignItems = 'center';
+                wrapper.style.gap = '1rem';
+
+                // Insert the theme toggle
+                wrapper.appendChild(createThemeToggleButton());
+
+                // Move the mobile menu button into wrapper
+                mobileMenuBtn.parentElement.insertBefore(wrapper, mobileMenuBtn);
+                wrapper.appendChild(mobileMenuBtn);
+            } else {
+                // Parent is already a flex container, insert before mobile menu button
+                buttonWrapper.insertBefore(createThemeToggleButton(), mobileMenuBtn);
+            }
+
+            console.log('🌙 Theme toggle button added');
+        } else {
+            // Fallback: Try to find nav and add to the end
+            const nav = document.querySelector('header nav');
+            if (nav) {
+                nav.appendChild(createThemeToggleButton());
+                console.log('🌙 Theme toggle button added to nav');
+            }
+        }
+    } else {
+        // Theme toggle exists, make sure it has the click event listener
+        themeToggle.addEventListener('click', toggleTheme);
+        console.log('🌙 Theme toggle event listener attached');
+    }
+
+    // Update theme icon to match current theme
+    setTheme(getPreferredTheme());
 });
 
 // Mobile menu functions (global)
