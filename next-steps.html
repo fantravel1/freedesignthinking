@@ -179,7 +179,10 @@
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
     <style>
         * {
             margin: 0;
@@ -957,6 +960,67 @@
             </div>
         </div>
     </section>
+
+    <!-- Video Suggestion Form -->
+    <section class="suggest-video-section" id="suggest-video">
+        <div class="container">
+            <h2 class="suggest-video-title">Suggest a Video</h2>
+            <p class="suggest-video-subtitle">Know a great video about next steps or project planning? Share it with our community!</p>
+
+            <form class="suggest-video-form" action="https://formspree.io/f/mrezqzwr" method="POST">
+                <input type="hidden" name="_subject" value="Video Suggestion: Next Steps Phase">
+                <input type="hidden" name="phase" value="next-steps">
+
+                <div class="form-group">
+                    <label for="video-url">YouTube Video URL *</label>
+                    <input type="url" id="video-url" name="video_url" placeholder="https://www.youtube.com/watch?v=..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="video-title">Video Title *</label>
+                    <input type="text" id="video-title" name="video_title" placeholder="Enter the video title" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="video-duration">Duration</label>
+                        <input type="text" id="video-duration" name="duration" placeholder="e.g., 10 mins">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="video-difficulty">Difficulty Level</label>
+                        <select id="video-difficulty" name="difficulty">
+                            <option value="">Select level</option>
+                            <option value="easy">Beginner</option>
+                            <option value="medium">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="video-description">Why is this video valuable?</label>
+                    <textarea id="video-description" name="description" rows="3" placeholder="Tell us why this video would help others learn about planning next steps..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="submitter-email">Your Email (optional)</label>
+                    <input type="email" id="submitter-email" name="email" placeholder="your@email.com">
+                    <small class="form-hint">We'll notify you when your video is added</small>
+                </div>
+
+                <button type="submit" class="suggest-submit-btn">
+                    <span>Submit Suggestion</span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Floating Suggest Button -->
+    <a href="#suggest-video" class="floating-suggest-btn" id="floatingSuggestBtn" title="Suggest a Video">
+        <span class="floating-btn-icon">💡</span>
+        <span class="floating-btn-text">Suggest Video</span>
+    </a>
 
     <footer>
         <div class="container unified-footer">
