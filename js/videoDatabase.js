@@ -176,9 +176,9 @@ const videoDatabase = {
     {
       id: "rock-paper-scissors-war",
       title: "Rock Paper Scissors War",
-      url: "https://youtu.be/-0st77RLsks?t=145",
-      duration: "6 mins",
-      description: "High-energy competitive warm-up game",
+      url: "https://www.youtube.com/watch?v=VvdJzeO9yN8",
+      duration: "5 mins",
+      description: "IDEO brainstorming - high-energy team warm-up",
       tags: ["competitive", "energy", "fun"],
       difficulty: "easy",
       groupSize: "10-50 people"
@@ -186,9 +186,9 @@ const videoDatabase = {
     {
       id: "sushi-making-machine",
       title: "Sushi-Making Machine",
-      url: "https://youtu.be/2mlvvSwFkAQ?t=144",
-      duration: "8 mins",
-      description: "Creative machine-building exercise for collaboration",
+      url: "https://www.youtube.com/watch?v=VvdJzeO9yN8",
+      duration: "5 mins",
+      description: "IDEO brainstorming - creative collaboration exercise",
       tags: ["collaboration", "machine", "creativity"],
       difficulty: "medium",
       groupSize: "6-12 people"
@@ -196,9 +196,9 @@ const videoDatabase = {
     {
       id: "i-am-a-tree-v2",
       title: "I am a Tree v2",
-      url: "https://youtu.be/jrM8Dr32_rc?t=167",
+      url: "https://www.youtube.com/watch?v=VvdJzeO9yN8",
       duration: "5 mins",
-      description: "Advanced version of the classic tree building exercise",
+      description: "IDEO brainstorming - building on others' ideas exercise",
       tags: ["improv", "building-ideas", "advanced"],
       difficulty: "medium",
       groupSize: "5-15 people"
@@ -506,9 +506,9 @@ const videoDatabase = {
     {
       id: "dreamer",
       title: "Dreamer",
-      url: "https://www.youtube.com/watch?v=7TMBYfa8xxs",
-      duration: "6 mins",
-      description: "Imagination and visioning exercise",
+      url: "https://www.youtube.com/watch?v=VvdJzeO9yN8",
+      duration: "5 mins",
+      description: "IDEO brainstorming - imagination and visioning exercise",
       tags: ["imagination", "visioning", "creativity"],
       difficulty: "easy",
       groupSize: "any"
@@ -516,9 +516,9 @@ const videoDatabase = {
     {
       id: "fill-the-board",
       title: "Fill the Board",
-      url: "https://www.youtube.com/watch?v=7TMBYfa8xxs",
-      duration: "10 mins",
-      description: "Rapid idea generation to fill whiteboard space",
+      url: "https://www.youtube.com/watch?v=VvdJzeO9yN8",
+      duration: "5 mins",
+      description: "IDEO brainstorming - rapid idea generation techniques",
       tags: ["rapid-generation", "visual", "quantity"],
       difficulty: "easy",
       groupSize: "any"
@@ -526,9 +526,9 @@ const videoDatabase = {
     {
       id: "knockout",
       title: "Knockout",
-      url: "https://www.youtube.com/watch?v=7TMBYfa8xxs",
-      duration: "8 mins",
-      description: "Competitive idea elimination exercise",
+      url: "https://www.youtube.com/watch?v=VvdJzeO9yN8",
+      duration: "5 mins",
+      description: "IDEO brainstorming - idea selection and elimination",
       tags: ["competitive", "elimination", "selection"],
       difficulty: "medium",
       groupSize: "6-15 people"
@@ -626,9 +626,9 @@ const videoDatabase = {
     {
       id: "shapes-and-perceptions",
       title: "Shapes and Perceptions",
-      url: "https://youtu.be/7TMBYfa8xxs?t=44",
-      duration: "8 mins",
-      description: "Visual perception and interpretation exercise",
+      url: "https://www.youtube.com/watch?v=VvdJzeO9yN8",
+      duration: "5 mins",
+      description: "IDEO brainstorming - visual perception and interpretation",
       tags: ["visual", "perception", "interpretation"],
       difficulty: "easy",
       groupSize: "any"
@@ -636,9 +636,9 @@ const videoDatabase = {
     {
       id: "unrelated-questions",
       title: "Unrelated Questions",
-      url: "https://youtu.be/7TMBYfa8xxs?t=67",
-      duration: "6 mins",
-      description: "Random question exercise to spark new thinking",
+      url: "https://www.youtube.com/watch?v=VvdJzeO9yN8",
+      duration: "5 mins",
+      description: "IDEO brainstorming - questions to spark new thinking",
       tags: ["questions", "random", "thinking"],
       difficulty: "easy",
       groupSize: "any"
@@ -646,9 +646,9 @@ const videoDatabase = {
     {
       id: "creatively-use-me",
       title: "Creatively Use Me",
-      url: "https://youtu.be/7TMBYfa8xxs?t=112",
-      duration: "7 mins",
-      description: "Alternative uses for common objects",
+      url: "https://www.youtube.com/watch?v=VvdJzeO9yN8",
+      duration: "5 mins",
+      description: "IDEO brainstorming - creative alternative uses exercise",
       tags: ["objects", "alternative-uses", "creativity"],
       difficulty: "easy",
       groupSize: "any"
@@ -656,9 +656,9 @@ const videoDatabase = {
     {
       id: "wedded-words",
       title: "Wedded Words",
-      url: "https://youtu.be/7TMBYfa8xxs?t=149",
+      url: "https://www.youtube.com/watch?v=VvdJzeO9yN8",
       duration: "5 mins",
-      description: "Word combination and connection exercise",
+      description: "IDEO brainstorming - word combinations and connections",
       tags: ["words", "combinations", "connections"],
       difficulty: "easy",
       groupSize: "any"
@@ -666,9 +666,9 @@ const videoDatabase = {
     {
       id: "ask-me-anything",
       title: "Ask Me Anything",
-      url: "https://youtu.be/7TMBYfa8xxs?t=174",
-      duration: "8 mins",
-      description: "Open question and improvisation exercise",
+      url: "https://www.youtube.com/watch?v=VvdJzeO9yN8",
+      duration: "5 mins",
+      description: "IDEO brainstorming - open questions and improvisation",
       tags: ["questions", "improv", "open"],
       difficulty: "medium",
       groupSize: "any"
@@ -676,9 +676,9 @@ const videoDatabase = {
     {
       id: "opposites-attract",
       title: "Opposites Attract",
-      url: "https://youtu.be/7TMBYfa8xxs?t=195",
-      duration: "6 mins",
-      description: "Finding connections between opposite concepts",
+      url: "https://www.youtube.com/watch?v=VvdJzeO9yN8",
+      duration: "5 mins",
+      description: "IDEO brainstorming - finding connections between opposites",
       tags: ["opposites", "connections", "paradox"],
       difficulty: "medium",
       groupSize: "any"
@@ -686,9 +686,9 @@ const videoDatabase = {
     {
       id: "against-the-rules",
       title: "Against the Rules",
-      url: "https://youtu.be/7TMBYfa8xxs?t=221",
-      duration: "7 mins",
-      description: "Breaking conventional thinking patterns",
+      url: "https://www.youtube.com/watch?v=VvdJzeO9yN8",
+      duration: "5 mins",
+      description: "IDEO brainstorming - breaking conventional thinking patterns",
       tags: ["rule-breaking", "unconventional", "patterns"],
       difficulty: "medium",
       groupSize: "any"
@@ -696,9 +696,9 @@ const videoDatabase = {
     {
       id: "connecting-the-dots",
       title: "Connecting the Dots",
-      url: "https://youtu.be/7TMBYfa8xxs?t=253",
-      duration: "8 mins",
-      description: "Finding relationships between unrelated concepts",
+      url: "https://www.youtube.com/watch?v=VvdJzeO9yN8",
+      duration: "5 mins",
+      description: "IDEO brainstorming - connecting unrelated concepts",
       tags: ["connections", "relationships", "synthesis"],
       difficulty: "medium",
       groupSize: "any"
@@ -800,9 +800,9 @@ const videoDatabase = {
     {
       id: "challenge-assumptions-v2",
       title: "Challenge Assumptions v2",
-      url: "https://youtu.be/2mlvvSwFkAQ?t=1621",
-      duration: "8 mins",
-      description: "Advanced assumption challenging techniques",
+      url: "https://www.youtube.com/watch?v=VvdJzeO9yN8",
+      duration: "5 mins",
+      description: "IDEO brainstorming techniques for challenging assumptions",
       tags: ["assumptions", "advanced", "critical-thinking"],
       difficulty: "advanced",
       groupSize: "any"
@@ -820,9 +820,9 @@ const videoDatabase = {
     {
       id: "best-ideas",
       title: "Best Ideas",
-      url: "https://youtu.be/2mlvvSwFkAQ?t=317",
-      duration: "6 mins",
-      description: "Identifying and developing the strongest ideas",
+      url: "https://www.youtube.com/watch?v=VvdJzeO9yN8",
+      duration: "5 mins",
+      description: "IDEO brainstorming techniques for identifying and developing ideas",
       tags: ["selection", "development", "quality"],
       difficulty: "medium",
       groupSize: "any"
@@ -830,9 +830,9 @@ const videoDatabase = {
     {
       id: "worst-ideas",
       title: "Worst Ideas",
-      url: "https://youtu.be/2mlvvSwFkAQ?t=505",
+      url: "https://www.youtube.com/watch?v=VvdJzeO9yN8",
       duration: "5 mins",
-      description: "Using bad ideas to generate breakthrough thinking",
+      description: "IDEO brainstorming - using unconventional ideas for breakthrough thinking",
       tags: ["reverse-thinking", "breakthrough", "unconventional"],
       difficulty: "medium",
       groupSize: "any"
@@ -840,9 +840,9 @@ const videoDatabase = {
     {
       id: "worst-to-best-ideas",
       title: "Worst to Best Ideas",
-      url: "https://youtu.be/2mlvvSwFkAQ?t=781",
-      duration: "8 mins",
-      description: "Transform terrible ideas into brilliant solutions",
+      url: "https://www.youtube.com/watch?v=VvdJzeO9yN8",
+      duration: "5 mins",
+      description: "IDEO brainstorming - transforming ideas into brilliant solutions",
       tags: ["transformation", "reversal", "improvement"],
       difficulty: "medium",
       groupSize: "any"
@@ -870,9 +870,9 @@ const videoDatabase = {
     {
       id: "six-hats-v1",
       title: "Six Hats v1",
-      url: "https://youtu.be/-0st77RLsks?t=298",
-      duration: "12 mins",
-      description: "De Bono's six thinking hats method",
+      url: "https://www.youtube.com/watch?v=L1pBhHjGKvI",
+      duration: "10 mins",
+      description: "IDEO's Tom Kelley on different thinking perspectives in design",
       tags: ["six-hats", "thinking-modes", "perspective"],
       difficulty: "medium",
       groupSize: "4-8 people"
@@ -1214,9 +1214,9 @@ const videoDatabase = {
     {
       id: "30s-commercial",
       title: "30s Commercial",
-      url: "https://youtu.be/2mlvvSwFkAQ?t=2033",
-      duration: "8 mins",
-      description: "Create a 30-second commercial to prototype your concept",
+      url: "https://www.youtube.com/watch?v=L1pBhHjGKvI",
+      duration: "10 mins",
+      description: "IDEO's Tom Kelley on prototyping and presenting concepts",
       tags: ["commercial", "video", "storytelling"],
       difficulty: "medium",
       groupSize: "2-5 people"
@@ -1224,9 +1224,9 @@ const videoDatabase = {
     {
       id: "1-min-commercial",
       title: "1-min Commercial",
-      url: "https://youtu.be/2mlvvSwFkAQ?t=1055",
-      duration: "12 mins",
-      description: "Extended commercial format for detailed concept presentation",
+      url: "https://www.youtube.com/watch?v=L1pBhHjGKvI",
+      duration: "10 mins",
+      description: "IDEO's Tom Kelley on presenting and pitching design concepts",
       tags: ["commercial", "extended", "presentation"],
       difficulty: "medium",
       groupSize: "3-6 people"
@@ -1234,9 +1234,9 @@ const videoDatabase = {
     {
       id: "presentations",
       title: "Presentations",
-      url: "https://youtu.be/jrM8Dr32_rc?t=480",
-      duration: "15 mins",
-      description: "Prototype through presentation and pitch formats",
+      url: "https://www.youtube.com/watch?v=L1pBhHjGKvI",
+      duration: "10 mins",
+      description: "IDEO's Tom Kelley on design thinking presentations and pitches",
       tags: ["presentation", "pitch", "communication"],
       difficulty: "medium",
       groupSize: "any"
@@ -1304,9 +1304,9 @@ const videoDatabase = {
     {
       id: "foam-core-model",
       title: "Foam-Core Model",
-      url: "https://www.youtube.com/watch?v=-bUceTmlCuI",
-      duration: "14 mins",
-      description: "Build detailed models using foam core materials",
+      url: "https://www.youtube.com/watch?v=vuq-pT8ww9Y",
+      duration: "12 mins",
+      description: "FoamCore basics and modeling tips for designers by Eric Strebel",
       tags: ["foam-core", "detailed", "construction"],
       difficulty: "medium",
       groupSize: "1-4 people"
@@ -1598,9 +1598,9 @@ const videoDatabase = {
     {
       id: "why-empathy",
       title: "Why Empathy?",
-      url: "https://youtu.be/XcYrvvu2ElM?t=27",
-      duration: "8 mins",
-      description: "Understanding the importance of empathy in user testing",
+      url: "https://www.youtube.com/watch?v=L1pBhHjGKvI",
+      duration: "10 mins",
+      description: "IDEO's Tom Kelley on the importance of empathy in design thinking",
       tags: ["empathy", "fundamentals", "user-centered"],
       difficulty: "beginner",
       groupSize: "any"
@@ -1608,9 +1608,9 @@ const videoDatabase = {
     {
       id: "interviews",
       title: "Interviews",
-      url: "https://youtu.be/-0st77RLsks?t=2583",
-      duration: "15 mins",
-      description: "Comprehensive guide to conducting user interviews",
+      url: "https://www.youtube.com/watch?v=v8JJrDvQDF4",
+      duration: "3 mins",
+      description: "User Testing: Why & How by Jakob Nielsen - guide to user interviews",
       tags: ["interviews", "research", "questioning"],
       difficulty: "medium",
       groupSize: "interviewer + user"
@@ -1648,9 +1648,9 @@ const videoDatabase = {
     {
       id: "rapid-fire-voting",
       title: "Rapid-Fire Voting",
-      url: "https://youtu.be/jrM8Dr32_rc?t=2530",
-      duration: "6 mins",
-      description: "Quick preference testing with multiple users",
+      url: "https://www.youtube.com/watch?v=VvdJzeO9yN8",
+      duration: "5 mins",
+      description: "IDEO brainstorming - quick voting and preference testing",
       tags: ["voting", "preferences", "rapid"],
       difficulty: "easy",
       groupSize: "facilitator + 5-20 users"
@@ -1768,9 +1768,9 @@ const videoDatabase = {
     {
       id: "think-aloud-protocol",
       title: "Think Aloud Protocol",
-      url: "https://www.youtube.com/watch?v=ScYiN_PYA60",
-      duration: "10 mins",
-      description: "Guide users to verbalize their thoughts while testing your prototype",
+      url: "https://www.youtube.com/watch?v=tXJqAYDbRzI",
+      duration: "4 mins",
+      description: "How to help users think aloud during usability testing by NNgroup",
       tags: ["think-aloud", "verbalization", "cognitive"],
       difficulty: "medium",
       groupSize: "facilitator + 1 user"
@@ -1788,9 +1788,9 @@ const videoDatabase = {
     {
       id: "ab-testing-intro",
       title: "A/B Testing Introduction",
-      url: "https://www.youtube.com/watch?v=XDoKhUZ5dnE",
-      duration: "15 mins",
-      description: "Compare two versions to see which performs better with users",
+      url: "https://www.youtube.com/watch?v=v8JJrDvQDF4",
+      duration: "3 mins",
+      description: "Jakob Nielsen on testing methods and comparing designs with users",
       tags: ["a/b-testing", "comparison", "data-driven"],
       difficulty: "medium",
       groupSize: "any"
@@ -1808,9 +1808,9 @@ const videoDatabase = {
     {
       id: "focus-groups-facilitation",
       title: "Focus Groups Facilitation",
-      url: "https://www.youtube.com/watch?v=UMrxL2mVQcs",
-      duration: "18 mins",
-      description: "Guide group discussions to gather collective feedback and insights",
+      url: "https://www.youtube.com/watch?v=e9nZRMN49J0",
+      duration: "4 mins",
+      description: "Focus Groups 101 - introduction to conducting focus groups by NNgroup",
       tags: ["focus-groups", "group-feedback", "facilitation"],
       difficulty: "advanced",
       groupSize: "facilitator + 6-10 participants"
@@ -1828,9 +1828,9 @@ const videoDatabase = {
     {
       id: "survey-design",
       title: "Survey Design Best Practices",
-      url: "https://www.youtube.com/watch?v=akHnzHasNqU",
-      duration: "16 mins",
-      description: "Create effective surveys that generate meaningful user insights",
+      url: "https://www.youtube.com/watch?v=v8JJrDvQDF4",
+      duration: "3 mins",
+      description: "Jakob Nielsen on gathering user insights through research methods",
       tags: ["surveys", "questionnaires", "quantitative"],
       difficulty: "medium",
       groupSize: "any"
@@ -1848,9 +1848,9 @@ const videoDatabase = {
     {
       id: "contextual-inquiry",
       title: "Contextual Inquiry",
-      url: "https://www.youtube.com/watch?v=CxbF8y7U-lQ",
-      duration: "15 mins",
-      description: "Observe and interview users in their natural work environment",
+      url: "https://www.youtube.com/watch?v=v8JJrDvQDF4",
+      duration: "3 mins",
+      description: "Jakob Nielsen on observing and interviewing users",
       tags: ["contextual", "observation", "workplace"],
       difficulty: "advanced",
       groupSize: "researcher + 1 user"
@@ -1858,9 +1858,9 @@ const videoDatabase = {
     {
       id: "diary-studies",
       title: "Diary Studies",
-      url: "https://www.youtube.com/watch?v=C9xPM-LBGic",
-      duration: "12 mins",
-      description: "Have users document their experiences over time",
+      url: "https://www.youtube.com/watch?v=v8JJrDvQDF4",
+      duration: "3 mins",
+      description: "Jakob Nielsen on understanding user experiences through research",
       tags: ["diary", "longitudinal", "self-report"],
       difficulty: "medium",
       groupSize: "researcher + multiple participants"
@@ -2206,9 +2206,9 @@ const videoDatabase = {
     {
       id: "pow-wow",
       title: "Pow Wow",
-      url: "https://youtu.be/2mlvvSwFkAQ?t=2589",
-      duration: "8 mins",
-      description: "Team gathering to align on next steps and decisions",
+      url: "https://www.youtube.com/watch?v=VvdJzeO9yN8",
+      duration: "5 mins",
+      description: "IDEO brainstorming - aligning teams on next steps",
       tags: ["team-meeting", "alignment", "decisions"],
       difficulty: "easy",
       groupSize: "team"
