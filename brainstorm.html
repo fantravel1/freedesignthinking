@@ -198,6 +198,9 @@
 
     <!-- Global Styles -->
     <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Instant theme initialization to prevent flash -->
+    <script>(function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t)})();</script>
     
     <style>
         * {
