@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.freedesignthinking.com/step-by-step-pathways.html">
+
+    <!-- Primary Meta Tags -->
+    <title>Step-by-Step Design Thinking Pathways | Guided Journeys</title>
+    <meta name="title" content="Step-by-Step Design Thinking Pathways | Guided Journeys">
+    <meta name="description" content="Follow guided design thinking journeys with 5 carefully selected activities—one for each phase. From warm-up to reflection, we'll guide you every step of the way. 100% free.">
+    <meta name="keywords" content="design thinking step by step, design thinking process guide, design thinking tutorial, design thinking phases explained, learn design thinking, design thinking workflow">
+    <meta name="author" content="Free Design Thinking Hub">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+
+    <!-- Mobile Meta Tags -->
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.freedesignthinking.com/step-by-step-pathways.html">
+    <meta property="og:title" content="Step-by-Step Design Thinking Pathways | Guided Journeys">
+    <meta property="og:description" content="Follow guided design thinking journeys with activities for each phase.">
+    <meta property="og:site_name" content="Free Design Thinking Hub">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.freedesignthinking.com/step-by-step-pathways.html">
+    <meta property="twitter:title" content="Step-by-Step Design Thinking Pathways">
+    <meta property="twitter:description" content="Follow guided design thinking journeys with activities for each phase.">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "Complete Design Thinking Journey",
+      "description": "A step-by-step guide through the complete design thinking process",
+      "totalTime": "PT3H",
+      "step": [
+        {"@type": "HowToStep", "position": 1, "name": "Warm-Up", "text": "Activate creativity with energizing exercises"},
+        {"@type": "HowToStep", "position": 2, "name": "Empathize", "text": "Understand users through research and interviews"},
+        {"@type": "HowToStep", "position": 3, "name": "Define", "text": "Frame the problem clearly"},
+        {"@type": "HowToStep", "position": 4, "name": "Ideate", "text": "Generate creative solutions through brainstorming"},
+        {"@type": "HowToStep", "position": 5, "name": "Prototype", "text": "Build quick testable versions"},
+        {"@type": "HowToStep", "position": 6, "name": "Test", "text": "Validate with real users"},
+        {"@type": "HowToStep", "position": 7, "name": "Reflect", "text": "Learn and iterate"}
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.freedesignthinking.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Design Menus", "item": "https://www.freedesignthinking.com/design-menus.html"},
+        {"@type": "ListItem", "position": 3, "name": "Step-by-Step Pathways", "item": "https://www.freedesignthinking.com/step-by-step-pathways.html"}
+      ]
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Theme initialization -->
+    <script>(function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t)})();</script>
+
+    <style>
+        .hero-pathway {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.95), rgba(42, 42, 62, 0.90));
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+        .hero-icon { font-size: 4rem; margin-bottom: 1rem; }
+        .hero-pathway h1 {
+            font-size: 3rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #d4af37;
+        }
+        .hero-description {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+            color: #d0d0d0;
+        }
+        .journey-timeline {
+            padding: 4rem 0;
+            position: relative;
+        }
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #d4af37, rgba(212, 175, 55, 0.2));
+            transform: translateX(-50%);
+        }
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 30px;
+            }
+        }
+        .journey-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        .journey-step:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+        @media (max-width: 768px) {
+            .journey-step,
+            .journey-step:nth-child(odd) {
+                flex-direction: row;
+                padding-left: 70px;
+            }
+        }
+        .step-number {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #d4af37, #b8941f);
+            color: #1a1a2e;
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+        @media (max-width: 768px) {
+            .step-number {
+                left: 30px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+        .step-content {
+            width: calc(50% - 60px);
+            background: linear-gradient(135deg, rgba(42, 42, 62, 0.9), rgba(26, 26, 46, 0.95));
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        .step-content:hover {
+            border-color: #d4af37;
+            transform: translateY(-5px);
+        }
+        @media (max-width: 768px) {
+            .step-content {
+                width: 100%;
+            }
+        }
+        .step-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .step-content h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            color: #f8f8f8;
+            margin-bottom: 0.75rem;
+        }
+        .step-content p {
+            color: #b5b5b5;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .step-activities {
+            background: rgba(212, 175, 55, 0.08);
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+        .step-activities h4 {
+            color: #d4af37;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .step-activities ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .step-activities li {
+            color: #d0d0d0;
+            padding: 0.3rem 0;
+            font-size: 0.95rem;
+        }
+        .step-activities li::before {
+            content: "→ ";
+            color: #d4af37;
+        }
+        .step-link {
+            display: inline-block;
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .step-link:hover {
+            transform: translateX(5px);
+        }
+        .complete-journey-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #0f0f23, #1a1a2e);
+        }
+        .journey-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 25px;
+            padding: 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .journey-card h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #d4af37;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .journey-card p {
+            color: #d0d0d0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .journey-phases {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .phase-badge {
+            background: rgba(42, 42, 62, 0.8);
+            padding: 0.75rem 1.25rem;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .phase-badge span:first-child {
+            font-size: 1.2rem;
+        }
+        .phase-badge span:last-child {
+            color: #f8f8f8;
+            font-size: 0.9rem;
+        }
+        .sample-menus-section {
+            padding: 4rem 0;
+        }
+        .menu-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .menu-example {
+            background: rgba(42, 42, 62, 0.7);
+            border: 2px solid rgba(212, 175, 55, 0.15);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        .menu-example:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+        .menu-example h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #f8f8f8;
+            margin-bottom: 0.5rem;
+        }
+        .menu-example .menu-desc {
+            color: #b5b5b5;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+        .menu-steps {
+            list-style: none;
+            padding: 0;
+        }
+        .menu-steps li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: #d0d0d0;
+        }
+        .menu-steps li:last-child { border-bottom: none; }
+        .menu-steps .step-num {
+            background: rgba(212, 175, 55, 0.2);
+            color: #d4af37;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .cta-section {
+            padding: 4rem 0;
+            background: rgba(212, 175, 55, 0.1);
+            text-align: center;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4af37, #b8941f);
+            color: #1a1a2e;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid #d4af37;
+            color: #d4af37;
+        }
+        .breadcrumb {
+            padding: 1rem 0;
+            background: rgba(26, 26, 46, 0.8);
+        }
+        .breadcrumb a { color: #d4af37; text-decoration: none; }
+        .breadcrumb span { color: #888; }
+        .related-section {
+            padding: 4rem 0;
+            background: #1a1a2e;
+        }
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .related-card {
+            background: rgba(42, 42, 62, 0.6);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .related-card:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateY(-3px);
+        }
+        .related-card h4 { color: #f8f8f8; margin-bottom: 0.5rem; }
+        .related-card p { color: #b5b5b5; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+    <header role="banner">
+        <nav class="container" role="navigation" aria-label="Main navigation">
+            <a href="index.html" class="logo"><span aria-hidden="true">🎨</span> Free Design Thinking Hub</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="design-menus.html">Design Menus</a></li>
+                <li><a href="index.html#videos">Video Library</a></li>
+                <li><a href="worksheets.html">Worksheets</a></li>
+                <li><a href="research.html">Research</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <span id="theme-icon">🌙</span>
+            </button>
+        </nav>
+    </header>
+
+    <main id="main-content" role="main">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <div class="container">
+                <a href="index.html">Home</a> <span>/</span>
+                <a href="design-menus.html">Design Menus</a> <span>/</span>
+                <span>Step-by-Step Pathways</span>
+            </div>
+        </nav>
+
+        <section class="hero-pathway">
+            <div class="container">
+                <div class="hero-icon" aria-hidden="true">🗺️</div>
+                <h1>Step-by-Step Design Thinking Pathways</h1>
+                <p class="hero-description">
+                    Follow guided journeys through the complete design thinking process. Each pathway includes one carefully selected activity per phase, creating a cohesive experience from warm-up to reflection. No guesswork—just follow the steps.
+                </p>
+                <a href="#journey" class="cta-button">Start Your Journey</a>
+            </div>
+        </section>
+
+        <section id="journey" class="journey-timeline">
+            <div class="container" style="position: relative;">
+                <div class="timeline-line"></div>
+
+                <div class="journey-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-icon">🏃</div>
+                        <h3>Warm-Up</h3>
+                        <p>Every great design thinking session starts with warming up your creative muscles. These exercises shift your mindset from analytical to creative mode.</p>
+                        <div class="step-activities">
+                            <h4>Popular Activities</h4>
+                            <ul>
+                                <li><a href="warm-up.html" style="color: #d4af37;">30 Circles Challenge</a></li>
+                                <li><a href="creative-warm-up-exercises.html" style="color: #d4af37;">Yes, And... Improv Game</a></li>
+                                <li><a href="warm-up.html" style="color: #d4af37;">Word Association Sprint</a></li>
+                            </ul>
+                        </div>
+                        <a href="warm-up.html" class="step-link">Explore Warm-Ups →</a>
+                    </div>
+                </div>
+
+                <div class="journey-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-icon">❤️</div>
+                        <h3>Empathize</h3>
+                        <p>Understand the people you're designing for. This phase is about setting aside assumptions and truly listening to user needs, pain points, and desires.</p>
+                        <div class="step-activities">
+                            <h4>Popular Activities</h4>
+                            <ul>
+                                <li><a href="test.html" style="color: #d4af37;">User Interviews</a></li>
+                                <li><a href="worksheets.html" style="color: #d4af37;">Empathy Mapping</a></li>
+                                <li><a href="research.html" style="color: #d4af37;">Observation Studies</a></li>
+                            </ul>
+                        </div>
+                        <a href="what-is-design-thinking.html" class="step-link">Learn About Empathy →</a>
+                    </div>
+                </div>
+
+                <div class="journey-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-icon">🎯</div>
+                        <h3>Define</h3>
+                        <p>Synthesize your empathy research into a clear problem statement. A well-defined problem is half-solved. This phase creates focus for ideation.</p>
+                        <div class="step-activities">
+                            <h4>Popular Activities</h4>
+                            <ul>
+                                <li><a href="worksheets.html" style="color: #d4af37;">Point of View Statements</a></li>
+                                <li><a href="brainstorm.html" style="color: #d4af37;">How Might We Questions</a></li>
+                                <li><a href="reflect.html" style="color: #d4af37;">Affinity Mapping</a></li>
+                            </ul>
+                        </div>
+                        <a href="design-thinking-resources.html" class="step-link">Definition Tools →</a>
+                    </div>
+                </div>
+
+                <div class="journey-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <div class="step-icon">💡</div>
+                        <h3>Ideate</h3>
+                        <p>Generate as many ideas as possible. Quantity leads to quality. This is where <a href="design-thinking-brainstorming.html" style="color: #d4af37;">brainstorming techniques</a> shine—no judgment, just creative flow.</p>
+                        <div class="step-activities">
+                            <h4>Popular Activities</h4>
+                            <ul>
+                                <li><a href="brainstorm.html" style="color: #d4af37;">Classic Brainstorming</a></li>
+                                <li><a href="design-thinking-brainstorming.html" style="color: #d4af37;">SCAMPER Method</a></li>
+                                <li><a href="brainstorm.html" style="color: #d4af37;">Crazy 8s Sketching</a></li>
+                            </ul>
+                        </div>
+                        <a href="brainstorm.html" class="step-link">Explore Ideation →</a>
+                    </div>
+                </div>
+
+                <div class="journey-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <div class="step-icon">🔧</div>
+                        <h3>Prototype</h3>
+                        <p>Build quick, rough representations of your ideas. Prototypes don't need to be perfect—they need to be testable. Fail fast, learn faster.</p>
+                        <div class="step-activities">
+                            <h4>Popular Activities</h4>
+                            <ul>
+                                <li><a href="prototype.html" style="color: #d4af37;">Paper Prototyping</a></li>
+                                <li><a href="prototype.html" style="color: #d4af37;">Storyboarding</a></li>
+                                <li><a href="prototype.html" style="color: #d4af37;">Role Playing</a></li>
+                            </ul>
+                        </div>
+                        <a href="prototype.html" class="step-link">Prototyping Methods →</a>
+                    </div>
+                </div>
+
+                <div class="journey-step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <div class="step-icon">🧪</div>
+                        <h3>Test</h3>
+                        <p>Put your prototypes in front of real users. Watch how they interact, listen to their feedback, and learn what works and what doesn't.</p>
+                        <div class="step-activities">
+                            <h4>Popular Activities</h4>
+                            <ul>
+                                <li><a href="test.html" style="color: #d4af37;">Usability Testing</a></li>
+                                <li><a href="test.html" style="color: #d4af37;">Feedback Grid</a></li>
+                                <li><a href="test.html" style="color: #d4af37;">A/B Comparison</a></li>
+                            </ul>
+                        </div>
+                        <a href="test.html" class="step-link">Testing Techniques →</a>
+                    </div>
+                </div>
+
+                <div class="journey-step">
+                    <div class="step-number">7</div>
+                    <div class="step-content">
+                        <div class="step-icon">🤔</div>
+                        <h3>Reflect & Iterate</h3>
+                        <p>Analyze what you learned and decide next steps. Design thinking is iterative—use insights to improve your solution and go through the process again.</p>
+                        <div class="step-activities">
+                            <h4>Popular Activities</h4>
+                            <ul>
+                                <li><a href="reflect.html" style="color: #d4af37;">I Like, I Wish, What If</a></li>
+                                <li><a href="reflect.html" style="color: #d4af37;">Rose, Bud, Thorn</a></li>
+                                <li><a href="next-steps.html" style="color: #d4af37;">Action Planning</a></li>
+                            </ul>
+                        </div>
+                        <a href="reflect.html" class="step-link">Reflection Methods →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="complete-journey-section">
+            <div class="container">
+                <div class="journey-card">
+                    <h2>The Complete Design Thinking Journey</h2>
+                    <p>Each Design Menu on our platform includes one activity for each phase, creating a complete journey you can follow from start to finish. No planning required—just pick a menu and go.</p>
+                    <div class="journey-phases">
+                        <div class="phase-badge"><span>🏃</span><span>Warm-Up</span></div>
+                        <div class="phase-badge"><span>🧠</span><span>Brainstorm</span></div>
+                        <div class="phase-badge"><span>🔧</span><span>Prototype</span></div>
+                        <div class="phase-badge"><span>🧪</span><span>Test</span></div>
+                        <div class="phase-badge"><span>🤔</span><span>Reflect</span></div>
+                    </div>
+                    <a href="design-menus.html" class="cta-button">Browse Design Menus</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="sample-menus-section">
+            <div class="container">
+                <h2 style="font-family: 'Space Grotesk', sans-serif; color: #f8f8f8; text-align: center; margin-bottom: 1rem;">Sample Step-by-Step Menus</h2>
+                <p style="color: #d0d0d0; text-align: center; max-width: 700px; margin: 0 auto;">Here's what a complete design thinking journey looks like. Each menu is designed to flow naturally from one phase to the next.</p>
+
+                <div class="menu-examples">
+                    <div class="menu-example">
+                        <h3><span aria-hidden="true">📱</span> Mobile App Menu</h3>
+                        <p class="menu-desc">Perfect for designing digital products</p>
+                        <ol class="menu-steps">
+                            <li><span class="step-num">1</span> 30 Circles Challenge (Warm-Up)</li>
+                            <li><span class="step-num">2</span> Crazy 8s Sketching (Brainstorm)</li>
+                            <li><span class="step-num">3</span> Paper App Prototype (Prototype)</li>
+                            <li><span class="step-num">4</span> 5-Second Tests (Test)</li>
+                            <li><span class="step-num">5</span> Feedback Grid (Reflect)</li>
+                        </ol>
+                    </div>
+
+                    <div class="menu-example">
+                        <h3><span aria-hidden="true">🌍</span> Social Impact Menu</h3>
+                        <p class="menu-desc">For community-centered design challenges</p>
+                        <ol class="menu-steps">
+                            <li><span class="step-num">1</span> Story Circle (Warm-Up)</li>
+                            <li><span class="step-num">2</span> How Might We Questions (Brainstorm)</li>
+                            <li><span class="step-num">3</span> Service Blueprint (Prototype)</li>
+                            <li><span class="step-num">4</span> Community Feedback (Test)</li>
+                            <li><span class="step-num">5</span> Rose, Bud, Thorn (Reflect)</li>
+                        </ol>
+                    </div>
+
+                    <div class="menu-example">
+                        <h3><span aria-hidden="true">🚀</span> Startup Sprint Menu</h3>
+                        <p class="menu-desc">Fast-paced innovation for new ventures</p>
+                        <ol class="menu-steps">
+                            <li><span class="step-num">1</span> Yes, And... Game (Warm-Up)</li>
+                            <li><span class="step-num">2</span> SCAMPER Method (Brainstorm)</li>
+                            <li><span class="step-num">3</span> Landing Page Mockup (Prototype)</li>
+                            <li><span class="step-num">4</span> Smoke Test (Test)</li>
+                            <li><span class="step-num">5</span> Pivot or Persevere (Reflect)</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2 style="font-family: 'Space Grotesk', sans-serif; color: #f8f8f8; margin-bottom: 1.5rem;">Ready to Begin?</h2>
+                <p style="color: #d0d0d0; max-width: 600px; margin: 0 auto 2rem;">Start with a <a href="creative-warm-up-exercises.html" style="color: #d4af37;">warm-up exercise</a> to get in the right mindset, then follow the steps through your complete design thinking journey.</p>
+                <a href="warm-up.html" class="cta-button">Start with Warm-Up</a>
+                <a href="design-menus.html" class="cta-button secondary">Browse All Menus</a>
+            </div>
+        </section>
+
+        <section class="related-section">
+            <div class="container">
+                <h2 style="font-family: 'Space Grotesk', sans-serif; color: #f8f8f8; text-align: center; margin-bottom: 1rem;">Explore More Pathways</h2>
+                <p style="color: #d0d0d0; text-align: center; max-width: 600px; margin: 0 auto;">Find pathways based on project type, skill level, or available time.</p>
+                <div class="related-grid">
+                    <a href="project-specific-pathways.html" class="related-card">
+                        <h4><span aria-hidden="true">🎯</span> Project-Specific</h4>
+                        <p>12+ pathways for different project types.</p>
+                    </a>
+                    <a href="skill-based-pathways.html" class="related-card">
+                        <h4><span aria-hidden="true">📊</span> Skill-Based</h4>
+                        <p>Beginner to expert learning tracks.</p>
+                    </a>
+                    <a href="duration-flexible-pathways.html" class="related-card">
+                        <h4><span aria-hidden="true">⏱️</span> Duration Flexible</h4>
+                        <p>From 30-minute sprints to 3-hour deep dives.</p>
+                    </a>
+                    <a href="free-design-thinking-course.html" class="related-card">
+                        <h4><span aria-hidden="true">🎓</span> Free Course</h4>
+                        <p>Complete 250+ video structured learning.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-content" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; padding: 3rem 0;">
+                <div>
+                    <h3 style="color: #d4af37; margin-bottom: 1rem;">Learn</h3>
+                    <p><a href="what-is-design-thinking.html" style="color: #b5b5b5;">What is Design Thinking?</a></p>
+                    <p><a href="free-design-thinking-course.html" style="color: #b5b5b5;">Free Course</a></p>
+                    <p><a href="design-thinking-resources.html" style="color: #b5b5b5;">Resources</a></p>
+                </div>
+                <div>
+                    <h3 style="color: #d4af37; margin-bottom: 1rem;">Practice</h3>
+                    <p><a href="warm-up.html" style="color: #b5b5b5;">Warm-Up Exercises</a></p>
+                    <p><a href="brainstorm.html" style="color: #b5b5b5;">Brainstorming</a></p>
+                    <p><a href="prototype.html" style="color: #b5b5b5;">Prototyping</a></p>
+                </div>
+                <div>
+                    <h3 style="color: #d4af37; margin-bottom: 1rem;">Pathways</h3>
+                    <p><a href="project-specific-pathways.html" style="color: #b5b5b5;">Project-Specific</a></p>
+                    <p><a href="skill-based-pathways.html" style="color: #b5b5b5;">Skill-Based</a></p>
+                    <p><a href="duration-flexible-pathways.html" style="color: #b5b5b5;">Duration Flexible</a></p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #333; padding-top: 2rem; text-align: center;">
+                <p style="color: #888;">&copy; 2025 Free Design Thinking Hub. Built with <span aria-hidden="true">❤️</span> for global accessibility.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const getPreferredTheme = () => localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        const setTheme = (theme) => {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            const themeIcon = document.getElementById('theme-icon');
+            themeIcon.textContent = theme === 'dark' ? '🌙' : '☀️';
+        };
+        setTheme(getPreferredTheme());
+        document.getElementById('theme-toggle')?.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            setTheme(current === 'dark' ? 'light' : 'dark');
+        });
+    </script>
+</body>
+</html>
