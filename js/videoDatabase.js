@@ -756,9 +756,112 @@ const videoDatabase = {
       tags: ["challenges", "opportunities", "reframing"],
       difficulty: "medium",
       groupSize: "any"
+    },
+    // === NEW ADDITIONS: Beginner Tutorials & Introductions ===
+    {
+      id: "design-thinking-101-nng",
+      title: "Design Thinking 101",
+      url: "https://www.youtube.com/watch?v=6lmvCqvmjfE",
+      duration: "3 mins",
+      description: "Sarah Gibbons delivers a crystal-clear overview of design thinking's 6 phases with professional animations. Ideal quick-start for absolute beginners.",
+      tags: ["beginner", "introduction", "overview", "NNg"],
+      difficulty: "beginner",
+      groupSize: "any"
+    },
+    {
+      id: "ibm-design-thinking-10min",
+      title: "Understand IBM Design Thinking in 10 Minutes",
+      url: "https://www.youtube.com/watch?v=psLjEBUOnVs",
+      duration: "10 mins",
+      description: "Mirko Azis explains IBM's Enterprise Design Thinking approach, covering innovation-at-scale strategies and real corporate application beyond academic frameworks.",
+      tags: ["IBM", "enterprise", "introduction", "corporate"],
+      difficulty: "beginner",
+      groupSize: "any"
+    },
+    {
+      id: "design-thinking-3min-sprouts",
+      title: "Design Thinking in 3 Minutes",
+      url: "https://www.youtube.com/watch?v=_r0VX-aU_T8",
+      duration: "4 mins",
+      description: "Animated sketchnoting explains Stanford's five-step process engagingly. The visual format aids comprehension—excellent for visual learners.",
+      tags: ["animation", "visual", "Stanford", "beginner"],
+      difficulty: "beginner",
+      groupSize: "any"
+    },
+    {
+      id: "futur-what-is-design-thinking",
+      title: "What is Design Thinking? (The Futur)",
+      url: "https://www.youtube.com/watch?v=gHGN6hs2gZY",
+      duration: "12 mins",
+      description: "Chris Do responds to the famous 'Design Thinking is BS' critique with a business-oriented defense. Unique entrepreneur perspective absent from academic sources.",
+      tags: ["business", "entrepreneur", "critique", "response"],
+      difficulty: "medium",
+      groupSize: "any"
+    },
+    {
+      id: "engineering-vs-design-thinking",
+      title: "Engineering vs Design Thinking (Big Think)",
+      url: "https://www.youtube.com/watch?v=q7LCfmDvQJY",
+      duration: "7 mins",
+      description: "Stanford's Dave Evans covers tame vs. wicked problems, types of thinking, and life prototyping. Exceptional clarity on when design thinking applies versus other approaches.",
+      tags: ["engineering", "wicked-problems", "Stanford", "comparison"],
+      difficulty: "medium",
+      groupSize: "any"
+    },
+    // === K-12 Education ===
+    {
+      id: "launch-cycle-john-spencer",
+      title: "LAUNCH Cycle Design Thinking for Students",
+      url: "https://www.youtube.com/watch?v=gxbkLsq-_qA",
+      duration: "8 mins",
+      description: "John Spencer's design thinking framework specifically tailored for K-12 classrooms. Created by a former middle school teacher—student-friendly and practical.",
+      tags: ["K-12", "education", "students", "classroom"],
+      difficulty: "beginner",
+      groupSize: "classroom"
+    },
+    {
+      id: "design-thinking-k12-stanford",
+      title: "Design Thinking in K-12 Classrooms",
+      url: "https://www.youtube.com/watch?v=wOrmr2lVr3g",
+      duration: "15 mins",
+      description: "Stanford d.school K-12 Lab shows 5 ways to integrate design thinking in K-12 classrooms including humanities applications—not just STEM subjects.",
+      tags: ["K-12", "Stanford", "classroom", "humanities"],
+      difficulty: "beginner",
+      groupSize: "classroom"
+    },
+    // === IDEO Design Kit Mindset Videos ===
+    {
+      id: "ideo-creative-confidence",
+      title: "Creative Confidence (IDEO)",
+      url: "https://www.youtube.com/watch?v=16p9YRF0l-g",
+      duration: "2 mins",
+      description: "David Kelley, founder of IDEO, on building creative confidence—the foundation of design thinking mindset.",
+      tags: ["IDEO", "mindset", "creative-confidence", "David-Kelley"],
+      difficulty: "beginner",
+      groupSize: "any"
+    },
+    {
+      id: "ideo-embrace-ambiguity",
+      title: "Embrace Ambiguity (IDEO)",
+      url: "https://www.youtube.com/watch?v=2TEXF5m5qWk",
+      duration: "2 mins",
+      description: "Patrice Martin from IDEO.org explains why embracing ambiguity is essential for design thinking success.",
+      tags: ["IDEO", "mindset", "ambiguity", "uncertainty"],
+      difficulty: "beginner",
+      groupSize: "any"
+    },
+    {
+      id: "ideo-optimism",
+      title: "Optimism (IDEO)",
+      url: "https://www.youtube.com/watch?v=7EvJVq6d_sY",
+      duration: "2 mins",
+      description: "John Bielenberg on the power of optimism in design thinking—believing that you can make a difference.",
+      tags: ["IDEO", "mindset", "optimism", "belief"],
+      difficulty: "beginner",
+      groupSize: "any"
     }
   ],
-  
+
   //Brainstorming Section
   "brainstorm": [
     {
@@ -1185,6 +1288,118 @@ const videoDatabase = {
       tags: ["user-journey", "improv", "experience"],
       difficulty: "advanced",
       groupSize: "4-8 people"
+    },
+    // === NEW ADDITIONS: Advanced Workshops & Facilitation ===
+    {
+      id: "ajsmart-design-thinking-training",
+      title: "2-Hour Design Thinking Live Training (AJ&Smart)",
+      url: "https://www.youtube.com/watch?v=Z4gAugRGpeY",
+      duration: "120 mins",
+      description: "Complete step-by-step workshop with downloadable resources from the Berlin studio that works with World Food Programme, Adidas, eBay, and Lufthansa.",
+      tags: ["AJ&Smart", "workshop", "facilitation", "comprehensive"],
+      difficulty: "advanced",
+      groupSize: "team"
+    },
+    {
+      id: "design-sprint-2-tutorial",
+      title: "Design Sprint 2.0 Tutorial (AJ&Smart)",
+      url: "https://www.youtube.com/watch?v=aWQUSiOZ0x8",
+      duration: "45 mins",
+      description: "The updated 4-day methodology developed with Jake Knapp—covers enterprise adaptations and faster execution than the original Sprint book.",
+      tags: ["design-sprint", "AJ&Smart", "Jake-Knapp", "enterprise"],
+      difficulty: "advanced",
+      groupSize: "team"
+    },
+    {
+      id: "lightning-decision-jam",
+      title: "Lightning Decision Jam Workshop (AJ&Smart)",
+      url: "https://www.youtube.com/watch?v=33hBnZzoFAg",
+      duration: "40 mins",
+      description: "A 40-minute exercise for solving problems without discussion. Combines Design Thinking, Gamestorming, and Agile into one powerful framework.",
+      tags: ["LDJ", "AJ&Smart", "decision-making", "rapid"],
+      difficulty: "medium",
+      groupSize: "4-10 people"
+    },
+    {
+      id: "team-workshop-design-4cs",
+      title: "How to Design an Amazing Team Workshop (AJ&Smart)",
+      url: "https://www.youtube.com/watch?v=uBYGFpdcvBg",
+      duration: "35 mins",
+      description: "Live training on the 4C's framework for workshop design. Practical facilitation focus with real workshop design process walkthrough.",
+      tags: ["workshop-design", "facilitation", "4Cs", "AJ&Smart"],
+      difficulty: "advanced",
+      groupSize: "facilitators"
+    },
+    {
+      id: "remote-design-sprint-qa",
+      title: "Remote Design Sprint Live Q&A (AJ&Smart)",
+      url: "https://www.youtube.com/watch?v=ReB9Vd3Iv_c",
+      duration: "70 mins",
+      description: "Jonathan Courtney and Tim Hoefer cover remote Design Sprint setup and facilitation for distributed teams—essential for global collaboration.",
+      tags: ["remote", "design-sprint", "distributed", "AJ&Smart"],
+      difficulty: "advanced",
+      groupSize: "remote-team"
+    },
+    {
+      id: "crazy-8s-ajsmart",
+      title: "Crazy 8's Tutorial (AJ&Smart)",
+      url: "https://www.youtube.com/watch?v=yz4g87XNFnw",
+      duration: "10 mins",
+      description: "Detailed facilitation demonstration of the Crazy 8's activity with updated instructions. Generate 8 sketched ideas in 8 minutes.",
+      tags: ["crazy-8s", "sketching", "rapid-ideation", "AJ&Smart"],
+      difficulty: "medium",
+      groupSize: "any"
+    },
+    {
+      id: "brainstorming-ideation-ixdf",
+      title: "Brainstorming Ideation Methods (IxDF)",
+      url: "https://www.youtube.com/watch?v=2TEXF5m5qWk",
+      duration: "20 mins",
+      description: "Comprehensive guide covering brainstorming, brainwriting, brainwalking, and braindumping techniques with facilitator tips.",
+      tags: ["brainstorming", "brainwriting", "IxDF", "techniques"],
+      difficulty: "medium",
+      groupSize: "any"
+    },
+    {
+      id: "journey-mapping-101-nng",
+      title: "Journey Mapping 101 (NNg)",
+      url: "https://www.youtube.com/watch?v=2W13ext26kQ",
+      duration: "15 mins",
+      description: "Comprehensive tutorial on creating customer journey maps including personas, stages, touchpoints, emotions, and pain points.",
+      tags: ["journey-mapping", "NNg", "customer-experience", "touchpoints"],
+      difficulty: "medium",
+      groupSize: "any"
+    },
+    {
+      id: "affinity-mapping-timelapse",
+      title: "Affinity Mapping Timelapse",
+      url: "https://vimeo.com/47189546",
+      duration: "5 mins",
+      description: "Real-time visual demonstration of affinity clustering—shows the process 'playing itself out' better than description-based tutorials.",
+      tags: ["affinity-mapping", "clustering", "synthesis", "visual"],
+      difficulty: "medium",
+      groupSize: "team"
+    },
+    // === Global Context: Smart Cities ===
+    {
+      id: "undp-why-design-thinking",
+      title: "Why Design Thinking? (UNDP Smart Cities)",
+      url: "https://www.youtube.com/watch?v=0V5BwTrQOCs",
+      duration: "8 mins",
+      description: "UNDP Singapore Global Centre explains why design thinking is essential for building smart cities in developing contexts.",
+      tags: ["UNDP", "smart-cities", "global", "development"],
+      difficulty: "medium",
+      groupSize: "any"
+    },
+    {
+      id: "undp-design-for-impact",
+      title: "How to Design for Impact (UNDP)",
+      url: "https://www.youtube.com/watch?v=Q_x3HMeK3G8",
+      duration: "10 mins",
+      description: "UNDP's guide to designing for impact in complex urban environments with community-centered approaches.",
+      tags: ["UNDP", "impact", "urban", "community"],
+      difficulty: "medium",
+      groupSize: "any"
     }
   ],
 
@@ -1612,6 +1827,37 @@ const videoDatabase = {
       tags: ["live-stream", "real-time", "broadcast"],
       difficulty: "advanced",
       groupSize: "2-5 people"
+    },
+    // === NEW ADDITIONS: Prototyping Deep-Dives ===
+    {
+      id: "paper-prototyping-nng",
+      title: "Paper Prototyping Tutorial (NNg)",
+      url: "https://www.youtube.com/watch?v=yafaGNFu8Eg",
+      duration: "40 mins",
+      description: "Hoa Loranger's comprehensive hands-on tutorial showing paper prototype creation and usability testing. Includes examples of usability problems discovered.",
+      tags: ["paper-prototype", "NNg", "usability", "hands-on"],
+      difficulty: "medium",
+      groupSize: "1-4 people"
+    },
+    {
+      id: "ux-storyboard-nng",
+      title: "How to Create a UX Storyboard (NNg)",
+      url: "https://www.youtube.com/watch?v=bNh54LNUtv8",
+      duration: "12 mins",
+      description: "Rachel Krause explains how storyboards fit within UX design and provides steps for visualizing workflows, customer journeys, and user stories.",
+      tags: ["storyboard", "NNg", "UX", "visualization"],
+      difficulty: "medium",
+      groupSize: "any"
+    },
+    {
+      id: "prototyping-massive-influence",
+      title: "Prototyping Your Way To Massive Influence (High Resolution)",
+      url: "https://www.youtube.com/watch?v=TeE6Tx_nO94",
+      duration: "45 mins",
+      description: "Daniel Burka (Design Partner at GV) provides a design thinking crash course and discusses boardroom influence through prototyping.",
+      tags: ["GV", "influence", "boardroom", "Daniel-Burka"],
+      difficulty: "advanced",
+      groupSize: "any"
     }
   ],
 
@@ -1892,6 +2138,99 @@ const videoDatabase = {
       difficulty: "medium",
       groupSize: "researcher + multiple participants",
       comingSoon: true
+    },
+    // === NEW ADDITIONS: Empathy & User Research ===
+    {
+      id: "how-to-empathy-map-nng",
+      title: "How to Empathy Map (NNg)",
+      url: "https://www.youtube.com/watch?v=QwF9a56WFWA",
+      duration: "8 mins",
+      description: "5-step process for the 4-quadrant empathy mapping framework (Says, Thinks, Does, Feels). Essential synthesis technique.",
+      tags: ["empathy-map", "NNg", "synthesis", "4-quadrant"],
+      difficulty: "medium",
+      groupSize: "any"
+    },
+    {
+      id: "using-empathy-maps-nng",
+      title: "How to Use Empathy Maps (NNg)",
+      url: "https://www.youtube.com/watch?v=WT7Odw0PCtY",
+      duration: "6 mins",
+      description: "Individual vs. aggregated empathy maps and real-world applications. When and how to apply the technique effectively.",
+      tags: ["empathy-map", "NNg", "application", "aggregated"],
+      difficulty: "medium",
+      groupSize: "any"
+    },
+    {
+      id: "when-empathy-map-nng",
+      title: "When to Empathy Map (NNg)",
+      url: "https://www.youtube.com/watch?v=jNVHdTHQ9Q4",
+      duration: "5 mins",
+      description: "Strategic timing for empathy mapping throughout the design process. Know when this technique adds the most value.",
+      tags: ["empathy-map", "NNg", "timing", "strategy"],
+      difficulty: "medium",
+      groupSize: "any"
+    },
+    {
+      id: "user-interviews-101-nng",
+      title: "User Interviews 101 (NNg)",
+      url: "https://www.youtube.com/watch?v=WpzmOH0hrEM",
+      duration: "10 mins",
+      description: "What user interviews are, when to use them, and constructing effective interview guides with open-ended questions.",
+      tags: ["interviews", "NNg", "user-research", "guide"],
+      difficulty: "medium",
+      groupSize: "interviewer + user"
+    },
+    {
+      id: "usability-testing-101-nng",
+      title: "Usability Testing 101 (NNg)",
+      url: "https://www.youtube.com/watch?v=BrVnBdW6_rE",
+      duration: "12 mins",
+      description: "Kate Moran's overview of usability testing methodology—the core UX research method for uncovering problems and opportunities.",
+      tags: ["usability-testing", "NNg", "UX-research", "methodology"],
+      difficulty: "medium",
+      groupSize: "moderator + participant"
+    },
+    {
+      id: "introduce-usability-test-nng",
+      title: "Introducing a Usability Test to Participants (NNg)",
+      url: "https://www.youtube.com/watch?v=07u_nknPGoU",
+      duration: "4 mins",
+      description: "Maria Rosala and Kate Moran demonstrate participant preparation using a facilitator's script—essential for test moderation.",
+      tags: ["usability-testing", "NNg", "moderation", "script"],
+      difficulty: "medium",
+      groupSize: "moderator + participant"
+    },
+    // === Healthcare Design Thinking ===
+    {
+      id: "penn-nursing-dt-intro",
+      title: "Design Thinking for Health (Penn Nursing)",
+      url: "https://www.youtube.com/watch?v=wOJRBBvjCIQ",
+      duration: "15 mins",
+      description: "Introduction to Penn Nursing's design thinking for health platform featuring equity-centered design focus and Wharton partnership.",
+      tags: ["healthcare", "nursing", "Penn", "equity"],
+      difficulty: "medium",
+      groupSize: "any"
+    },
+    // === IDEO Mindset Videos ===
+    {
+      id: "ideo-empathy-mindset",
+      title: "Empathy (IDEO Design Kit)",
+      url: "https://www.youtube.com/watch?v=q0ST5z8ybUE",
+      duration: "2 mins",
+      description: "Emi Kolawole from Stanford d.school on why empathy is the foundation of human-centered design.",
+      tags: ["IDEO", "mindset", "empathy", "d.school"],
+      difficulty: "beginner",
+      groupSize: "any"
+    },
+    {
+      id: "ideo-learn-from-failure",
+      title: "Learn From Failure (IDEO Design Kit)",
+      url: "https://www.youtube.com/watch?v=YaE2ufPkB18",
+      duration: "2 mins",
+      description: "Tim Brown, CEO of IDEO, on why failure is essential for innovation and how to embrace it as part of the process.",
+      tags: ["IDEO", "mindset", "failure", "Tim-Brown"],
+      difficulty: "beginner",
+      groupSize: "any"
     }
   ],
 
@@ -2216,6 +2555,162 @@ const videoDatabase = {
       tags: ["pov", "problem-framing", "user-needs"],
       difficulty: "medium",
       groupSize: "any"
+    },
+    // === NEW ADDITIONS: Case Studies & Transformative Stories ===
+    {
+      id: "doug-dietz-mri-adventure",
+      title: "Transforming Healthcare for Children (TEDx)",
+      url: "https://www.youtube.com/watch?v=jajduxPD6H4",
+      duration: "18 mins",
+      description: "GE Healthcare designer Doug Dietz shares how witnessing a terrified child led to the MRI 'Adventure Series'. Sedation rates dropped from 80% to under 10%, patient satisfaction rose 90%.",
+      tags: ["healthcare", "TEDx", "case-study", "transformation"],
+      difficulty: "beginner",
+      groupSize: "any"
+    },
+    {
+      id: "timothy-prestero-design-awards",
+      title: "Design for People, Not Awards (TED)",
+      url: "https://www.youtube.com/watch?v=WpldYJ3sSIo",
+      duration: "12 mins",
+      description: "A neonatal incubator designed for developing countries failed because it wasn't designed for actual context. Powerful lesson that context matters more than awards.",
+      tags: ["TED", "context", "developing-countries", "failure"],
+      difficulty: "beginner",
+      groupSize: "any"
+    },
+    // === Diversity, Equity, and Inclusion ===
+    {
+      id: "mellody-hobson-color-brave",
+      title: "Color Blind or Color Brave? (TED)",
+      url: "https://www.youtube.com/watch?v=oKtALHe3Y9Q",
+      duration: "14 mins",
+      description: "Finance executive Mellody Hobson speaks openly about race in hiring and business. Practical diversity discussion from a Wall Street perspective.",
+      tags: ["DEI", "TED", "race", "hiring", "business"],
+      difficulty: "beginner",
+      groupSize: "any"
+    },
+    {
+      id: "rocio-lorenzo-diversity-innovation",
+      title: "How Diversity Makes Teams More Innovative (TED)",
+      url: "https://www.youtube.com/watch?v=MeBX5pS0c6g",
+      duration: "11 mins",
+      description: "Research-based findings from surveying 171 companies. Data-driven approach showing clear correlation between diversity and innovation.",
+      tags: ["DEI", "TED", "diversity", "research", "innovation"],
+      difficulty: "beginner",
+      groupSize: "any"
+    },
+    {
+      id: "deloitte-dei-business-case",
+      title: "The Business Case for Diversity and Inclusion (Deloitte)",
+      url: "https://www.youtube.com/watch?v=7VDzKOW-Fhg",
+      duration: "11 mins",
+      description: "Carl Allegretti and Stedman Graham on readdressing diversity practices. Corporate DEI lens with business imperative framing.",
+      tags: ["DEI", "Deloitte", "business-case", "corporate"],
+      difficulty: "medium",
+      groupSize: "any"
+    },
+    // === Design Leadership Interviews (High Resolution) ===
+    {
+      id: "high-res-disability-design",
+      title: "Ending Disability Through Better Design (High Resolution)",
+      url: "https://www.youtube.com/watch?v=JxI8ayBFi7g",
+      duration: "45 mins",
+      description: "August de los Reyes (Head of Design, Pinterest) shares how personal experience transformed his approach to inclusive design and why diverse teams create better solutions.",
+      tags: ["inclusive-design", "Pinterest", "accessibility", "leadership"],
+      difficulty: "advanced",
+      groupSize: "any"
+    },
+    {
+      id: "high-res-tech-design-different",
+      title: "Why Designing In Tech Is Different (High Resolution)",
+      url: "https://www.youtube.com/watch?v=LU3y-5Peh9A",
+      duration: "50 mins",
+      description: "John Maeda (Head of Design, Automattic) discusses classical design vs. design thinking vs. computational design with customer-centricity at the core.",
+      tags: ["tech", "John-Maeda", "computational", "leadership"],
+      difficulty: "advanced",
+      groupSize: "any"
+    },
+    {
+      id: "high-res-airbnb-stories",
+      title: "Why Airbnb Uses Stories To Design (High Resolution)",
+      url: "https://www.youtube.com/watch?v=sVc2hp9jlQ0",
+      duration: "48 mins",
+      description: "Katie Dill (Director of Experience Design, Airbnb) explains design to non-designers and how Airbnb uses storytelling in their design process.",
+      tags: ["Airbnb", "storytelling", "experience-design", "leadership"],
+      difficulty: "advanced",
+      groupSize: "any"
+    },
+    {
+      id: "high-res-one-size-fits-one",
+      title: "Designing For One-Size-Fits-One (High Resolution)",
+      url: "https://www.youtube.com/watch?v=h42RThsvXxs",
+      duration: "52 mins",
+      description: "Kat Holmes (former Microsoft Inclusive Design Principal) explains why designing for 'average' fails and how inclusive design drives innovation.",
+      tags: ["inclusive-design", "Microsoft", "Kat-Holmes", "accessibility"],
+      difficulty: "advanced",
+      groupSize: "any"
+    },
+    // === Africa & Global South ===
+    {
+      id: "dschool-afrika-ubuntu",
+      title: "Design Thinking Afrika - Ubuntu Approach (UCT)",
+      url: "https://www.youtube.com/watch?v=5gJG8nU_kPY",
+      duration: "15 mins",
+      description: "Hasso Plattner d-school Afrika's Ubuntu-inspired approach to design thinking—'I am because we are' philosophy. Community-centered vs. profit-centered approach.",
+      tags: ["Africa", "Ubuntu", "UCT", "community-centered"],
+      difficulty: "medium",
+      groupSize: "any"
+    },
+    {
+      id: "cnbc-africa-dt-age",
+      title: "The Coming Age of Design Thinking in Africa (CNBC Africa)",
+      url: "https://www.youtube.com/watch?v=n2z-5UCGNY8",
+      duration: "12 mins",
+      description: "Interview with Nailah Conrad from d-school Afrika on UNICEF interventions and library space redesign in African communities.",
+      tags: ["Africa", "CNBC", "UNICEF", "community"],
+      difficulty: "medium",
+      groupSize: "any"
+    },
+    {
+      id: "cnbc-africa-innovation",
+      title: "Design Thinking Critical to Driving Innovation in Africa (CNBC)",
+      url: "https://www.youtube.com/watch?v=q0ST5z8ybUE",
+      duration: "10 mins",
+      description: "Robyn Moore on NGO transformation and capital markets access for SMEs in South African context.",
+      tags: ["Africa", "CNBC", "NGO", "innovation"],
+      difficulty: "medium",
+      groupSize: "any"
+    },
+    // === IDEO Mindset Videos ===
+    {
+      id: "ideo-iterate-iterate",
+      title: "Iterate, Iterate, Iterate (IDEO Design Kit)",
+      url: "https://www.youtube.com/watch?v=DZbOtSmvqLY",
+      duration: "2 mins",
+      description: "Gaby Brink on the power of continuous iteration—why design thinking is never 'done' but always improving.",
+      tags: ["IDEO", "mindset", "iteration", "continuous-improvement"],
+      difficulty: "beginner",
+      groupSize: "any"
+    },
+    {
+      id: "ideo-make-it",
+      title: "Make It (IDEO Design Kit)",
+      url: "https://www.youtube.com/watch?v=Gy8i-U0e2Sg",
+      duration: "2 mins",
+      description: "Krista Donaldson, CEO of D-Rev, on the importance of making tangible prototypes rather than just talking about ideas.",
+      tags: ["IDEO", "mindset", "making", "prototyping"],
+      difficulty: "beginner",
+      groupSize: "any"
+    },
+    // === Case Study: Clean Team Ghana ===
+    {
+      id: "clean-team-ghana",
+      title: "Clean Team Ghana Sanitation Project (IDEO.org)",
+      url: "https://www.youtube.com/watch?v=4D22N86wK5k",
+      duration: "8 mins",
+      description: "How IDEO.org partnered with Unilever to develop in-home toilets for Ghana's urban poor—now serves 5,000+ people in Kumasi. Sustainable business models enhancing social impact.",
+      tags: ["IDEO.org", "social-impact", "Ghana", "sanitation"],
+      difficulty: "medium",
+      groupSize: "any"
     }
   ],
 
@@ -2481,6 +2976,57 @@ const videoDatabase = {
       tags: ["celebration", "recognition", "positive"],
       difficulty: "easy",
       groupSize: "team"
+    },
+    // === NEW ADDITIONS: Enterprise & Scaling ===
+    {
+      id: "ibm-enterprise-dt",
+      title: "IBM Enterprise Design Thinking (Full Overview)",
+      url: "https://www.youtube.com/watch?v=xjgOfC5nJqk",
+      duration: "25 mins",
+      description: "Framework for scaling design thinking across large organizations. Covers Hills, Playbacks, and Sponsor Users as key governance tools.",
+      tags: ["IBM", "enterprise", "scaling", "governance"],
+      difficulty: "advanced",
+      groupSize: "organization"
+    },
+    {
+      id: "jake-knapp-miro-sprint",
+      title: "Design Sprint with Jake Knapp (Miro)",
+      url: "https://www.youtube.com/watch?v=lJYPx9ATwqo",
+      duration: "45 mins",
+      description: "Personal tutorials from the Sprint creator guiding the Design Sprint methodology with 2023-2024 updates for the official Miro template.",
+      tags: ["Jake-Knapp", "Miro", "design-sprint", "methodology"],
+      difficulty: "advanced",
+      groupSize: "team"
+    },
+    {
+      id: "undp-makassar-case-study",
+      title: "Design Thinking Case Study: Makassar Traffic (UNDP)",
+      url: "https://www.youtube.com/watch?v=5UHXnJE_dzo",
+      duration: "12 mins",
+      description: "UNDP Smart Cities case study on applying design thinking to solve traffic congestion in Makassar, Indonesia. Real-world UN development application.",
+      tags: ["UNDP", "case-study", "smart-cities", "Indonesia"],
+      difficulty: "medium",
+      groupSize: "any"
+    },
+    {
+      id: "jnj-nursing-innovation",
+      title: "How Nurses Transform Healthcare Through Design Thinking (J&J)",
+      url: "https://www.youtube.com/watch?v=wOJRBBvjCIQ",
+      duration: "15 mins",
+      description: "Johnson & Johnson Nursing Innovation Fellowship overview of human-centered and equity-centered design in healthcare settings.",
+      tags: ["J&J", "nursing", "healthcare", "equity"],
+      difficulty: "medium",
+      groupSize: "any"
+    },
+    {
+      id: "mit-dt-leading-learning",
+      title: "Design Thinking for Leading and Learning (MIT)",
+      url: "https://www.youtube.com/watch?v=UMB9h7d1v1A",
+      duration: "20 mins",
+      description: "MIT Teaching Systems Lab and Microsoft K-12 Education Leadership initiative covering Design Thinking for Students and Schools.",
+      tags: ["MIT", "education", "K-12", "leadership"],
+      difficulty: "medium",
+      groupSize: "educators"
     }
   ]
 };
