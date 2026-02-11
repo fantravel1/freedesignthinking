@@ -1,15 +1,67 @@
 # Robots.txt for Free Design Thinking Hub
-# Allow all search engines to crawl the site
+# https://www.freedesignthinking.com
+#
+# This file controls how search engine crawlers and AI/answer engine
+# bots access the site. All bots are welcome to crawl and index content.
 
+# =============================================================================
+# Default rule: Allow all bots
+# =============================================================================
 User-agent: *
 Allow: /
+
+# =============================================================================
+# Search Engine Crawlers
+# =============================================================================
+
+# Google Search
+User-agent: Googlebot
+Allow: /
+
+# Bing Search
+User-agent: Bingbot
+Allow: /
+
+# =============================================================================
+# AI and Answer Engine Bots (AEO - Answer Engine Optimization)
+# =============================================================================
+
+# OpenAI - GPTBot (powers ChatGPT search and browse features)
+User-agent: GPTBot
+Allow: /
+
+# OpenAI - ChatGPT-User (ChatGPT browsing on behalf of users)
+User-agent: ChatGPT-User
+Allow: /
+
+# Google - Google-Extended (AI training, Gemini, and AI Overviews)
+User-agent: Google-Extended
+Allow: /
+
+# Anthropic (Claude AI crawler)
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity AI (answer engine)
+User-agent: PerplexityBot
+Allow: /
+
+# Common Crawl (open dataset used by many AI systems)
+User-agent: CCBot
+Allow: /
+
+# =============================================================================
+# Site Directives
+# =============================================================================
+
+# Canonical host
+Host: https://www.freedesignthinking.com
 
 # Sitemap location
 Sitemap: https://www.freedesignthinking.com/sitemap.xml
 
-# Crawl delay (optional - be nice to servers)
-# Crawl-delay: 1
-
-# Disallow specific paths if needed in future
+# =============================================================================
+# Reserved for future use
+# =============================================================================
 # Disallow: /admin/
 # Disallow: /private/

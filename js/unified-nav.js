@@ -129,8 +129,8 @@ function createUnifiedFooter() {
                 <p><a href="research.html">Research & Thinking</a></p>
             </div>
         </div>
-        <div style="border-top: 1px solid #333; padding-top: 2rem; margin-top: 2rem;">
-            <p>&copy; 2025 Free Design Thinking Hub. All rights reserved. Built with <span aria-label="love" role="img"><span aria-hidden="true">❤️</span></span> for global accessibility.</p>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Free Design Thinking Hub. All rights reserved. Built with <span aria-label="love" role="img"><span aria-hidden="true">❤️</span></span> for global accessibility.</p>
         </div>
     `;
 }
